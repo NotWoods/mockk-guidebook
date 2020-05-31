@@ -3,7 +3,7 @@
 - `every`, returns, throws, etc
 - stubbing consecutive calls
 
-```kt
+```kotlin
 val mockedList = mockk<List<String>>()
 
 every { mockedList[0] } returns "first"
