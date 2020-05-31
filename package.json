@@ -1,0 +1,7 @@
+{
+  "name": "mockk-book",
+  "private": true,
+  "dependencies": {
+    "gitbook-cli": "^2.3.2"
+  }
+}
