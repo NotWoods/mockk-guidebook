@@ -1,0 +1,2 @@
+- `eq` is unneeded
+- `refEq`
