@@ -1,0 +1,837 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>🔵 Mocking singleton objects and static methods · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="extension.md" />
+    
+    
+    <link rel="prev" href="constructor.md" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../getting-started/README.md">
+            
+                <span>
+            
+                    
+                    Getting Started
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../getting-started/why-mocking.html">
+            
+                <a href="../getting-started/why-mocking.html">
+            
+                    
+                    ⭕ Why use mocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../getting-started/why-mockk.html">
+            
+                <a href="../getting-started/why-mockk.html">
+            
+                    
+                    ⭕ Why Mockk
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../quick/android.html">
+            
+                <a href="../quick/android.html">
+            
+                    
+                    Android Quickstart
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="README.md">
+            
+                <span>
+            
+                    
+                    Mocking
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="stubbing.html">
+            
+                <a href="stubbing.html">
+            
+                    
+                    🔵 Stubbing behaviour
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="verify.html">
+            
+                <a href="verify.html">
+            
+                    
+                    ⭕ Verify that functions were called
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="relax.html">
+            
+                <a href="relax.html">
+            
+                    
+                    ⭕ Automatically stub by relaxing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="spy.html">
+            
+                <a href="spy.html">
+            
+                    
+                    ⭕ Spying on existing classes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="coroutines.html">
+            
+                <a href="coroutines.html">
+            
+                    
+                    ⭕ Coroutines and suspend functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="constructor.md">
+            
+                <span>
+            
+                    
+                    ⭕ Mocking constructors in code you don't own
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.7" data-path="static.html">
+            
+                <a href="static.html">
+            
+                    
+                    🔵 Mocking singleton objects and static methods
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="extension.md">
+            
+                <span>
+            
+                    
+                    ⭕ Mocking extension functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="clear.md">
+            
+                <span>
+            
+                    
+                    ⭕ Clear state
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="annotation.md">
+            
+                <span>
+            
+                    
+                    ⭕ Creating many mocks quickly with annotations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.11" data-path="hierarchies.md">
+            
+                <span>
+            
+                    
+                    ⭕ Chaining mocks into hierarchies
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../matching/README.md">
+            
+                <span>
+            
+                    
+                    Argument matching
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../matching/equal.html">
+            
+                <a href="../matching/equal.html">
+            
+                    
+                    ⭕ Checking equality
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../matching/any.html">
+            
+                <a href="../matching/any.html">
+            
+                    
+                    ⭕ Allowing any argument
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../matching/with.html">
+            
+                <a href="../matching/with.html">
+            
+                    
+                    ⭕ Run assertions with an argument
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../matching/custom.html">
+            
+                <a href="../matching/custom.html">
+            
+                    
+                    ⭕ Custom matching functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../matching/capture.html">
+            
+                <a href="../matching/capture.html">
+            
+                    
+                    ⭕ Capturing arguments to check later
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../matching/vararg.html">
+            
+                <a href="../matching/vararg.html">
+            
+                    
+                    ⭕ Variable arguments
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../matching/greater-less-than.html">
+            
+                <a href="../matching/greater-less-than.html">
+            
+                    
+                    ⭕ Greater than and less than
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="../matching/combine.html">
+            
+                <a href="../matching/combine.html">
+            
+                    
+                    ⭕ Combining matchers
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../mockito-migrate/">
+            
+                <a href="../mockito-migrate/">
+            
+                    
+                    Migrating from Mockito
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../mockito-migrate/create-mock.html">
+            
+                <a href="../mockito-migrate/create-mock.html">
+            
+                    
+                    🔵 Creating a mock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../mockito-migrate/when.html">
+            
+                <a href="../mockito-migrate/when.html">
+            
+                    
+                    🔵 when and do*
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../mockito-migrate/eq.html">
+            
+                <a href="../mockito-migrate/eq.html">
+            
+                    
+                    🔵 eq
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../mockito-migrate/any.html">
+            
+                <a href="../mockito-migrate/any.html">
+            
+                    
+                    🔵 any*
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../mockito-migrate/verify.html">
+            
+                <a href="../mockito-migrate/verify.html">
+            
+                    
+                    ⭕ verify
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../mockito-migrate/arg-that.html">
+            
+                <a href="../mockito-migrate/arg-that.html">
+            
+                    
+                    ⭕ argThat
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../mockito-migrate/argument-captor.html">
+            
+                <a href="../mockito-migrate/argument-captor.html">
+            
+                    
+                    ⭕ ArgumentCaptor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="../mockito-migrate/void.html">
+            
+                <a href="../mockito-migrate/void.html">
+            
+                    
+                    🔵 void methods
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../tips/README.md">
+            
+                <span>
+            
+                    
+                    TIPs
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../tips/unit.html">
+            
+                <a href="../tips/unit.html">
+            
+                    
+                    🔵 Returning Unit
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../tips/chains.html">
+            
+                <a href="../tips/chains.html">
+            
+                    
+                    ⭕ Chains
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../tips/timeout.html">
+            
+                <a href="../tips/timeout.html">
+            
+                    
+                    ⭕ Timeouts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../tips/exclude.html">
+            
+                <a href="../tips/exclude.html">
+            
+                    
+                    ⭕ Excluding recording
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >🔵 Mocking singleton objects and static methods</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="mocking-singleton-objects-and-static-methods">Mocking singleton objects and static methods</h1>
+<h2 id="mocking-objects">Mocking objects</h2>
+<p>When you need a singleton in Kotlin, you can use an <a href="https://kotlinlang.org/docs/tutorials/kotlin-for-py/objects-and-companion-objects.html" target="_blank"><code>object</code></a>. These specialized classes will only ever have one instance, so you can&apos;t mock them in the usual manner. Instead, MockK provides specialized functions to create object mocks.</p>
+<pre><code class="lang-kotlin"><span class="hljs-keyword">object</span> FeatureFlags {
+  <span class="hljs-variable"><span class="hljs-keyword">val</span> featureEnabled</span> = <span class="hljs-literal">true</span>
+}
+
+mockkObject(FeatureFlags)
+every { FeatureFlags.featureEnabled } returns <span class="hljs-literal">false</span>
+
+<span class="hljs-comment">// prints false</span>
+println(FeatureFlags.featureEnabled)
+</code></pre>
+<p>Despite the name, object mocks behave more like <a href="spy.html">spies</a>. If a method is not stubbed, then the real method will be called. This differs from regular mocks, where a method will either throw or do nothing if it is not stubbed.</p>
+<pre><code class="lang-kotlin"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Calculator1</span> </span>{
+  <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">add</span><span class="hljs-params">(a: <span class="hljs-type">Int, b: Int</span>)</span> {</span>
+    <span class="hljs-keyword">return</span> a + b
+  }
+}
+
+<span class="hljs-keyword">object</span> Calculator2 {
+  <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">add</span><span class="hljs-params">(a: <span class="hljs-type">Int, b: Int</span>)</span> {</span>
+    <span class="hljs-keyword">return</span> a + b
+  }
+}
+
+<span class="hljs-variable"><span class="hljs-keyword">val</span> calculator1</span> = mockk<span class="hljs-type">&lt;Calculator1&gt;</span>()
+mockkObject(Calculator2)
+
+<span class="hljs-comment">// throws because the method was not stubbed</span>
+println(calculator1.add(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>))
+
+<span class="hljs-comment">// returns the result from the real method</span>
+println(Calculator2.add(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>))
+</code></pre>
+<h2 id="mocking-static-methods">Mocking static methods</h2>
+<p>Sometimes you may end up working with Java code in your tests, which can have static methods.</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> com.name.app;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Writer</span> </span>{
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> File <span class="hljs-title">getFile</span><span class="hljs-params">(String path)</span> </span>{
+    <span class="hljs-keyword">return</span> File(path);
+  }
+}
+</code></pre>
+<p>Just like singleton objects, there will only ever be one version of static methods, so you cannot mock them in the usual manner. Again, MockK provides specialized functions to mock static methods.</p>
+<pre><code class="lang-kotlin">mockkStatic(<span class="hljs-string">&quot;com.name.app.Writer&quot;</span>)
+</code></pre>
+<p>Rather than passing a reference to the class, you pass the class name as a string.</p>
+<p>Like object mocks, static mocks behave like <a href="spy.html">spies</a>. The real method will be called if the method is not stubbed.</p>
+<h3 id="finding-the-class-name">Finding the class name</h3>
+<h3 id="mocking-top-level-functions">Mocking top-level functions</h3>
+<h2 id="unmocking">Unmocking</h2>
+<p>If you&apos;d like to revert back to the real object, you can use the <code>unmockkObject</code> method. This removes any stubbed behaviour you may have added.</p>
+<pre><code class="lang-kotlin"><span class="hljs-keyword">object</span> Calculator {
+  <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">add</span><span class="hljs-params">(a: <span class="hljs-type">Int, b: Int</span>)</span> {</span>
+    <span class="hljs-keyword">return</span> a + b
+  }
+}
+
+mockkObject(Calculator)
+every { Calculator.add(any(), any()) } returns <span class="hljs-number">10</span>
+
+<span class="hljs-comment">// prints 10</span>
+println(Calculator.add(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>))
+
+unmockkObject(Calculator)
+
+<span class="hljs-comment">// prints 4</span>
+println(Calculator.add(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>))
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="constructor.md" class="navigation navigation-prev " aria-label="Previous page: ⭕ Mocking constructors in code you don't own">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="extension.md" class="navigation navigation-next " aria-label="Next page: ⭕ Mocking extension functions">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"🔵 Mocking singleton objects and static methods","level":"1.4.7","depth":2,"next":{"title":"⭕ Mocking extension functions","level":"1.4.8","depth":2,"path":"docs/mocking/extension.md","ref":"docs/mocking/extension.md","articles":[]},"previous":{"title":"⭕ Mocking constructors in code you don't own","level":"1.4.6","depth":2,"path":"docs/mocking/constructor.md","ref":"docs/mocking/constructor.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/mocking/static.md","mtime":"2020-06-02T21:16:37.631Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-06-02T21:17:15.160Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
