@@ -26,7 +26,7 @@
   * [⭕ Greater than and less than](docs/matching/greater-less-than.md)
   * [⭕ Combining matchers](docs/matching/combine.md)
 * [Migrating from Mockito](docs/mockito-migrate/README.md)
-  * [⭕ Creating a mock](docs/mockito-migrate/create-mock.md)
+  * [🔵 Creating a mock](docs/mockito-migrate/create-mock.md)
   * [🔵 `when` and `do*`](docs/mockito-migrate/when.md)
   * [⭕ `eq`](docs/mockito-migrate/eq.md)
   * [🔵 `any*`](docs/mockito-migrate/any.md)
