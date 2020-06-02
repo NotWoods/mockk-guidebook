@@ -28,7 +28,7 @@
 * [Migrating from Mockito](docs/mockito-migrate/README.md)
   * [🔵 Creating a mock](docs/mockito-migrate/create-mock.md)
   * [🔵 `when` and `do*`](docs/mockito-migrate/when.md)
-  * [⭕ `eq`](docs/mockito-migrate/eq.md)
+  * [🔵 `eq`](docs/mockito-migrate/eq.md)
   * [🔵 `any*`](docs/mockito-migrate/any.md)
   * [⭕ `verify`](docs/mockito-migrate/verify.md)
   * [⭕ `argThat`](docs/mockito-migrate/arg-that.md)
