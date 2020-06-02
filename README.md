@@ -1,4 +1,4 @@
-# MockK
+# MockK Guidebook
 
 A guide to using the MockK testing library.
 
