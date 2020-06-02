@@ -1,2 +1,6 @@
-# mockk-book
-Docs on Mockk. Maybe a book someday?
+# MockK
+
+A guide to using the MockK testing library.
+
+- ⭕: Not yet written
+- 🔵: In progress

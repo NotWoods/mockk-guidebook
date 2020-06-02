@@ -5,6 +5,7 @@
     "gitbook-cli": "^2.3.2"
   },
   "scripts": {
-    "build": "gitbook build"
+    "build": "gitbook build",
+    "start": "gitbook serve"
   }
 }

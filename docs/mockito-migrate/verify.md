@@ -1,0 +1,3 @@
+- `verify()` -> `verify {}`
+- `verifyNoInteractions(mock)` -> `verify { mock wasNot Called }`
+- `verifyZeroInteractions(mock)` -> `verify(exactly = 0) { mock }`
