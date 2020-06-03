@@ -6,4 +6,5 @@ Learn how to use MockK by seeing equivalents to functions in [Mockito](https://s
 * [`when` and `do*`](docs/mockito-migrate/when.md)
 * [`eq`](docs/mockito-migrate/eq.md)
 * [`any*`](docs/mockito-migrate/any.md)
+* [`verify`](docs/mockito-migrate/verify.md)
 * [`void` methods](docs/mockito-migrate/void.md)

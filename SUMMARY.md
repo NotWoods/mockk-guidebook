@@ -30,7 +30,7 @@
   * [🔵 `when` and `do*`](docs/mockito-migrate/when.md)
   * [🔵 `eq`](docs/mockito-migrate/eq.md)
   * [🔵 `any*`](docs/mockito-migrate/any.md)
-  * [⭕ `verify`](docs/mockito-migrate/verify.md)
+  * [🔵 `verify`](docs/mockito-migrate/verify.md)
   * [⭕ `argThat`](docs/mockito-migrate/arg-that.md)
   * [⭕ `ArgumentCaptor`](docs/mockito-migrate/argument-captor.md)
   * [🔵 `void` methods](docs/mockito-migrate/void.md)
