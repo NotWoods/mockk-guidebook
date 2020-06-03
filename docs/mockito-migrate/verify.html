@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>⭕ verify · GitBook</title>
+        <title>🔵 verify · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -516,7 +516,7 @@
                 <a href="verify.html">
             
                     
-                    ⭕ verify
+                    🔵 verify
             
                 </a>
             
@@ -669,7 +669,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >⭕ verify</a>
+        <a href="../.." >🔵 verify</a>
     </h1>
 </div>
 
@@ -684,11 +684,78 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <ul>
-<li><code>verify()</code> -&gt; <code>verify {}</code></li>
-<li><code>verifyNoInteractions(mock)</code> -&gt; <code>verify { mock wasNot Called }</code></li>
-<li><code>verifyZeroInteractions(mock)</code> -&gt; <code>verify(exactly = 0) { mock }</code></li>
-</ul>
+                                <h1 id="verify"><code>verify</code></h1>
+<p>Verifying that a method was called has similar syntax in Mockito and MockK. MockK uses inline functions and keyword arguments in place of Mockito&apos;s verification modes.</p>
+<pre><code class="lang-kotlin"><span class="hljs-comment">// Mockito</span>
+<span class="hljs-variable"><span class="hljs-keyword">val</span> mockedFile</span> = mock(File::<span class="hljs-class"><span class="hljs-keyword">class</span>.<span class="hljs-title">java</span>)</span>
+
+mockedFile.read()
+verify(mockedFile).read()
+</code></pre>
+<pre><code class="lang-kotlin"><span class="hljs-comment">// MockK</span>
+<span class="hljs-variable"><span class="hljs-keyword">val</span> mockedFile</span> = mockk<span class="hljs-type">&lt;File&gt;</span>()
+
+mockedFile.read()
+verify { mockedFile.read() }
+</code></pre>
+<h2 id="verification-mode">Verification Mode</h2>
+<p>Mockito lets extra arguments such as <code>never()</code> be passed to verify in the second parameter, all of which implement a <code>VerificationMode</code> interface. MockK has equivalents for these modes as keyword arguments in <code>verify</code>.</p>
+<h3 id="atleastatleastonce"><code>atLeast</code>/<code>atLeastOnce</code></h3>
+<pre><code class="lang-kotlin"><span class="hljs-comment">// Mockito</span>
+verify(mockedFile, atLeast(<span class="hljs-number">3</span>)).read()
+verify(mockedFile, atLeastOnce()).write()
+</code></pre>
+<pre><code class="lang-kotlin"><span class="hljs-comment">// MockK</span>
+verify(atLeast = <span class="hljs-number">3</span>) { mockedFile.read() }
+verify(atLeast = <span class="hljs-number">1</span>) { mockedFile.write() }
+</code></pre>
+<h3 id="atmostatmostonce"><code>atMost</code>/<code>atMostOnce</code></h3>
+<pre><code class="lang-kotlin"><span class="hljs-comment">// Mockito</span>
+verify(mockedFile, atMost(<span class="hljs-number">3</span>)).read()
+verify(mockedFile, atMostOnce()).write()
+</code></pre>
+<pre><code class="lang-kotlin"><span class="hljs-comment">// MockK</span>
+verify(atMost = <span class="hljs-number">3</span>) { mockedFile.read() }
+verify(atMost = <span class="hljs-number">1</span>) { mockedFile.write() }
+</code></pre>
+<h3 id="nevertimes"><code>never</code>/<code>times</code></h3>
+<pre><code class="lang-kotlin"><span class="hljs-comment">// Mockito</span>
+verify(mockedFile, times(<span class="hljs-number">3</span>)).read()
+verify(mockedFile, never()).write()
+</code></pre>
+<pre><code class="lang-kotlin"><span class="hljs-comment">// MockK</span>
+verify(exactly = <span class="hljs-number">3</span>) { mockedFile.read() }
+verify(exactly = <span class="hljs-number">0</span>) { mockedFile.write() }
+</code></pre>
+<h3 id="timeout"><code>timeout</code></h3>
+<pre><code class="lang-kotlin"><span class="hljs-comment">// Mockito</span>
+verify(mockedFile, timeout(<span class="hljs-number">100</span>)).readAsync()
+</code></pre>
+<pre><code class="lang-kotlin"><span class="hljs-comment">// MockK</span>
+verify(timeout = <span class="hljs-number">100</span>) { mockedFile.readAsync() }
+</code></pre>
+<h2 id="verifynointeractions"><code>verifyNoInteractions</code></h2>
+<pre><code class="lang-kotlin"><span class="hljs-comment">// Mockito</span>
+verifyNoInteractions(mockOne)
+verifyNoInteractions(mockTwo, mockThree)
+</code></pre>
+<pre><code class="lang-kotlin"><span class="hljs-comment">// MockK</span>
+verify { mockOne wasNot Called }
+verify { listOf(mockTwo, mockThree) wasNot Called }
+</code></pre>
+<h2 id="verifynomoreinteractions"><code>verifyNoMoreInteractions</code></h2>
+<pre><code class="lang-kotlin"><span class="hljs-comment">// Mockito</span>
+verifyNoMoreInteractions(mockOne, mockTwo)
+</code></pre>
+<pre><code class="lang-kotlin"><span class="hljs-comment">// MockK</span>
+confirmVerified(mockOne, mockTwo)
+</code></pre>
+<h2 id="coroutines">Coroutines</h2>
+<p>As MockK uses function literals to create stubs, small changes are needed to verify suspend functions. MockK provides functions prefixed with <code>co</code> as equivalents to other functions, such as <code>coVerify</code>. See <a href="../matching/coroutines.md">Coroutines and suspend functions</a> for more details.</p>
+<pre><code class="lang-kotlin"><span class="hljs-variable"><span class="hljs-keyword">val</span> mockedFile</span> = mockk<span class="hljs-type">&lt;File&gt;</span>()
+
+coVerify { mockedFile.readAsync() }
+</code></pre>
 
                                 
                                 </section>
@@ -732,7 +799,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"⭕ verify","level":"1.6.5","depth":2,"next":{"title":"⭕ argThat","level":"1.6.6","depth":2,"path":"docs/mockito-migrate/arg-that.md","ref":"docs/mockito-migrate/arg-that.md","articles":[]},"previous":{"title":"🔵 any*","level":"1.6.4","depth":2,"path":"docs/mockito-migrate/any.md","ref":"docs/mockito-migrate/any.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/mockito-migrate/verify.md","mtime":"2020-06-03T00:20:47.273Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-06-03T00:21:21.048Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"🔵 verify","level":"1.6.5","depth":2,"next":{"title":"⭕ argThat","level":"1.6.6","depth":2,"path":"docs/mockito-migrate/arg-that.md","ref":"docs/mockito-migrate/arg-that.md","articles":[]},"previous":{"title":"🔵 any*","level":"1.6.4","depth":2,"path":"docs/mockito-migrate/any.md","ref":"docs/mockito-migrate/any.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/mockito-migrate/verify.md","mtime":"2020-06-03T05:37:38.540Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-06-03T05:38:22.078Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
