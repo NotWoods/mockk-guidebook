@@ -685,23 +685,48 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="stubbing-behaviour">Stubbing behaviour</h1>
-<ul>
-<li><code>every</code>, returns, throws, etc</li>
-<li>stubbing consecutive calls</li>
-</ul>
-<pre><code class="lang-kotlin"><span class="hljs-variable"><span class="hljs-keyword">val</span> mockedList</span> = mockk<span class="hljs-type">&lt;List&lt;String&gt;</span>&gt;()
+<p>Your Kotlin classes often depends on other objects and functions when running. When you are writing tests for your classes, you only want to test the class itself and not the dependency. MockK helps you create pretend versions of those dependencies instead of using the real versions.</p>
+<p>Stubbing allows you to setup canned answers when functions are called. You only need to stub methods that are called by your class, and you can ignore methods that aren&apos;t run during your test.</p>
+<pre><code class="lang-kotlin">interface Navigator {
+  <span class="hljs-variable"><span class="hljs-keyword">val</span> currentLocation</span>: String
 
-every { mockedList[<span class="hljs-number">0</span>] } returns <span class="hljs-string">&quot;first&quot;</span>
-every { mockedList[<span class="hljs-number">1</span>] } throws RuntimeException()
+  <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">navigateTo</span><span class="hljs-params">(newLocation: <span class="hljs-type">String</span>)</span>: <span class="hljs-keyword">Unit</span></span>
+}
+</code></pre>
+<p>Here is an example of how to create a stub of the <code>Navigator</code> interface.</p>
+<pre><code class="lang-kotlin"><span class="hljs-keyword">import</span> io.mockk.every
+<span class="hljs-keyword">import</span> io.mockk.mockk
 
-<span class="hljs-comment">// prints &quot;first&quot;</span>
-println(mockedList[<span class="hljs-number">0</span>])
+<span class="hljs-variable"><span class="hljs-keyword">val</span> navigator</span> = mockk<span class="hljs-type">&lt;Navigator&gt;</span>()
+every { navigator.currentLocation } returns <span class="hljs-string">&quot;Home&quot;</span>
 
-<span class="hljs-comment">// throws runtime exception</span>
-println(mockedList[<span class="hljs-number">1</span>])
+<span class="hljs-comment">// prints &quot;Home&quot;</span>
+println(navigator.currentLocation)
+</code></pre>
+<p>In MockK, stubs are created by using the <code>mockk</code> and <code>every</code> functions. <code>mockk</code> creates your pretend object, and <code>every</code> lets you define canned answers for different functions on that pretend object. <code>every</code> starts a stubbing block and uses anonymous functions and <a href="https://kotlinlang.org/docs/reference/functions.html#infix-notation" target="_blank">infix functions</a> to define the stub.</p>
+<p>Inside the stubbing block (between the opening curly bracket <code>{</code> and closing curly bracket <code>}</code>), you write the method you want to provide a canned answer for. <code>{ navigator.currentLocation }</code> tells MockK to make a canned answer for the <code>currentLocation</code> getter on the <code>navigator</code> object.</p>
+<p>To define what happens when the stubbed method is called, an infix function such as <code>returns</code> is used. <code>returns &quot;Home&quot;</code> tells MockK to always return the string <code>&quot;Home&quot;</code> when the <code>currentLocation</code> getter is called.</p>
+<h2 id="relaxing">Relaxing</h2>
+<p>If a method has not been stubbed, MockK will throw an error if it is called. This is designed to help make your tests easier to debug, as you&apos;ll know if you forgot to mock a method.</p>
+<pre><code class="lang-kotlin"><span class="hljs-variable"><span class="hljs-keyword">val</span> navigator</span> = mockk<span class="hljs-type">&lt;Navigator&gt;</span>()
+every { navigator.currentLocation } returns <span class="hljs-string">&quot;Home&quot;</span>
 
-<span class="hljs-comment">// throws exception because the getter was not stubbed</span>
-println(mockedList[<span class="hljs-number">999</span>])
+<span class="hljs-comment">// prints &quot;Home&quot;</span>
+println(navigator.currentLocation)
+<span class="hljs-comment">// throws an error</span>
+navigator.navigateTo(<span class="hljs-string">&quot;Store&quot;</span>)
+</code></pre>
+<p>For more complicated objects, you can tell MockK to return simple values for all methods that have not been stubbed, rather than throwing. This is done by using the <code>relaxed</code> parameter when calling the <code>mockk</code> function.</p>
+<pre><code class="lang-kotlin"><span class="hljs-variable"><span class="hljs-keyword">val</span> navigator</span> = mockk<span class="hljs-type">&lt;Navigator&gt;</span>(relaxed = <span class="hljs-literal">true</span>)
+every { navigator.currentLocation } returns <span class="hljs-string">&quot;Home&quot;</span>
+
+<span class="hljs-comment">// prints &quot;Home&quot;</span>
+println(navigator.currentLocation)
+<span class="hljs-comment">// does nothing</span>
+navigator.navigateTo(<span class="hljs-string">&quot;Store&quot;</span>)
+</code></pre>
+<p>If desired, you can choose to only relax methods that return <code>Unit</code>. This lets you pre-stub methods that just trigger side-effects rather than returning a value.</p>
+<pre><code class="lang-kotlin"><span class="hljs-variable"><span class="hljs-keyword">val</span> navigator</span> = mockk<span class="hljs-type">&lt;Navigator&gt;</span>(relaxUnitFun = <span class="hljs-literal">true</span>)
 </code></pre>
 
                                 
@@ -746,7 +771,7 @@ println(mockedList[<span class="hljs-number">999</span>])
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"🔵 Stubbing behaviour","level":"1.4.1","depth":2,"next":{"title":"⭕ Verify that functions were called","level":"1.4.2","depth":2,"path":"docs/mocking/verify.md","ref":"docs/mocking/verify.md","articles":[]},"previous":{"title":"Mocking","level":"1.4","depth":1,"path":"docs/mocking/README.md","ref":"docs/mocking/README.md","articles":[{"title":"🔵 Stubbing behaviour","level":"1.4.1","depth":2,"path":"docs/mocking/stubbing.md","ref":"docs/mocking/stubbing.md","articles":[]},{"title":"⭕ Verify that functions were called","level":"1.4.2","depth":2,"path":"docs/mocking/verify.md","ref":"docs/mocking/verify.md","articles":[]},{"title":"⭕ Automatically stub by relaxing","level":"1.4.3","depth":2,"path":"docs/mocking/relax.md","ref":"docs/mocking/relax.md","articles":[]},{"title":"⭕ Spying on existing classes","level":"1.4.4","depth":2,"path":"docs/mocking/spy.md","ref":"docs/mocking/spy.md","articles":[]},{"title":"⭕ Coroutines and suspend functions","level":"1.4.5","depth":2,"path":"docs/mocking/coroutines.md","ref":"docs/mocking/coroutines.md","articles":[]},{"title":"⭕ Mocking constructors in code you don't own","level":"1.4.6","depth":2,"path":"docs/mocking/constructor.md","ref":"docs/mocking/constructor.md","articles":[]},{"title":"🔵 Mocking singleton objects and static methods","level":"1.4.7","depth":2,"path":"docs/mocking/static.md","ref":"docs/mocking/static.md","articles":[]},{"title":"⭕ Mocking extension functions","level":"1.4.8","depth":2,"path":"docs/mocking/extension.md","ref":"docs/mocking/extension.md","articles":[]},{"title":"⭕ Clear state","level":"1.4.9","depth":2,"path":"docs/mocking/clear.md","ref":"docs/mocking/clear.md","articles":[]},{"title":"⭕ Creating many mocks quickly with annotations","level":"1.4.10","depth":2,"path":"docs/mocking/annotation.md","ref":"docs/mocking/annotation.md","articles":[]},{"title":"⭕ Chaining mocks into hierarchies","level":"1.4.11","depth":2,"path":"docs/mocking/hierarchies.md","ref":"docs/mocking/hierarchies.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/mocking/stubbing.md","mtime":"2020-06-03T05:37:38.540Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-06-03T05:38:22.078Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"🔵 Stubbing behaviour","level":"1.4.1","depth":2,"next":{"title":"⭕ Verify that functions were called","level":"1.4.2","depth":2,"path":"docs/mocking/verify.md","ref":"docs/mocking/verify.md","articles":[]},"previous":{"title":"Mocking","level":"1.4","depth":1,"path":"docs/mocking/README.md","ref":"docs/mocking/README.md","articles":[{"title":"🔵 Stubbing behaviour","level":"1.4.1","depth":2,"path":"docs/mocking/stubbing.md","ref":"docs/mocking/stubbing.md","articles":[]},{"title":"⭕ Verify that functions were called","level":"1.4.2","depth":2,"path":"docs/mocking/verify.md","ref":"docs/mocking/verify.md","articles":[]},{"title":"⭕ Automatically stub by relaxing","level":"1.4.3","depth":2,"path":"docs/mocking/relax.md","ref":"docs/mocking/relax.md","articles":[]},{"title":"⭕ Spying on existing classes","level":"1.4.4","depth":2,"path":"docs/mocking/spy.md","ref":"docs/mocking/spy.md","articles":[]},{"title":"⭕ Coroutines and suspend functions","level":"1.4.5","depth":2,"path":"docs/mocking/coroutines.md","ref":"docs/mocking/coroutines.md","articles":[]},{"title":"⭕ Mocking constructors in code you don't own","level":"1.4.6","depth":2,"path":"docs/mocking/constructor.md","ref":"docs/mocking/constructor.md","articles":[]},{"title":"🔵 Mocking singleton objects and static methods","level":"1.4.7","depth":2,"path":"docs/mocking/static.md","ref":"docs/mocking/static.md","articles":[]},{"title":"⭕ Mocking extension functions","level":"1.4.8","depth":2,"path":"docs/mocking/extension.md","ref":"docs/mocking/extension.md","articles":[]},{"title":"⭕ Clear state","level":"1.4.9","depth":2,"path":"docs/mocking/clear.md","ref":"docs/mocking/clear.md","articles":[]},{"title":"⭕ Creating many mocks quickly with annotations","level":"1.4.10","depth":2,"path":"docs/mocking/annotation.md","ref":"docs/mocking/annotation.md","articles":[]},{"title":"⭕ Chaining mocks into hierarchies","level":"1.4.11","depth":2,"path":"docs/mocking/hierarchies.md","ref":"docs/mocking/hierarchies.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/mocking/stubbing.md","mtime":"2020-06-08T01:17:36.915Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-06-08T01:18:18.624Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
