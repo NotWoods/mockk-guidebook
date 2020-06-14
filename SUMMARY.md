@@ -2,7 +2,7 @@
 
 * [Getting Started](docs/getting-started/README.md)
   * [⭕ Why use mocks](docs/getting-started/why-mocking.md)
-  * [⭕ Why Mockk](docs/getting-started/why-mockk.md)
+  * [⭕ Why MockK](docs/getting-started/why-mockk.md)
 * [Android Quickstart](docs/quick/android.md)
 * [Mocking](docs/mocking/README.md)
   * [🔵 Stubbing behaviour](docs/mocking/stubbing.md)
