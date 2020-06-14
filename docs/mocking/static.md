@@ -67,8 +67,11 @@ Like object mocks, static mocks behave like [spies](./spy.md). The real method w
 
 ### Finding the class name
 
+TODO
+
 ### Mocking top-level functions
 
+TODO
 
 ## Unmocking
 

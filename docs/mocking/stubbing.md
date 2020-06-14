@@ -29,7 +29,7 @@ In MockK, stubs are created by using the `mockk` and `every` functions. `mockk` 
 
 Inside the stubbing block (between the opening curly bracket `{` and closing curly bracket `}`), you write the method you want to provide a canned answer for. `{ navigator.currentLocation }` tells MockK to make a canned answer for the `currentLocation` getter on the `navigator` object.
 
-To define what happens when the stubbed method is called, an infix function such as `returns` is used. `returns "Home"` tells MockK to always return the string `"Home"` when the `currentLocation` getter is called.
+To define what happens when the stubbed method is called, an answer function such as `returns` is used. `returns "Home"` tells MockK to always return the string `"Home"` when the `currentLocation` getter is called.
 
 ## Relaxing
 
@@ -62,3 +62,15 @@ If desired, you can choose to only relax methods that return `Unit`. This lets y
 ```kotlin
 val navigator = mockk<Navigator>(relaxUnitFun = true)
 ```
+
+## Answer types
+
+TODO
+
+### returns
+
+### returnsMany
+
+### throws
+
+### answers
