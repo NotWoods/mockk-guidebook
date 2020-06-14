@@ -2,7 +2,8 @@
   "name": "mockk-guidebook",
   "private": true,
   "dependencies": {
-    "gitbook-cli": "^2.3.2"
+    "gitbook-cli": "^2.3.2",
+    "gitbook-plugin-webshare": "^2.0.0"
   },
   "scripts": {
     "build": "gitbook build",
