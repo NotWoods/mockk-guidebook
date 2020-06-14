@@ -1,0 +1,6 @@
+{
+  "title": "MockK Guidebook",
+  "description": "A guide to using the MockK testing library.",
+  "author": "Tiger Oakes",
+  "plugins": ["-sharing"]
+}
