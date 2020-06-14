@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>⭕ Automatically stub by relaxing · MockK Guidebook</title>
+        <title>🔵 Automatically stub by relaxing · MockK Guidebook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -208,7 +208,7 @@
                 <a href="relax.html">
             
                     
-                    ⭕ Automatically stub by relaxing
+                    🔵 Automatically stub by relaxing
             
                 </a>
             
@@ -294,12 +294,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.10" data-path="annotation.md">
+        <li class="chapter " data-level="1.4.10" data-path="annotation.html">
             
-                <span>
+                <a href="annotation.html">
             
                     
-                    ⭕ Creating many mocks quickly with annotations
+                    🔵 Creating many mocks quickly with annotations
             
                 </a>
             
@@ -313,6 +313,19 @@
             
                     
                     ⭕ Chaining mocks into hierarchies
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.12" data-path="answers.md">
+            
+                <span>
+            
+                    
+                    ⭕ Create more complicated answers for stubs
             
                 </a>
             
@@ -672,7 +685,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >⭕ Automatically stub by relaxing</a>
+        <a href="../.." >🔵 Automatically stub by relaxing</a>
     </h1>
 </div>
 
@@ -687,7 +700,35 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h1 id="automatically-stub-by-relaxing">Automatically stub by relaxing</h1>
+<p>If a method has not been stubbed, MockK will throw an error if it is called. This is designed to help make your tests easier to debug, as you&apos;ll know if you forgot to mock a method.</p>
+<pre><code class="lang-kotlin">interface Navigator {
+  <span class="hljs-variable"><span class="hljs-keyword">val</span> currentLocation</span>: String
+
+  <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">navigateTo</span><span class="hljs-params">(newLocation: <span class="hljs-type">String</span>)</span>: <span class="hljs-keyword">Unit</span></span>
+}
+
+<span class="hljs-variable"><span class="hljs-keyword">val</span> navigator</span> = mockk<span class="hljs-type">&lt;Navigator&gt;</span>()
+every { navigator.currentLocation } returns <span class="hljs-string">&quot;Home&quot;</span>
+
+<span class="hljs-comment">// prints &quot;Home&quot;</span>
+println(navigator.currentLocation)
+<span class="hljs-comment">// throws an error</span>
+navigator.navigateTo(<span class="hljs-string">&quot;Store&quot;</span>)
+</code></pre>
+<p>For more complicated objects, you can tell MockK to return simple values for all methods that have not been stubbed, rather than throwing. This is done by using the <code>relaxed</code> parameter when calling the <code>mockk</code> function.</p>
+<pre><code class="lang-kotlin"><span class="hljs-variable"><span class="hljs-keyword">val</span> navigator</span> = mockk<span class="hljs-type">&lt;Navigator&gt;</span>(relaxed = <span class="hljs-literal">true</span>)
+every { navigator.currentLocation } returns <span class="hljs-string">&quot;Home&quot;</span>
+
+<span class="hljs-comment">// prints &quot;Home&quot;</span>
+println(navigator.currentLocation)
+<span class="hljs-comment">// does nothing</span>
+navigator.navigateTo(<span class="hljs-string">&quot;Store&quot;</span>)
+</code></pre>
+<p>If desired, you can choose to only relax methods that return <code>Unit</code>. This lets you pre-stub methods that just trigger side-effects rather than returning a value.</p>
+<pre><code class="lang-kotlin"><span class="hljs-variable"><span class="hljs-keyword">val</span> navigator</span> = mockk<span class="hljs-type">&lt;Navigator&gt;</span>(relaxUnitFun = <span class="hljs-literal">true</span>)
+</code></pre>
+
                                 
                                 </section>
                             
@@ -730,7 +771,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"⭕ Automatically stub by relaxing","level":"1.4.3","depth":2,"next":{"title":"⭕ Spying on existing classes","level":"1.4.4","depth":2,"path":"docs/mocking/spy.md","ref":"docs/mocking/spy.md","articles":[]},"previous":{"title":"⭕ Verify that functions were called","level":"1.4.2","depth":2,"path":"docs/mocking/verify.md","ref":"docs/mocking/verify.md","articles":[]},"dir":"neutral"},"config":{"plugins":["-sharing","webshare"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"webshare":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"sharing":{}},"theme":"default","author":"Tiger Oakes","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"MockK Guidebook","gitbook":"*","description":"A guide to using the MockK testing library."},"file":{"path":"docs/mocking/relax.md","mtime":"2020-06-14T05:49:21.454Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-06-14T05:50:11.535Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"🔵 Automatically stub by relaxing","level":"1.4.3","depth":2,"next":{"title":"⭕ Spying on existing classes","level":"1.4.4","depth":2,"path":"docs/mocking/spy.md","ref":"docs/mocking/spy.md","articles":[]},"previous":{"title":"⭕ Verify that functions were called","level":"1.4.2","depth":2,"path":"docs/mocking/verify.md","ref":"docs/mocking/verify.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","webshare"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"webshare":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"sharing":{}},"theme":"default","author":"Tiger Oakes","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"MockK Guidebook","gitbook":"*","description":"A guide to using the MockK testing library."},"file":{"path":"docs/mocking/relax.md","mtime":"2020-06-14T06:23:44.156Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-06-14T06:24:29.062Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
