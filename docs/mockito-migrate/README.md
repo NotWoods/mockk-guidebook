@@ -2,9 +2,9 @@
 
 Learn how to use MockK by seeing equivalents to functions in [Mockito](https://site.mockito.org/).
 
-* [Creating a mock](docs/mockito-migrate/create-mock.md)
-* [`when` and `do*`](docs/mockito-migrate/when.md)
-* [`eq`](docs/mockito-migrate/eq.md)
-* [`any*`](docs/mockito-migrate/any.md)
-* [`verify`](docs/mockito-migrate/verify.md)
-* [`void` methods](docs/mockito-migrate/void.md)
+* [Creating a mock](create-mock.md)
+* [`when` and `do*`](when.md)
+* [`eq`](eq.md)
+* [`any*`](any.md)
+* [`verify`](verify.md)
+* [`void` methods](void.md)
