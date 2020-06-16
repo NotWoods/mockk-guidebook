@@ -8,3 +8,8 @@ Learn how to use MockK by seeing equivalents to functions in [Mockito](https://s
 * [`any*`](any.md)
 * [`verify`](verify.md)
 * [`void` methods](void.md)
+
+---
+
+- ⭕: Not yet written
+- 🔵: In progress
