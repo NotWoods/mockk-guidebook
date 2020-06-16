@@ -49,7 +49,7 @@ every { mockedFile.read() } returns "hello world"
 
 ## `thenThrow`/`doThrow`
 
-Rather than returning values, stubs can throw errors. Mocktio lets exceptions be specified with one of two approaches:
+Rather than returning values, stubs can throw errors. Mockito lets exceptions be specified with one of two approaches:
 
 ```kotlin
 val mockedFile = mock(File::class.java)
@@ -72,7 +72,7 @@ See [Migrating from Mockito: `void` methods](./void.md)
 
 ## `thenAnswer`/`then`/`doAnswer`
 
-Mockito allows arbitary callbacks to be used for stubs with the `Answer` interface. `Answer` only contains a single method, so Kotlin allows a function literal to be used instead through [SAM conversion](https://kotlinlang.org/docs/reference/java-interop.html#sam-conversions).
+Mockito allows arbitrary callbacks to be used for stubs with the `Answer` interface. `Answer` only contains a single method, so Kotlin allows a function literal to be used instead through [SAM conversion](https://kotlinlang.org/docs/reference/java-interop.html#sam-conversions).
 
 ```kotlin
 val mockedFile = mock(File::class.java)
@@ -104,7 +104,7 @@ every { mockedFile.write(any()) } answers { call ->
 
 ## Consecutive calls
 
-Mocktio additionally lets different return values be stubbed for the same method call, such as for mocking an iterator.
+Mockito additionally lets different return values be stubbed for the same method call, such as for mocking an iterator.
 
 ```kotlin
 val mockedFile = mock(File::class.java)

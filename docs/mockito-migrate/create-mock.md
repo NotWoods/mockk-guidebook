@@ -16,7 +16,7 @@ val mockedFile = mockk<File>()
 mockedFile.read() // throws because the method was not stubbed
 ```
 
-Mocked objects in MockK reselmbe Mockito's [`STRICT_STUBS`](https://javadoc.io/static/org.mockito/mockito-core/3.3.3/org/mockito/quality/Strictness.html#STRICT_STUBS) mode by default. If a method is not stubbed, then it will throw. This makes it easier to catch methods that are being called when you do not expect it, or when methods are being called with different arguments.
+Mocked objects in MockK resemble Mockito's [`STRICT_STUBS`](https://javadoc.io/static/org.mockito/mockito-core/3.3.3/org/mockito/quality/Strictness.html#STRICT_STUBS) mode by default. If a method is not stubbed, then it will throw. This makes it easier to catch methods that are being called when you do not expect it, or when methods are being called with different arguments.
 
 Mockito's default lenient behaviour can be replicated with the `relaxed` setting. Relaxed mocks will have default stubs for all methods.
 
