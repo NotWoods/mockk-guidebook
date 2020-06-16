@@ -13,7 +13,7 @@ dependencies {
 
 `$mockk_version` should be replaced with the version of MockK you wish to use. [The latest version is listed on the Maven website](https://search.maven.org/artifact/io.mockk/mockk).
 
-After syncing your project with Gradle files, MockK will be avaliable for use in your unit tests (located in _app/src/test_). To use MockK in your instrumented tests (located in _app/src/androidTest_), an additional line is needed in your module's Gradle file.
+After syncing your project with Gradle files, MockK will be available for use in your unit tests (located in _app/src/test_). To use MockK in your instrumented tests (located in _app/src/androidTest_), an additional line is needed in your module's Gradle file.
 
 ```groovy
 dependencies {
