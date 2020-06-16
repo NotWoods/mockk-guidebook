@@ -10,7 +10,7 @@ val mockedFile = mock(File::class.java)
 `when`(mockedFile.read()).thenReturn("hello world")
 ```
 
-Sometimes this syntax cannot be used in Mockito, so an alternative approach is avaliable. `doReturn` and the related `doThrow`, `doAnswer`, `doNothing`, and `doCallRealMethod` methods are used for void methods, spies, and other occasions where the `when` method cannot be used. Stubs written with the `do*` family of methods look like this:
+Sometimes this syntax cannot be used in Mockito, so an alternative approach is available. `doReturn` and the related `doThrow`, `doAnswer`, `doNothing`, and `doCallRealMethod` methods are used for void methods, spies, and other occasions where the `when` method cannot be used. Stubs written with the `do*` family of methods look like this:
 
 ```kotlin
 val mockedFile = mock(File::class.java)
