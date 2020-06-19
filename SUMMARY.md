@@ -20,7 +20,7 @@
 * [Argument matching](docs/matching/README.md)
   * [⭕ Check equality](docs/matching/equal.md)
   * [⭕ Allow any argument](docs/matching/any.md)
-  * [⭕ Assertions with an argument](docs/matching/with.md)
+  * [🔵 Assertions with an argument](docs/matching/with.md)
   * [⭕ Custom matching functions](docs/matching/custom.md)
   * [⭕ Capture arguments to check later](docs/matching/capture.md)
   * [⭕ Variable arguments](docs/matching/vararg.md)
