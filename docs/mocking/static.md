@@ -1,4 +1,4 @@
-# Mocking singleton objects and static methods
+# Mock singleton objects and static methods
 
 ## Mocking objects
 

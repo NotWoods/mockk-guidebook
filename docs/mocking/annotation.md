@@ -1,4 +1,4 @@
-# Creating many mocks quickly with annotations
+# Create many mocks quickly with annotations
 
 Sometimes you will need to create many mocks in your test class. As each mock needs to be declared as a property in the test class, then initialized in the test setup function, the amount of code needed to build all your mocks can grow very quickly. MockK provides a shorthand using annotations to make this simpler.
 

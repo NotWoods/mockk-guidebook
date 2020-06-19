@@ -1,4 +1,4 @@
-# Returning `Unit`
+# Return `Unit`
 
 When [stubbing](../mocking/stubbing.md) a function that returns nothing, MockK provides a few shortcuts.
 
