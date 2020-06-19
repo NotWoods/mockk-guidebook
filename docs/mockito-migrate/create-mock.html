@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>🔵 Creating a mock · MockK Guidebook</title>
+        <title>🔵 Create a mock · MockK Guidebook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -182,7 +182,7 @@
                 <a href="../mocking/stubbing.html">
             
                     
-                    🔵 Stubbing behaviour
+                    🔵 Stub out behaviour
             
                 </a>
             
@@ -221,7 +221,7 @@
                 <a href="../mocking/spy.html">
             
                     
-                    ⭕ Spying on existing classes
+                    ⭕ Spy on existing classes
             
                 </a>
             
@@ -247,7 +247,7 @@
                 <span>
             
                     
-                    ⭕ Mocking constructors in code you don't own
+                    ⭕ Mock constructors in code you don't own
             
                 </a>
             
@@ -260,7 +260,7 @@
                 <a href="../mocking/static.html">
             
                     
-                    🔵 Mocking singleton objects and static methods
+                    🔵 Mock singleton objects and static methods
             
                 </a>
             
@@ -273,7 +273,7 @@
                 <span>
             
                     
-                    ⭕ Mocking extension functions
+                    ⭕ Mock extension functions
             
                 </a>
             
@@ -299,7 +299,7 @@
                 <a href="../mocking/annotation.html">
             
                     
-                    🔵 Creating many mocks quickly with annotations
+                    🔵 Create many mocks quickly with annotations
             
                 </a>
             
@@ -312,7 +312,7 @@
                 <span>
             
                     
-                    ⭕ Chaining mocks into hierarchies
+                    ⭕ Chain mocks into hierarchies
             
                 </a>
             
@@ -357,7 +357,7 @@
                 <a href="../matching/equal.html">
             
                     
-                    ⭕ Checking equality
+                    ⭕ Check equality
             
                 </a>
             
@@ -370,7 +370,7 @@
                 <a href="../matching/any.html">
             
                     
-                    ⭕ Allowing any argument
+                    ⭕ Allow any argument
             
                 </a>
             
@@ -383,7 +383,7 @@
                 <a href="../matching/with.html">
             
                     
-                    ⭕ Run assertions with an argument
+                    🔵 Assertions with an argument
             
                 </a>
             
@@ -409,7 +409,7 @@
                 <a href="../matching/capture.html">
             
                     
-                    ⭕ Capturing arguments to check later
+                    ⭕ Capture arguments to check later
             
                 </a>
             
@@ -448,7 +448,7 @@
                 <a href="../matching/combine.html">
             
                     
-                    ⭕ Combining matchers
+                    ⭕ Combine matchers
             
                 </a>
             
@@ -480,7 +480,7 @@
                 <a href="create-mock.html">
             
                     
-                    🔵 Creating a mock
+                    🔵 Create a mock
             
                 </a>
             
@@ -603,7 +603,7 @@
                 <a href="../tips/unit.html">
             
                     
-                    🔵 Returning Unit
+                    🔵 Return Unit
             
                 </a>
             
@@ -642,7 +642,7 @@
                 <a href="../tips/exclude.html">
             
                     
-                    ⭕ Excluding recording
+                    ⭕ Exclude recording
             
                 </a>
             
@@ -685,7 +685,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >🔵 Creating a mock</a>
+        <a href="../.." >🔵 Create a mock</a>
     </h1>
 </div>
 
@@ -700,7 +700,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="creating-a-mock">Creating a mock</h1>
+                                <h1 id="create-a-mock">Create a mock</h1>
 <p>The syntax to create a mock is very similar in Mockito and MockK. However, the behaviour is slightly different.</p>
 <pre><code class="lang-kotlin"><span class="hljs-comment">// Mockito</span>
 <span class="hljs-variable"><span class="hljs-keyword">val</span> mockedFile</span> = mock(File::<span class="hljs-class"><span class="hljs-keyword">class</span>.<span class="hljs-title">java</span>)</span>
@@ -769,7 +769,7 @@ mockedFile.exists() <span class="hljs-comment">// throws as the method returns B
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"🔵 Creating a mock","level":"1.6.1","depth":2,"next":{"title":"🔵 when and do*","level":"1.6.2","depth":2,"path":"docs/mockito-migrate/when.md","ref":"docs/mockito-migrate/when.md","articles":[]},"previous":{"title":"Migrating from Mockito","level":"1.6","depth":1,"path":"docs/mockito-migrate/README.md","ref":"docs/mockito-migrate/README.md","articles":[{"title":"🔵 Creating a mock","level":"1.6.1","depth":2,"path":"docs/mockito-migrate/create-mock.md","ref":"docs/mockito-migrate/create-mock.md","articles":[]},{"title":"🔵 when and do*","level":"1.6.2","depth":2,"path":"docs/mockito-migrate/when.md","ref":"docs/mockito-migrate/when.md","articles":[]},{"title":"🔵 eq","level":"1.6.3","depth":2,"path":"docs/mockito-migrate/eq.md","ref":"docs/mockito-migrate/eq.md","articles":[]},{"title":"🔵 any*","level":"1.6.4","depth":2,"path":"docs/mockito-migrate/any.md","ref":"docs/mockito-migrate/any.md","articles":[]},{"title":"🔵 verify","level":"1.6.5","depth":2,"path":"docs/mockito-migrate/verify.md","ref":"docs/mockito-migrate/verify.md","articles":[]},{"title":"⭕ argThat","level":"1.6.6","depth":2,"path":"docs/mockito-migrate/arg-that.md","ref":"docs/mockito-migrate/arg-that.md","articles":[]},{"title":"⭕ ArgumentCaptor","level":"1.6.7","depth":2,"path":"docs/mockito-migrate/argument-captor.md","ref":"docs/mockito-migrate/argument-captor.md","articles":[]},{"title":"🔵 void methods","level":"1.6.8","depth":2,"path":"docs/mockito-migrate/void.md","ref":"docs/mockito-migrate/void.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-sharing","webshare"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"webshare":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"sharing":{}},"theme":"default","author":"Tiger Oakes","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"MockK Guidebook","gitbook":"*","description":"A guide to using the MockK testing library."},"file":{"path":"docs/mockito-migrate/create-mock.md","mtime":"2020-06-16T22:52:31.487Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-06-16T22:53:08.031Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"🔵 Create a mock","level":"1.6.1","depth":2,"next":{"title":"🔵 when and do*","level":"1.6.2","depth":2,"path":"docs/mockito-migrate/when.md","ref":"docs/mockito-migrate/when.md","articles":[]},"previous":{"title":"Migrating from Mockito","level":"1.6","depth":1,"path":"docs/mockito-migrate/README.md","ref":"docs/mockito-migrate/README.md","articles":[{"title":"🔵 Create a mock","level":"1.6.1","depth":2,"path":"docs/mockito-migrate/create-mock.md","ref":"docs/mockito-migrate/create-mock.md","articles":[]},{"title":"🔵 when and do*","level":"1.6.2","depth":2,"path":"docs/mockito-migrate/when.md","ref":"docs/mockito-migrate/when.md","articles":[]},{"title":"🔵 eq","level":"1.6.3","depth":2,"path":"docs/mockito-migrate/eq.md","ref":"docs/mockito-migrate/eq.md","articles":[]},{"title":"🔵 any*","level":"1.6.4","depth":2,"path":"docs/mockito-migrate/any.md","ref":"docs/mockito-migrate/any.md","articles":[]},{"title":"🔵 verify","level":"1.6.5","depth":2,"path":"docs/mockito-migrate/verify.md","ref":"docs/mockito-migrate/verify.md","articles":[]},{"title":"⭕ argThat","level":"1.6.6","depth":2,"path":"docs/mockito-migrate/arg-that.md","ref":"docs/mockito-migrate/arg-that.md","articles":[]},{"title":"⭕ ArgumentCaptor","level":"1.6.7","depth":2,"path":"docs/mockito-migrate/argument-captor.md","ref":"docs/mockito-migrate/argument-captor.md","articles":[]},{"title":"🔵 void methods","level":"1.6.8","depth":2,"path":"docs/mockito-migrate/void.md","ref":"docs/mockito-migrate/void.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-sharing","webshare"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"webshare":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"sharing":{}},"theme":"default","author":"Tiger Oakes","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"MockK Guidebook","gitbook":"*","description":"A guide to using the MockK testing library."},"file":{"path":"docs/mockito-migrate/create-mock.md","mtime":"2020-06-19T23:43:30.356Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-06-19T23:44:18.514Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
