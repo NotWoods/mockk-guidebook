@@ -8,7 +8,7 @@
   * [🔵 Stub out behaviour](docs/mocking/stubbing.md)
   * [⭕ Verify that functions were called](docs/mocking/verify.md)
   * [🔵 Automatically stub by relaxing](docs/mocking/relax.md)
-  * [⭕ Spy on existing classes](docs/mocking/spy.md)
+  * [🔵 Spy on existing classes](docs/mocking/spy.md)
   * [⭕ Coroutines and suspend functions](docs/mocking/coroutines.md)
   * [⭕ Mock constructors in code you don't own](docs/mocking/constructor.md)
   * [🔵 Mock singleton objects and static methods](docs/mocking/static.md)

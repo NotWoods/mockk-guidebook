@@ -96,3 +96,7 @@ class RepositoryTest {
   }
 }
 ```
+
+## Spies
+
+TODO
