@@ -41,6 +41,8 @@ println(calculator1.add(2, 2))
 println(Calculator2.add(2, 2))
 ```
 
+This approach works with any Kotlin object, which includes [`companion object`s](https://kotlinlang.org/docs/tutorials/kotlin-for-py/objects-and-companion-objects.html#companion-objects) and [`enum class`](https://kotlinlang.org/docs/reference/enum-classes.html) elements.
+
 ## Mocking static methods
 
 Sometimes you may end up working with Java code in your tests, which can have static methods.
@@ -61,17 +63,13 @@ Just like singleton objects, there will only ever be one version of static metho
 mockkStatic("com.name.app.Writer")
 ```
 
-Rather than passing a reference to the class, you pass the class name as a string.
+Rather than passing a reference to the class, you pass the class name as a string. You can also choose to pass in a reference to the class, and MockK will figure out the class name.
+
+```kotlin
+mockkStatic(Writer::class)
+```
 
 Like object mocks, static mocks behave like [spies](./spy.md). The real method will be called if the method is not stubbed.
-
-### Finding the class name
-
-TODO
-
-### Mocking top-level functions
-
-TODO
 
 ## Unmocking
 
