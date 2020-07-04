@@ -58,10 +58,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="extension.md" />
+    <link rel="next" href="extension.html" />
     
     
-    <link rel="prev" href="constructor.md" />
+    <link rel="prev" href="constructor.html" />
     
 
     <meta name="monetization" content="$ilp.uphold.com/p2WKq3nJHA8w">
@@ -242,12 +242,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.6" data-path="constructor.md">
+        <li class="chapter " data-level="1.4.6" data-path="constructor.html">
             
-                <span>
+                <a href="constructor.html">
             
                     
-                    ⭕ Mock constructors in code you don't own
+                    🔵 Mock constructors in code you don't own
             
                 </a>
             
@@ -268,12 +268,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.8" data-path="extension.md">
+        <li class="chapter " data-level="1.4.8" data-path="extension.html">
             
-                <span>
+                <a href="extension.html">
             
                     
-                    ⭕ Mock extension functions
+                    🔵 Mock top-level and extension functions
             
                 </a>
             
@@ -748,6 +748,7 @@ println(calculator1.add(<span class="hljs-number">2</span>, <span class="hljs-nu
 <span class="hljs-comment">// returns the result from the real method</span>
 println(Calculator2.add(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>))
 </code></pre>
+<p>This approach works with any Kotlin object, which includes <a href="https://kotlinlang.org/docs/tutorials/kotlin-for-py/objects-and-companion-objects.html#companion-objects" target="_blank"><code>companion object</code>s</a> and <a href="https://kotlinlang.org/docs/reference/enum-classes.html" target="_blank"><code>enum class</code></a> elements.</p>
 <h2 id="mocking-static-methods">Mocking static methods</h2>
 <p>Sometimes you may end up working with Java code in your tests, which can have static methods.</p>
 <pre><code class="lang-java"><span class="hljs-keyword">package</span> com.name.app;
@@ -761,12 +762,10 @@ println(Calculator2.add(<span class="hljs-number">2</span>, <span class="hljs-nu
 <p>Just like singleton objects, there will only ever be one version of static methods, so you cannot mock them in the usual manner. Again, MockK provides specialized functions to mock static methods.</p>
 <pre><code class="lang-kotlin">mockkStatic(<span class="hljs-string">&quot;com.name.app.Writer&quot;</span>)
 </code></pre>
-<p>Rather than passing a reference to the class, you pass the class name as a string.</p>
+<p>Rather than passing a reference to the class, you pass the class name as a string. You can also choose to pass in a reference to the class, and MockK will figure out the class name.</p>
+<pre><code class="lang-kotlin">mockkStatic(Writer::<span class="hljs-class"><span class="hljs-keyword">class</span>)</span>
+</code></pre>
 <p>Like object mocks, static mocks behave like <a href="spy.html">spies</a>. The real method will be called if the method is not stubbed.</p>
-<h3 id="finding-the-class-name">Finding the class name</h3>
-<p>TODO</p>
-<h3 id="mocking-top-level-functions">Mocking top-level functions</h3>
-<p>TODO</p>
 <h2 id="unmocking">Unmocking</h2>
 <p>If you&apos;d like to revert back to the real object, you can use the <code>unmockkObject</code> method. This removes any stubbed behaviour you may have added.</p>
 <pre><code class="lang-kotlin"><span class="hljs-keyword">object</span> Calculator {
@@ -813,12 +812,12 @@ println(Calculator.add(<span class="hljs-number">2</span>, <span class="hljs-num
 
             
                 
-                <a href="constructor.md" class="navigation navigation-prev " aria-label="Previous page: ⭕ Mock constructors in code you don't own">
+                <a href="constructor.html" class="navigation navigation-prev " aria-label="Previous page: 🔵 Mock constructors in code you don't own">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="extension.md" class="navigation navigation-next " aria-label="Next page: ⭕ Mock extension functions">
+                <a href="extension.html" class="navigation navigation-next " aria-label="Next page: 🔵 Mock top-level and extension functions">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -829,7 +828,7 @@ println(Calculator.add(<span class="hljs-number">2</span>, <span class="hljs-num
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"🔵 Mock singleton objects and static methods","level":"1.4.7","depth":2,"next":{"title":"⭕ Mock extension functions","level":"1.4.8","depth":2,"path":"docs/mocking/extension.md","ref":"docs/mocking/extension.md","articles":[]},"previous":{"title":"⭕ Mock constructors in code you don't own","level":"1.4.6","depth":2,"path":"docs/mocking/constructor.md","ref":"docs/mocking/constructor.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","webshare"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"webshare":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"sharing":{}},"theme":"default","author":"Tiger Oakes","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"MockK Guidebook","gitbook":"*","description":"A guide to using the MockK testing library."},"file":{"path":"docs/mocking/static.md","mtime":"2020-07-04T06:24:08.767Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-07-04T06:24:48.976Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"🔵 Mock singleton objects and static methods","level":"1.4.7","depth":2,"next":{"title":"🔵 Mock top-level and extension functions","level":"1.4.8","depth":2,"path":"docs/mocking/extension.md","ref":"docs/mocking/extension.md","articles":[]},"previous":{"title":"🔵 Mock constructors in code you don't own","level":"1.4.6","depth":2,"path":"docs/mocking/constructor.md","ref":"docs/mocking/constructor.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","webshare"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"webshare":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"sharing":{}},"theme":"default","author":"Tiger Oakes","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"MockK Guidebook","gitbook":"*","description":"A guide to using the MockK testing library."},"file":{"path":"docs/mocking/static.md","mtime":"2020-07-04T07:04:08.234Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-07-04T07:04:53.597Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
