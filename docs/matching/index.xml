@@ -1,4 +1,97 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Argument matching on MockK Guidebook</title><link>https://notwoods.github.io/mockk-guidebook/docs/matching/</link><description>Recent content in Argument matching on MockK Guidebook</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://notwoods.github.io/mockk-guidebook/docs/matching/index.xml" rel="self" type="application/rss+xml"/><item><title>Allow any argument</title><link>https://notwoods.github.io/mockk-guidebook/docs/matching/any/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://notwoods.github.io/mockk-guidebook/docs/matching/any/</guid><description>Allowing any argument # any allAny</description></item><item><title>Argument of a certain type</title><link>https://notwoods.github.io/mockk-guidebook/docs/matching/oftype/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://notwoods.github.io/mockk-guidebook/docs/matching/oftype/</guid><description>Argument of a certain type # ofType</description></item><item><title>Assertions with an argument</title><link>https://notwoods.github.io/mockk-guidebook/docs/matching/with/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://notwoods.github.io/mockk-guidebook/docs/matching/with/</guid><description>Run assertions with an argument # withArg withNullableArg coWithArg coWithNullableArg There are some special argument matchers that can only be used when verifying that a mocked function was called. withArg and its variants allow you to capture an argument and run your own assertions on it without the need to set up a capturing slot.
-data class File( val name: String, val data: ByteArray ) interface FileNetwork { fun download(name: String): File fun upload(file: File) } When using a capturing slot, testing the FileNetwork.</description></item><item><title>Capture arguments to check later</title><link>https://notwoods.github.io/mockk-guidebook/docs/matching/capture/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://notwoods.github.io/mockk-guidebook/docs/matching/capture/</guid><description>Capturing arguments to check later # capture captureNullable captureLambda captureCoroutine invoke/coInvoke (maybe?)</description></item><item><title>Check equality</title><link>https://notwoods.github.io/mockk-guidebook/docs/matching/equal/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://notwoods.github.io/mockk-guidebook/docs/matching/equal/</guid><description>Checking equality # eq/neq isNull refEq/nrefEq cmpEq</description></item><item><title>Combine matchers</title><link>https://notwoods.github.io/mockk-guidebook/docs/matching/combine/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://notwoods.github.io/mockk-guidebook/docs/matching/combine/</guid><description>Combining matchers # and or not</description></item><item><title>Comparables</title><link>https://notwoods.github.io/mockk-guidebook/docs/matching/compareto/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://notwoods.github.io/mockk-guidebook/docs/matching/compareto/</guid><description>Comparables # less more range cmpEq MockK provides a few argument matchers for numbers and comparable objects. These matches all use the compareTo function to compare objects.
-more # Checks if the argument is more than the value given to the matcher. Valid arguments will return a negative number when compared to the matcher value.
-assertTrue(value.compareTo(arg) &amp;lt; 0) less # Checks if the argument is less than the value given to the matcher.</description></item><item><title>Custom matching functions</title><link>https://notwoods.github.io/mockk-guidebook/docs/matching/custom/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://notwoods.github.io/mockk-guidebook/docs/matching/custom/</guid><description>Custom matching functions # match coMatch matchNullable coMatchNullable</description></item><item><title>Variable arguments</title><link>https://notwoods.github.io/mockk-guidebook/docs/matching/vararg/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://notwoods.github.io/mockk-guidebook/docs/matching/vararg/</guid><description>Variable arguments # anyVararg varargAny varargAll any...Vararg varargAny... varargAll...</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Argument matching on MockK Guidebook</title>
+    <link>https://notwoods.github.io/mockk-guidebook/docs/matching/</link>
+    <description>Recent content in Argument matching on MockK Guidebook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	<atom:link href="https://notwoods.github.io/mockk-guidebook/docs/matching/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Allow any argument</title>
+      <link>https://notwoods.github.io/mockk-guidebook/docs/matching/any/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://notwoods.github.io/mockk-guidebook/docs/matching/any/</guid>
+      <description>Allowing any argument #   any allAny  </description>
+    </item>
+    
+    <item>
+      <title>Argument of a certain type</title>
+      <link>https://notwoods.github.io/mockk-guidebook/docs/matching/oftype/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://notwoods.github.io/mockk-guidebook/docs/matching/oftype/</guid>
+      <description>Argument of a certain type #   ofType  </description>
+    </item>
+    
+    <item>
+      <title>Assertions with an argument</title>
+      <link>https://notwoods.github.io/mockk-guidebook/docs/matching/with/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://notwoods.github.io/mockk-guidebook/docs/matching/with/</guid>
+      <description>Run assertions with an argument #   withArg withNullableArg coWithArg coWithNullableArg  There are some special argument matchers that can only be used when verifying that a mocked function was called. withArg and its variants allow you to capture an argument and run your own assertions on it without the need to set up a capturing slot.
+data class File( val name: String, val data: ByteArray ) interface FileNetwork { fun download(name: String): File fun upload(file: File) } When using a capturing slot, testing the FileNetwork.</description>
+    </item>
+    
+    <item>
+      <title>Capture arguments to check later</title>
+      <link>https://notwoods.github.io/mockk-guidebook/docs/matching/capture/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://notwoods.github.io/mockk-guidebook/docs/matching/capture/</guid>
+      <description>Capturing arguments to check later #   capture captureNullable captureLambda captureCoroutine invoke/coInvoke (maybe?)  </description>
+    </item>
+    
+    <item>
+      <title>Check equality</title>
+      <link>https://notwoods.github.io/mockk-guidebook/docs/matching/equal/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://notwoods.github.io/mockk-guidebook/docs/matching/equal/</guid>
+      <description>Checking equality #   eq/neq isNull refEq/nrefEq cmpEq  </description>
+    </item>
+    
+    <item>
+      <title>Combine matchers</title>
+      <link>https://notwoods.github.io/mockk-guidebook/docs/matching/combine/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://notwoods.github.io/mockk-guidebook/docs/matching/combine/</guid>
+      <description>Combining matchers #   and or not  </description>
+    </item>
+    
+    <item>
+      <title>Comparables</title>
+      <link>https://notwoods.github.io/mockk-guidebook/docs/matching/compareto/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://notwoods.github.io/mockk-guidebook/docs/matching/compareto/</guid>
+      <description>Comparables #   less more range cmpEq  MockK provides a few argument matchers for numbers and comparable objects. These matches all use the compareTo function to compare objects.
+more #  Checks if the argument is more than the value given to the matcher. Valid arguments will return a negative number when compared to the matcher value.
+assertTrue(value.compareTo(arg) &amp;lt; 0) less #  Checks if the argument is less than the value given to the matcher.</description>
+    </item>
+    
+    <item>
+      <title>Custom matching functions</title>
+      <link>https://notwoods.github.io/mockk-guidebook/docs/matching/custom/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://notwoods.github.io/mockk-guidebook/docs/matching/custom/</guid>
+      <description>Custom matching functions #   match coMatch matchNullable coMatchNullable  </description>
+    </item>
+    
+    <item>
+      <title>Variable arguments</title>
+      <link>https://notwoods.github.io/mockk-guidebook/docs/matching/vararg/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://notwoods.github.io/mockk-guidebook/docs/matching/vararg/</guid>
+      <description>Variable arguments #   anyVararg varargAny varargAll any...Vararg varargAny... varargAll...  </description>
+    </item>
+    
+  </channel>
+</rss>

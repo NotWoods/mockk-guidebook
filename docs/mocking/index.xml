@@ -1,9 +1,129 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Mocking on MockK Guidebook</title><link>https://notwoods.github.io/mockk-guidebook/docs/mocking/</link><description>Recent content in Mocking on MockK Guidebook</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://notwoods.github.io/mockk-guidebook/docs/mocking/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://notwoods.github.io/mockk-guidebook/docs/mocking/answers/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://notwoods.github.io/mockk-guidebook/docs/mocking/answers/</guid><description/></item><item><title/><link>https://notwoods.github.io/mockk-guidebook/docs/mocking/hierarchies/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://notwoods.github.io/mockk-guidebook/docs/mocking/hierarchies/</guid><description/></item><item><title>Automatically stub by relaxing</title><link>https://notwoods.github.io/mockk-guidebook/docs/mocking/relax/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://notwoods.github.io/mockk-guidebook/docs/mocking/relax/</guid><description>Automatically stub by relaxing # If a method has not been stubbed, MockK will throw an error if it is called. This is designed to help make your tests easier to debug, as you&amp;rsquo;ll know if you forgot to mock a method.
-interface Navigator { val currentLocation: String fun navigateTo(newLocation: String): Unit } val navigator = mockk&amp;lt;Navigator&amp;gt;() every { navigator.currentLocation } returns &amp;#34;Home&amp;#34; // prints &amp;#34;Home&amp;#34; println(navigator.currentLocation) // throws an error navigator.</description></item><item><title>Clear state</title><link>https://notwoods.github.io/mockk-guidebook/docs/mocking/clear/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://notwoods.github.io/mockk-guidebook/docs/mocking/clear/</guid><description>Clear state #</description></item><item><title>Coroutines and suspend functions</title><link>https://notwoods.github.io/mockk-guidebook/docs/mocking/coroutines/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://notwoods.github.io/mockk-guidebook/docs/mocking/coroutines/</guid><description>Coroutines and suspend functions # As MockK uses function literals to create stubs, small changes are needed to stub suspend functions. MockK provides functions prefixed with co as equivalents to other functions, such as coEvery and coAnswers.
-val mockedFile = mockk&amp;lt;File&amp;gt;() coEvery { mockedFile.readAsync() } returns &amp;#34;hello world&amp;#34; coEvery { mockedFile.writeAsync(any()) } coAnswers { call -&amp;gt; doAsyncWork() Unit }</description></item><item><title>Create many mocks quickly with annotations</title><link>https://notwoods.github.io/mockk-guidebook/docs/mocking/annotation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://notwoods.github.io/mockk-guidebook/docs/mocking/annotation/</guid><description>Create many mocks quickly with annotations # Sometimes you will need to create many mocks in your test class. As each mock needs to be declared as a property in the test class, then initialized in the test setup function, the amount of code needed to build all your mocks can grow very quickly. MockK provides a shorthand using annotations to make this simpler.
-class RepositoryTest { @MockK private lateinit var foodDatabase: FoodDatabase @MockK private lateinit var recipeDatabase: RecipeDatabase @MockK private lateinit var networkClient: NetworkClient @SpyK private var logger = Logger() @Before fun setup() { MockKAnnotations.</description></item><item><title>Mock constructors in code you don't own</title><link>https://notwoods.github.io/mockk-guidebook/docs/mocking/constructor/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://notwoods.github.io/mockk-guidebook/docs/mocking/constructor/</guid><description>Mock constructors in code you don&amp;rsquo;t own # Sometimes your classes have dependencies that they construct themselves. While it&amp;rsquo;s best to use a system like dependency injection to avoid this, MockK makes it possible to control constructors and make them return a mocked instance.
-The mockkConstructor(T::class) function takes in a class reference. Once used, every constructor of that type will start returning a singleton that can be mocked. Rather than building a new instance every time the constructor is called, MockK generates a singleton and always returns the same instance.</description></item><item><title>Mock singleton objects and static methods</title><link>https://notwoods.github.io/mockk-guidebook/docs/mocking/static/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://notwoods.github.io/mockk-guidebook/docs/mocking/static/</guid><description>Mock singleton objects and static methods # Mocking objects # When you need a singleton in Kotlin, you can use an object. These specialized classes will only ever have one instance, so you can&amp;rsquo;t mock them in the usual manner. Instead, MockK provides specialized functions to create object mocks.
-object FeatureFlags { val featureEnabled = true } mockkObject(FeatureFlags) every { FeatureFlags.featureEnabled } returns false // prints false println(FeatureFlags.featureEnabled) Despite the name, object mocks behave more like spies.</description></item><item><title>Mock top-level and extension functions</title><link>https://notwoods.github.io/mockk-guidebook/docs/mocking/extension/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://notwoods.github.io/mockk-guidebook/docs/mocking/extension/</guid><description>Mock top-level and extension functions # Top-level functions # Kotlin lets you write functions that don&amp;rsquo;t belong to any class or object, called top-level functions. These calls are translated to static methods in Java, and a special Java class is generated to hold the functions. These top-level functions can be mocked using mockkStatic, but you need to figure out the class name of this generated Java class.
-Finding the class name # TODO</description></item><item><title>Spy on existing classes</title><link>https://notwoods.github.io/mockk-guidebook/docs/mocking/spy/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://notwoods.github.io/mockk-guidebook/docs/mocking/spy/</guid><description>Spy on existing classes # Rather than mocking an object, you can create spies of real objects. Spies will run the real methods in a class, unlike mocks which don&amp;rsquo;t run anything. Stubbing methods on a spy will run the stub instead, so you can have a mixture of real methods and stubbed methods.
-Spies get their name because you can spy on the code you&amp;rsquo;re testing and see what methods it called.</description></item><item><title>Stub out behaviour</title><link>https://notwoods.github.io/mockk-guidebook/docs/mocking/stubbing/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://notwoods.github.io/mockk-guidebook/docs/mocking/stubbing/</guid><description>Stub out behaviour # Your Kotlin classes often depends on other objects and functions when running. When you are writing tests for your classes, you only want to test the class itself and not the dependency. MockK helps you create pretend versions of those dependencies instead of using the real versions.
-Stubbing allows you to setup canned answers when functions are called. You only need to stub methods that are called by your class, and you can ignore methods that aren&amp;rsquo;t run during your test.</description></item><item><title>Verify that functions were called</title><link>https://notwoods.github.io/mockk-guidebook/docs/mocking/verify/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://notwoods.github.io/mockk-guidebook/docs/mocking/verify/</guid><description>Verify that functions were called # TODO</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mocking on MockK Guidebook</title>
+    <link>https://notwoods.github.io/mockk-guidebook/docs/mocking/</link>
+    <description>Recent content in Mocking on MockK Guidebook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	<atom:link href="https://notwoods.github.io/mockk-guidebook/docs/mocking/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>https://notwoods.github.io/mockk-guidebook/docs/mocking/answers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://notwoods.github.io/mockk-guidebook/docs/mocking/answers/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://notwoods.github.io/mockk-guidebook/docs/mocking/hierarchies/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://notwoods.github.io/mockk-guidebook/docs/mocking/hierarchies/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Automatically stub by relaxing</title>
+      <link>https://notwoods.github.io/mockk-guidebook/docs/mocking/relax/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://notwoods.github.io/mockk-guidebook/docs/mocking/relax/</guid>
+      <description>Automatically stub by relaxing #  If a method has not been stubbed, MockK will throw an error if it is called. This is designed to help make your tests easier to debug, as you&amp;rsquo;ll know if you forgot to mock a method.
+interface Navigator { val currentLocation: String fun navigateTo(newLocation: String): Unit } val navigator = mockk&amp;lt;Navigator&amp;gt;() every { navigator.currentLocation } returns &amp;#34;Home&amp;#34; // prints &amp;#34;Home&amp;#34; println(navigator.currentLocation) // throws an error navigator.</description>
+    </item>
+    
+    <item>
+      <title>Clear state</title>
+      <link>https://notwoods.github.io/mockk-guidebook/docs/mocking/clear/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://notwoods.github.io/mockk-guidebook/docs/mocking/clear/</guid>
+      <description>Clear state #  </description>
+    </item>
+    
+    <item>
+      <title>Coroutines and suspend functions</title>
+      <link>https://notwoods.github.io/mockk-guidebook/docs/mocking/coroutines/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://notwoods.github.io/mockk-guidebook/docs/mocking/coroutines/</guid>
+      <description>Coroutines and suspend functions #  As MockK uses function literals to create stubs, small changes are needed to stub suspend functions. MockK provides functions prefixed with co as equivalents to other functions, such as coEvery and coAnswers.
+val mockedFile = mockk&amp;lt;File&amp;gt;() coEvery { mockedFile.readAsync() } returns &amp;#34;hello world&amp;#34; coEvery { mockedFile.writeAsync(any()) } coAnswers { call -&amp;gt; doAsyncWork() Unit } </description>
+    </item>
+    
+    <item>
+      <title>Create many mocks quickly with annotations</title>
+      <link>https://notwoods.github.io/mockk-guidebook/docs/mocking/annotation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://notwoods.github.io/mockk-guidebook/docs/mocking/annotation/</guid>
+      <description>Create many mocks quickly with annotations #  Sometimes you will need to create many mocks in your test class. As each mock needs to be declared as a property in the test class, then initialized in the test setup function, the amount of code needed to build all your mocks can grow very quickly. MockK provides a shorthand using annotations to make this simpler.
+class RepositoryTest { @MockK private lateinit var foodDatabase: FoodDatabase @MockK private lateinit var recipeDatabase: RecipeDatabase @MockK private lateinit var networkClient: NetworkClient @SpyK private var logger = Logger() @Before fun setup() { MockKAnnotations.</description>
+    </item>
+    
+    <item>
+      <title>Mock constructors in code you don&#39;t own</title>
+      <link>https://notwoods.github.io/mockk-guidebook/docs/mocking/constructor/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://notwoods.github.io/mockk-guidebook/docs/mocking/constructor/</guid>
+      <description>Mock constructors in code you don&amp;rsquo;t own #  Sometimes your classes have dependencies that they construct themselves. While it&amp;rsquo;s best to use a system like dependency injection to avoid this, MockK makes it possible to control constructors and make them return a mocked instance.
+The mockkConstructor(T::class) function takes in a class reference. Once used, every constructor of that type will start returning a singleton that can be mocked. Rather than building a new instance every time the constructor is called, MockK generates a singleton and always returns the same instance.</description>
+    </item>
+    
+    <item>
+      <title>Mock singleton objects and static methods</title>
+      <link>https://notwoods.github.io/mockk-guidebook/docs/mocking/static/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://notwoods.github.io/mockk-guidebook/docs/mocking/static/</guid>
+      <description>Mock singleton objects and static methods #  Mocking objects #  When you need a singleton in Kotlin, you can use an object. These specialized classes will only ever have one instance, so you can&amp;rsquo;t mock them in the usual manner. Instead, MockK provides specialized functions to create object mocks.
+object FeatureFlags { val featureEnabled = true } mockkObject(FeatureFlags) every { FeatureFlags.featureEnabled } returns false // prints false println(FeatureFlags.featureEnabled) Despite the name, object mocks behave more like spies.</description>
+    </item>
+    
+    <item>
+      <title>Mock top-level and extension functions</title>
+      <link>https://notwoods.github.io/mockk-guidebook/docs/mocking/extension/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://notwoods.github.io/mockk-guidebook/docs/mocking/extension/</guid>
+      <description>Mock top-level and extension functions #  Top-level functions #  Kotlin lets you write functions that don&amp;rsquo;t belong to any class or object, called top-level functions. These calls are translated to static methods in Java, and a special Java class is generated to hold the functions. These top-level functions can be mocked using mockkStatic, but you need to figure out the class name of this generated Java class.
+Finding the class name #  TODO</description>
+    </item>
+    
+    <item>
+      <title>Spy on existing classes</title>
+      <link>https://notwoods.github.io/mockk-guidebook/docs/mocking/spy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://notwoods.github.io/mockk-guidebook/docs/mocking/spy/</guid>
+      <description>Spy on existing classes #  Rather than mocking an object, you can create spies of real objects. Spies will run the real methods in a class, unlike mocks which don&amp;rsquo;t run anything. Stubbing methods on a spy will run the stub instead, so you can have a mixture of real methods and stubbed methods.
+Spies get their name because you can spy on the code you&amp;rsquo;re testing and see what methods it called.</description>
+    </item>
+    
+    <item>
+      <title>Stub out behaviour</title>
+      <link>https://notwoods.github.io/mockk-guidebook/docs/mocking/stubbing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://notwoods.github.io/mockk-guidebook/docs/mocking/stubbing/</guid>
+      <description>Stub out behaviour #  Your Kotlin classes often depends on other objects and functions when running. When you are writing tests for your classes, you only want to test the class itself and not the dependency. MockK helps you create pretend versions of those dependencies instead of using the real versions.
+Stubbing allows you to setup canned answers when functions are called. You only need to stub methods that are called by your class, and you can ignore methods that aren&amp;rsquo;t run during your test.</description>
+    </item>
+    
+    <item>
+      <title>Verify that functions were called</title>
+      <link>https://notwoods.github.io/mockk-guidebook/docs/mocking/verify/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://notwoods.github.io/mockk-guidebook/docs/mocking/verify/</guid>
+      <description>Verify that functions were called #  TODO</description>
+    </item>
+    
+  </channel>
+</rss>
