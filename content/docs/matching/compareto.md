@@ -1,3 +1,7 @@
+---
+title: Comparables
+---
+
 # Comparables
 
 - `less`

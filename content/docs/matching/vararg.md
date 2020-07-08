@@ -1,3 +1,7 @@
+---
+title: Variable arguments
+---
+
 # Variable arguments
 - `anyVararg`
 - `varargAny`

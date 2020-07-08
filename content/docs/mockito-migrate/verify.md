@@ -1,3 +1,10 @@
+---
+title: "`verify`"
+summary: >
+  `verify` that a method was called.
+weight: 40
+---
+
 # `verify`
 
 Verifying that a method was called has similar syntax in Mockito and MockK. MockK uses inline functions and keyword arguments in place of Mockito's verification modes.

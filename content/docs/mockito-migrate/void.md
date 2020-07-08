@@ -1,3 +1,10 @@
+---
+title: "`void` methods"
+summary: >
+  MockK makes it easier to mock methods that return `void`.
+weight: 70
+---
+
 # `void` methods
 
 Mockito's `when` method doesn't work with `void` methods. To create a stub that doesn't return anything, the `doNothing` method is used.

@@ -1,3 +1,7 @@
+---
+title: Mock constructors in code you don't own
+---
+
 # Mock constructors in code you don't own
 
 Sometimes your classes have dependencies that they construct themselves. While it's best to use a system like dependency injection to avoid this, MockK makes it possible to control constructors and make them return a mocked instance.

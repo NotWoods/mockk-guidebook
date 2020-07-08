@@ -1,3 +1,7 @@
+---
+title: Automatically stub by relaxing
+---
+
 # Automatically stub by relaxing
 
 If a method has not been stubbed, MockK will throw an error if it is called. This is designed to help make your tests easier to debug, as you'll know if you forgot to mock a method.

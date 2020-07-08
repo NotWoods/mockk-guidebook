@@ -1,3 +1,10 @@
+---
+title: Create a mock
+summary: >
+  The similarities and differences in creating mocks between Mockito and MockK.
+weight: 1
+---
+
 # Create a mock
 
 The syntax to create a mock is very similar in Mockito and MockK. However, the behaviour is slightly different.

@@ -1,3 +1,7 @@
+---
+title: Mock top-level and extension functions
+---
+
 # Mock top-level and extension functions
 
 ## Top-level functions

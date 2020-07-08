@@ -1,3 +1,7 @@
+---
+title: Assertions with an argument
+---
+
 # Run assertions with an argument
 
 - `withArg`

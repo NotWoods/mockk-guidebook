@@ -1,3 +1,7 @@
+---
+title: Stub out behaviour
+---
+
 # Stub out behaviour
 
 Your Kotlin classes often depends on other objects and functions when running. When you are writing tests for your classes, you only want to test the class itself and not the dependency. MockK helps you create pretend versions of those dependencies instead of using the real versions.

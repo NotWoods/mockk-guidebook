@@ -6,6 +6,7 @@ This resource is designed to help you learn how to use MockK, whether you're new
 
 Written by <br><a style="color:inherit" href="https://tigeroakes.com"><svg width="135" height="20" viewBox="0 0 88 13" xmlns="http://www.w3.org/2000/svg" fill="currentColor" stroke="currentColor">
   <g transform="translate(.5 .5)">
+    <title>Tiger Oakes</title>
     <path d="M0 0h12v12H0z" fill="none"/>
     <circle cx="3" cy="4" r="1.5" fill="none"/>
     <circle cx="9" cy="4" r="1.5" fill="none"/>

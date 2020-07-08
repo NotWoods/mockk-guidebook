@@ -1,3 +1,10 @@
+---
+title: "`when` and `do*`"
+summary: >
+  `when(x).thenReturn(y)`, `doReturn`, and more.
+weight: 10
+---
+
 # `when` and `do*`
 
 Mockito provides two similar approaches for stubbing behaviour on a mock: the `when` method and the `do*` family of methods.

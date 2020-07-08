@@ -1,3 +1,10 @@
+---
+title: "`eq`"
+summary: >
+  Mockito's `eq`, `refEq`, and `same` argument matchers.
+weight: 20
+---
+
 # `eq`
 
 By default, Mockito verifies argument values by using the `equals()` method, which corresponds to `==` in Kotlin.
