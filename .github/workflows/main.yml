@@ -18,18 +18,14 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
+    - name: Checkout Repo
+      uses: actions/checkout@v2
       with:
         persist-credentials: false
+        submodules: true
 
-    - name: Install and Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
-      run: |
-        npm install
-        npm run build
-
-    - name: Deploy to GitHub Pages
-      uses: JamesIves/github-pages-deploy-action@3.5.3
+    - name: Publish Site
+      uses: chabad360/hugo-gh-pages@v1.2
       with:
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        BRANCH: gh-pages # The branch the action should deploy to.
-        FOLDER: _book    # The folder the action should deploy.
+        githubToken: ${{ secrets.ACCESS_TOKEN }}
+        branch: gh-pages # The branch the action should deploy to.
