@@ -1,5 +1,8 @@
 ---
 title: Mock constructors in code you don't own
+summary: >
+  Advanced mocking with `mockkConstructor`.
+weight: 60
 ---
 
 # Mock constructors in code you don't own

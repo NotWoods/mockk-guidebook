@@ -1,5 +1,8 @@
 ---
 title: Comparables
+summary: >
+  Matching smaller numbers, bigger numbers, and `more`.
+weight: 80
 ---
 
 # Comparables

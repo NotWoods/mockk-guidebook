@@ -1,5 +1,8 @@
 ---
 title: Coroutines and suspend functions
+summary: >
+  Using `coEvery`, `coVerify`, and more to mock coroutines.
+weight: 50
 ---
 
 # Coroutines and suspend functions

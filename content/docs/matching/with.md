@@ -1,5 +1,8 @@
 ---
 title: Assertions with an argument
+summary: >
+  Using `withArg` to run assertions in `verify` calls.
+weight: 40
 ---
 
 # Run assertions with an argument

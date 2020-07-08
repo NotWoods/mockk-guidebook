@@ -1,5 +1,8 @@
 ---
 title: Mock top-level and extension functions
+summary: >
+  Mocking top-level functions with `mockkStatic`.
+weight: 80
 ---
 
 # Mock top-level and extension functions

@@ -1,5 +1,8 @@
 ---
 title: Stub out behaviour
+summary: >
+  Using `every` and `returns` to define behaviour.
+weight: 10
 ---
 
 # Stub out behaviour

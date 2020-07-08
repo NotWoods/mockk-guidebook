@@ -1,5 +1,8 @@
 ---
 title: Automatically stub by relaxing
+summary: >
+  How to change the default `mockk` result with `relaxed`.
+weight: 30
 ---
 
 # Automatically stub by relaxing

@@ -1,5 +1,8 @@
 ---
 title: Create many mocks quickly with annotations
+summary: >
+  The `@MockK` and `@SpyK` shortcuts.
+weight: 100
 ---
 
 # Create many mocks quickly with annotations

@@ -1,5 +1,8 @@
 ---
 title: Mock singleton objects and static methods
+summary: >
+  Advanced static mocking with `mockkStatic` and `mockkObject`.
+weight: 70
 ---
 
 # Mock singleton objects and static methods

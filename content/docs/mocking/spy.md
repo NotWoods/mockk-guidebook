@@ -1,5 +1,8 @@
 ---
 title: Spy on existing classes
+summary: >
+  Using `spyk` to mix mocks and real classes.
+weight: 40
 ---
 
 # Spy on existing classes
