@@ -28,6 +28,24 @@
     </item>
     
     <item>
+      <title>Check equality</title>
+      <link>https://notwoods.github.io/mockk-guidebook/docs/matching/equal/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://notwoods.github.io/mockk-guidebook/docs/matching/equal/</guid>
+      <description>(TODO) Checking if an argument is equal using &lt;code&gt;eq&lt;/code&gt;, &lt;code&gt;refEq&lt;/code&gt;, &lt;code&gt;isNull&lt;/code&gt;, and more.</description>
+    </item>
+    
+    <item>
+      <title>Stub out behaviour</title>
+      <link>https://notwoods.github.io/mockk-guidebook/docs/mocking/stubbing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://notwoods.github.io/mockk-guidebook/docs/mocking/stubbing/</guid>
+      <description>Using &lt;code&gt;every&lt;/code&gt; and &lt;code&gt;returns&lt;/code&gt; to define behaviour.</description>
+    </item>
+    
+    <item>
       <title>Why use mocks</title>
       <link>https://notwoods.github.io/mockk-guidebook/docs/getting-started/why-mocking/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -43,6 +61,24 @@
       
       <guid>https://notwoods.github.io/mockk-guidebook/docs/mockito-migrate/eq/</guid>
       <description>Mockito&amp;rsquo;s &lt;code&gt;eq&lt;/code&gt;, &lt;code&gt;refEq&lt;/code&gt;, and &lt;code&gt;same&lt;/code&gt; argument matchers.</description>
+    </item>
+    
+    <item>
+      <title>Allow any argument</title>
+      <link>https://notwoods.github.io/mockk-guidebook/docs/matching/any/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://notwoods.github.io/mockk-guidebook/docs/matching/any/</guid>
+      <description>(TODO) &lt;code&gt;any&lt;/code&gt;thing goes here.</description>
+    </item>
+    
+    <item>
+      <title>Verify that functions were called</title>
+      <link>https://notwoods.github.io/mockk-guidebook/docs/mocking/verify/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://notwoods.github.io/mockk-guidebook/docs/mocking/verify/</guid>
+      <description>Using &lt;code&gt;verify&lt;/code&gt; to check that a function was used.</description>
     </item>
     
     <item>
@@ -64,12 +100,48 @@
     </item>
     
     <item>
+      <title>Argument of a certain type</title>
+      <link>https://notwoods.github.io/mockk-guidebook/docs/matching/oftype/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://notwoods.github.io/mockk-guidebook/docs/matching/oftype/</guid>
+      <description>(TODO) Don&amp;rsquo;t allow anyone, just arguments that are &lt;code&gt;ofType&lt;/code&gt;.</description>
+    </item>
+    
+    <item>
+      <title>Automatically stub by relaxing</title>
+      <link>https://notwoods.github.io/mockk-guidebook/docs/mocking/relax/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://notwoods.github.io/mockk-guidebook/docs/mocking/relax/</guid>
+      <description>How to change the default &lt;code&gt;mockk&lt;/code&gt; result with &lt;code&gt;relaxed&lt;/code&gt;.</description>
+    </item>
+    
+    <item>
       <title>`verify`</title>
       <link>https://notwoods.github.io/mockk-guidebook/docs/mockito-migrate/verify/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://notwoods.github.io/mockk-guidebook/docs/mockito-migrate/verify/</guid>
       <description>&lt;code&gt;verify&lt;/code&gt; that a method was called.</description>
+    </item>
+    
+    <item>
+      <title>Assertions with an argument</title>
+      <link>https://notwoods.github.io/mockk-guidebook/docs/matching/with/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://notwoods.github.io/mockk-guidebook/docs/matching/with/</guid>
+      <description>Using &lt;code&gt;withArg&lt;/code&gt; to run assertions in &lt;code&gt;verify&lt;/code&gt; calls.</description>
+    </item>
+    
+    <item>
+      <title>Spy on existing classes</title>
+      <link>https://notwoods.github.io/mockk-guidebook/docs/mocking/spy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://notwoods.github.io/mockk-guidebook/docs/mocking/spy/</guid>
+      <description>Using &lt;code&gt;spyk&lt;/code&gt; to mix mocks and real classes.</description>
     </item>
     
     <item>
@@ -82,12 +154,48 @@
     </item>
     
     <item>
+      <title>Coroutines and suspend functions</title>
+      <link>https://notwoods.github.io/mockk-guidebook/docs/mocking/coroutines/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://notwoods.github.io/mockk-guidebook/docs/mocking/coroutines/</guid>
+      <description>Using &lt;code&gt;coEvery&lt;/code&gt;, &lt;code&gt;coVerify&lt;/code&gt;, and more to mock coroutines.</description>
+    </item>
+    
+    <item>
+      <title>Custom matching functions</title>
+      <link>https://notwoods.github.io/mockk-guidebook/docs/matching/custom/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://notwoods.github.io/mockk-guidebook/docs/matching/custom/</guid>
+      <description>(TODO) Adding additional matchers with the &lt;code&gt;match&lt;/code&gt; function.</description>
+    </item>
+    
+    <item>
       <title>ArgumentCaptor</title>
       <link>https://notwoods.github.io/mockk-guidebook/docs/mockito-migrate/argument-captor/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://notwoods.github.io/mockk-guidebook/docs/mockito-migrate/argument-captor/</guid>
       <description>(TODO) Capturing arguments to check them later.</description>
+    </item>
+    
+    <item>
+      <title>Capture arguments to check later</title>
+      <link>https://notwoods.github.io/mockk-guidebook/docs/matching/capture/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://notwoods.github.io/mockk-guidebook/docs/matching/capture/</guid>
+      <description>(TODO) &lt;code&gt;capture&lt;/code&gt; arguments out of stubs and verify calls into a &lt;code&gt;slot&lt;/code&gt;.</description>
+    </item>
+    
+    <item>
+      <title>Mock constructors in code you don&#39;t own</title>
+      <link>https://notwoods.github.io/mockk-guidebook/docs/mocking/constructor/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://notwoods.github.io/mockk-guidebook/docs/mocking/constructor/</guid>
+      <description>Advanced mocking with &lt;code&gt;mockkConstructor&lt;/code&gt;.</description>
     </item>
     
     <item>
@@ -100,21 +208,84 @@
     </item>
     
     <item>
-      <title></title>
-      <link>https://notwoods.github.io/mockk-guidebook/docs/mocking/answers/</link>
+      <title>Mock singleton objects and static methods</title>
+      <link>https://notwoods.github.io/mockk-guidebook/docs/mocking/static/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://notwoods.github.io/mockk-guidebook/docs/mocking/answers/</guid>
-      <description></description>
+      <guid>https://notwoods.github.io/mockk-guidebook/docs/mocking/static/</guid>
+      <description>Advanced static mocking with &lt;code&gt;mockkStatic&lt;/code&gt; and &lt;code&gt;mockkObject&lt;/code&gt;.</description>
     </item>
     
     <item>
-      <title></title>
+      <title>Variable arguments</title>
+      <link>https://notwoods.github.io/mockk-guidebook/docs/matching/vararg/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://notwoods.github.io/mockk-guidebook/docs/matching/vararg/</guid>
+      <description>(TODO) Matching variable arguments with &lt;code&gt;anyVararg&lt;/code&gt; and more.</description>
+    </item>
+    
+    <item>
+      <title>Comparables</title>
+      <link>https://notwoods.github.io/mockk-guidebook/docs/matching/compareto/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://notwoods.github.io/mockk-guidebook/docs/matching/compareto/</guid>
+      <description>Matching smaller numbers, bigger numbers, and &lt;code&gt;more&lt;/code&gt;.</description>
+    </item>
+    
+    <item>
+      <title>Mock top-level and extension functions</title>
+      <link>https://notwoods.github.io/mockk-guidebook/docs/mocking/extension/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://notwoods.github.io/mockk-guidebook/docs/mocking/extension/</guid>
+      <description>Mocking top-level functions with &lt;code&gt;mockkStatic&lt;/code&gt;.</description>
+    </item>
+    
+    <item>
+      <title>Clear state</title>
+      <link>https://notwoods.github.io/mockk-guidebook/docs/mocking/clear/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://notwoods.github.io/mockk-guidebook/docs/mocking/clear/</guid>
+      <description>(TODO) Clearing the state of a mock.</description>
+    </item>
+    
+    <item>
+      <title>Combine matchers</title>
+      <link>https://notwoods.github.io/mockk-guidebook/docs/matching/combine/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://notwoods.github.io/mockk-guidebook/docs/matching/combine/</guid>
+      <description>(TODO) Logical operators &lt;code&gt;and&lt;/code&gt;, &lt;code&gt;or&lt;/code&gt;, &lt;code&gt;not&lt;/code&gt; for matchers.</description>
+    </item>
+    
+    <item>
+      <title>Create many mocks quickly with annotations</title>
+      <link>https://notwoods.github.io/mockk-guidebook/docs/mocking/annotation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://notwoods.github.io/mockk-guidebook/docs/mocking/annotation/</guid>
+      <description>The &lt;code&gt;@MockK&lt;/code&gt; and &lt;code&gt;@SpyK&lt;/code&gt; shortcuts.</description>
+    </item>
+    
+    <item>
+      <title>Chain mocks into hierarchies</title>
       <link>https://notwoods.github.io/mockk-guidebook/docs/mocking/hierarchies/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://notwoods.github.io/mockk-guidebook/docs/mocking/hierarchies/</guid>
-      <description></description>
+      <description>(TODO) Building a mock with less code using lambdas.</description>
+    </item>
+    
+    <item>
+      <title>Create more complicated answers for stubs</title>
+      <link>https://notwoods.github.io/mockk-guidebook/docs/mocking/answers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://notwoods.github.io/mockk-guidebook/docs/mocking/answers/</guid>
+      <description>(TODO) Using &lt;code&gt;answers&lt;/code&gt; when &lt;code&gt;returns&lt;/code&gt; just isn&amp;rsquo;t enough.</description>
     </item>
     
     <item>
@@ -163,188 +334,6 @@ To install MockK, all you need to do is add it as a dependency in your module&am
       <description>Return Unit #  When stubbing a function that returns nothing, MockK provides a few shortcuts.
 val logger = mockk&amp;lt;Logger&amp;gt;() every { logger.log(any()) } returns Unit every { logger.log(any()) } answers { Unit } every { logger.log(any()) } just Runs justRun { logger.log(any()) } just Runs is the nicest to use, since its shorter than returns and answers and additionally works with coEvery.
 coEvery { logger.log(any()) } just Runs </description>
-    </item>
-    
-    <item>
-      <title>Allow any argument</title>
-      <link>https://notwoods.github.io/mockk-guidebook/docs/matching/any/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://notwoods.github.io/mockk-guidebook/docs/matching/any/</guid>
-      <description>Allowing any argument #   any allAny  </description>
-    </item>
-    
-    <item>
-      <title>Argument of a certain type</title>
-      <link>https://notwoods.github.io/mockk-guidebook/docs/matching/oftype/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://notwoods.github.io/mockk-guidebook/docs/matching/oftype/</guid>
-      <description>Argument of a certain type #   ofType  </description>
-    </item>
-    
-    <item>
-      <title>Assertions with an argument</title>
-      <link>https://notwoods.github.io/mockk-guidebook/docs/matching/with/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://notwoods.github.io/mockk-guidebook/docs/matching/with/</guid>
-      <description>Run assertions with an argument #   withArg withNullableArg coWithArg coWithNullableArg  There are some special argument matchers that can only be used when verifying that a mocked function was called. withArg and its variants allow you to capture an argument and run your own assertions on it without the need to set up a capturing slot.
-data class File( val name: String, val data: ByteArray ) interface FileNetwork { fun download(name: String): File fun upload(file: File) } When using a capturing slot, testing the FileNetwork.</description>
-    </item>
-    
-    <item>
-      <title>Automatically stub by relaxing</title>
-      <link>https://notwoods.github.io/mockk-guidebook/docs/mocking/relax/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://notwoods.github.io/mockk-guidebook/docs/mocking/relax/</guid>
-      <description>Automatically stub by relaxing #  If a method has not been stubbed, MockK will throw an error if it is called. This is designed to help make your tests easier to debug, as you&amp;rsquo;ll know if you forgot to mock a method.
-interface Navigator { val currentLocation: String fun navigateTo(newLocation: String): Unit } val navigator = mockk&amp;lt;Navigator&amp;gt;() every { navigator.currentLocation } returns &amp;#34;Home&amp;#34; // prints &amp;#34;Home&amp;#34; println(navigator.currentLocation) // throws an error navigator.</description>
-    </item>
-    
-    <item>
-      <title>Capture arguments to check later</title>
-      <link>https://notwoods.github.io/mockk-guidebook/docs/matching/capture/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://notwoods.github.io/mockk-guidebook/docs/matching/capture/</guid>
-      <description>Capturing arguments to check later #   capture captureNullable captureLambda captureCoroutine invoke/coInvoke (maybe?)  </description>
-    </item>
-    
-    <item>
-      <title>Check equality</title>
-      <link>https://notwoods.github.io/mockk-guidebook/docs/matching/equal/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://notwoods.github.io/mockk-guidebook/docs/matching/equal/</guid>
-      <description>Checking equality #   eq/neq isNull refEq/nrefEq cmpEq  </description>
-    </item>
-    
-    <item>
-      <title>Clear state</title>
-      <link>https://notwoods.github.io/mockk-guidebook/docs/mocking/clear/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://notwoods.github.io/mockk-guidebook/docs/mocking/clear/</guid>
-      <description>Clear state #  </description>
-    </item>
-    
-    <item>
-      <title>Combine matchers</title>
-      <link>https://notwoods.github.io/mockk-guidebook/docs/matching/combine/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://notwoods.github.io/mockk-guidebook/docs/matching/combine/</guid>
-      <description>Combining matchers #   and or not  </description>
-    </item>
-    
-    <item>
-      <title>Comparables</title>
-      <link>https://notwoods.github.io/mockk-guidebook/docs/matching/compareto/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://notwoods.github.io/mockk-guidebook/docs/matching/compareto/</guid>
-      <description>Comparables #   less more range cmpEq  MockK provides a few argument matchers for numbers and comparable objects. These matches all use the compareTo function to compare objects.
-more #  Checks if the argument is more than the value given to the matcher. Valid arguments will return a negative number when compared to the matcher value.
-assertTrue(value.compareTo(arg) &amp;lt; 0) less #  Checks if the argument is less than the value given to the matcher.</description>
-    </item>
-    
-    <item>
-      <title>Coroutines and suspend functions</title>
-      <link>https://notwoods.github.io/mockk-guidebook/docs/mocking/coroutines/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://notwoods.github.io/mockk-guidebook/docs/mocking/coroutines/</guid>
-      <description>Coroutines and suspend functions #  As MockK uses function literals to create stubs, small changes are needed to stub suspend functions. MockK provides functions prefixed with co as equivalents to other functions, such as coEvery and coAnswers.
-val mockedFile = mockk&amp;lt;File&amp;gt;() coEvery { mockedFile.readAsync() } returns &amp;#34;hello world&amp;#34; coEvery { mockedFile.writeAsync(any()) } coAnswers { call -&amp;gt; doAsyncWork() Unit } </description>
-    </item>
-    
-    <item>
-      <title>Create many mocks quickly with annotations</title>
-      <link>https://notwoods.github.io/mockk-guidebook/docs/mocking/annotation/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://notwoods.github.io/mockk-guidebook/docs/mocking/annotation/</guid>
-      <description>Create many mocks quickly with annotations #  Sometimes you will need to create many mocks in your test class. As each mock needs to be declared as a property in the test class, then initialized in the test setup function, the amount of code needed to build all your mocks can grow very quickly. MockK provides a shorthand using annotations to make this simpler.
-class RepositoryTest { @MockK private lateinit var foodDatabase: FoodDatabase @MockK private lateinit var recipeDatabase: RecipeDatabase @MockK private lateinit var networkClient: NetworkClient @SpyK private var logger = Logger() @Before fun setup() { MockKAnnotations.</description>
-    </item>
-    
-    <item>
-      <title>Custom matching functions</title>
-      <link>https://notwoods.github.io/mockk-guidebook/docs/matching/custom/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://notwoods.github.io/mockk-guidebook/docs/matching/custom/</guid>
-      <description>Custom matching functions #   match coMatch matchNullable coMatchNullable  </description>
-    </item>
-    
-    <item>
-      <title>Mock constructors in code you don&#39;t own</title>
-      <link>https://notwoods.github.io/mockk-guidebook/docs/mocking/constructor/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://notwoods.github.io/mockk-guidebook/docs/mocking/constructor/</guid>
-      <description>Mock constructors in code you don&amp;rsquo;t own #  Sometimes your classes have dependencies that they construct themselves. While it&amp;rsquo;s best to use a system like dependency injection to avoid this, MockK makes it possible to control constructors and make them return a mocked instance.
-The mockkConstructor(T::class) function takes in a class reference. Once used, every constructor of that type will start returning a singleton that can be mocked. Rather than building a new instance every time the constructor is called, MockK generates a singleton and always returns the same instance.</description>
-    </item>
-    
-    <item>
-      <title>Mock singleton objects and static methods</title>
-      <link>https://notwoods.github.io/mockk-guidebook/docs/mocking/static/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://notwoods.github.io/mockk-guidebook/docs/mocking/static/</guid>
-      <description>Mock singleton objects and static methods #  Mocking objects #  When you need a singleton in Kotlin, you can use an object. These specialized classes will only ever have one instance, so you can&amp;rsquo;t mock them in the usual manner. Instead, MockK provides specialized functions to create object mocks.
-object FeatureFlags { val featureEnabled = true } mockkObject(FeatureFlags) every { FeatureFlags.featureEnabled } returns false // prints false println(FeatureFlags.featureEnabled) Despite the name, object mocks behave more like spies.</description>
-    </item>
-    
-    <item>
-      <title>Mock top-level and extension functions</title>
-      <link>https://notwoods.github.io/mockk-guidebook/docs/mocking/extension/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://notwoods.github.io/mockk-guidebook/docs/mocking/extension/</guid>
-      <description>Mock top-level and extension functions #  Top-level functions #  Kotlin lets you write functions that don&amp;rsquo;t belong to any class or object, called top-level functions. These calls are translated to static methods in Java, and a special Java class is generated to hold the functions. These top-level functions can be mocked using mockkStatic, but you need to figure out the class name of this generated Java class.
-Finding the class name #  TODO</description>
-    </item>
-    
-    <item>
-      <title>Spy on existing classes</title>
-      <link>https://notwoods.github.io/mockk-guidebook/docs/mocking/spy/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://notwoods.github.io/mockk-guidebook/docs/mocking/spy/</guid>
-      <description>Spy on existing classes #  Rather than mocking an object, you can create spies of real objects. Spies will run the real methods in a class, unlike mocks which don&amp;rsquo;t run anything. Stubbing methods on a spy will run the stub instead, so you can have a mixture of real methods and stubbed methods.
-Spies get their name because you can spy on the code you&amp;rsquo;re testing and see what methods it called.</description>
-    </item>
-    
-    <item>
-      <title>Stub out behaviour</title>
-      <link>https://notwoods.github.io/mockk-guidebook/docs/mocking/stubbing/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://notwoods.github.io/mockk-guidebook/docs/mocking/stubbing/</guid>
-      <description>Stub out behaviour #  Your Kotlin classes often depends on other objects and functions when running. When you are writing tests for your classes, you only want to test the class itself and not the dependency. MockK helps you create pretend versions of those dependencies instead of using the real versions.
-Stubbing allows you to setup canned answers when functions are called. You only need to stub methods that are called by your class, and you can ignore methods that aren&amp;rsquo;t run during your test.</description>
-    </item>
-    
-    <item>
-      <title>Variable arguments</title>
-      <link>https://notwoods.github.io/mockk-guidebook/docs/matching/vararg/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://notwoods.github.io/mockk-guidebook/docs/matching/vararg/</guid>
-      <description>Variable arguments #   anyVararg varargAny varargAll any...Vararg varargAny... varargAll...  </description>
-    </item>
-    
-    <item>
-      <title>Verify that functions were called</title>
-      <link>https://notwoods.github.io/mockk-guidebook/docs/mocking/verify/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://notwoods.github.io/mockk-guidebook/docs/mocking/verify/</guid>
-      <description>Verify that functions were called #  TODO</description>
     </item>
     
   </channel>

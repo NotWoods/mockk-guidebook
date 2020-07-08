@@ -10,12 +10,21 @@
     
     
     <item>
+      <title>Check equality</title>
+      <link>https://notwoods.github.io/mockk-guidebook/docs/matching/equal/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://notwoods.github.io/mockk-guidebook/docs/matching/equal/</guid>
+      <description>(TODO) Checking if an argument is equal using &lt;code&gt;eq&lt;/code&gt;, &lt;code&gt;refEq&lt;/code&gt;, &lt;code&gt;isNull&lt;/code&gt;, and more.</description>
+    </item>
+    
+    <item>
       <title>Allow any argument</title>
       <link>https://notwoods.github.io/mockk-guidebook/docs/matching/any/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://notwoods.github.io/mockk-guidebook/docs/matching/any/</guid>
-      <description>Allowing any argument #   any allAny  </description>
+      <description>(TODO) &lt;code&gt;any&lt;/code&gt;thing goes here.</description>
     </item>
     
     <item>
@@ -24,7 +33,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://notwoods.github.io/mockk-guidebook/docs/matching/oftype/</guid>
-      <description>Argument of a certain type #   ofType  </description>
+      <description>(TODO) Don&amp;rsquo;t allow anyone, just arguments that are &lt;code&gt;ofType&lt;/code&gt;.</description>
     </item>
     
     <item>
@@ -33,46 +42,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://notwoods.github.io/mockk-guidebook/docs/matching/with/</guid>
-      <description>Run assertions with an argument #   withArg withNullableArg coWithArg coWithNullableArg  There are some special argument matchers that can only be used when verifying that a mocked function was called. withArg and its variants allow you to capture an argument and run your own assertions on it without the need to set up a capturing slot.
-data class File( val name: String, val data: ByteArray ) interface FileNetwork { fun download(name: String): File fun upload(file: File) } When using a capturing slot, testing the FileNetwork.</description>
-    </item>
-    
-    <item>
-      <title>Capture arguments to check later</title>
-      <link>https://notwoods.github.io/mockk-guidebook/docs/matching/capture/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://notwoods.github.io/mockk-guidebook/docs/matching/capture/</guid>
-      <description>Capturing arguments to check later #   capture captureNullable captureLambda captureCoroutine invoke/coInvoke (maybe?)  </description>
-    </item>
-    
-    <item>
-      <title>Check equality</title>
-      <link>https://notwoods.github.io/mockk-guidebook/docs/matching/equal/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://notwoods.github.io/mockk-guidebook/docs/matching/equal/</guid>
-      <description>Checking equality #   eq/neq isNull refEq/nrefEq cmpEq  </description>
-    </item>
-    
-    <item>
-      <title>Combine matchers</title>
-      <link>https://notwoods.github.io/mockk-guidebook/docs/matching/combine/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://notwoods.github.io/mockk-guidebook/docs/matching/combine/</guid>
-      <description>Combining matchers #   and or not  </description>
-    </item>
-    
-    <item>
-      <title>Comparables</title>
-      <link>https://notwoods.github.io/mockk-guidebook/docs/matching/compareto/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://notwoods.github.io/mockk-guidebook/docs/matching/compareto/</guid>
-      <description>Comparables #   less more range cmpEq  MockK provides a few argument matchers for numbers and comparable objects. These matches all use the compareTo function to compare objects.
-more #  Checks if the argument is more than the value given to the matcher. Valid arguments will return a negative number when compared to the matcher value.
-assertTrue(value.compareTo(arg) &amp;lt; 0) less #  Checks if the argument is less than the value given to the matcher.</description>
+      <description>Using &lt;code&gt;withArg&lt;/code&gt; to run assertions in &lt;code&gt;verify&lt;/code&gt; calls.</description>
     </item>
     
     <item>
@@ -81,7 +51,16 @@ assertTrue(value.compareTo(arg) &amp;lt; 0) less #  Checks if the argument is le
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://notwoods.github.io/mockk-guidebook/docs/matching/custom/</guid>
-      <description>Custom matching functions #   match coMatch matchNullable coMatchNullable  </description>
+      <description>(TODO) Adding additional matchers with the &lt;code&gt;match&lt;/code&gt; function.</description>
+    </item>
+    
+    <item>
+      <title>Capture arguments to check later</title>
+      <link>https://notwoods.github.io/mockk-guidebook/docs/matching/capture/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://notwoods.github.io/mockk-guidebook/docs/matching/capture/</guid>
+      <description>(TODO) &lt;code&gt;capture&lt;/code&gt; arguments out of stubs and verify calls into a &lt;code&gt;slot&lt;/code&gt;.</description>
     </item>
     
     <item>
@@ -90,7 +69,25 @@ assertTrue(value.compareTo(arg) &amp;lt; 0) less #  Checks if the argument is le
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://notwoods.github.io/mockk-guidebook/docs/matching/vararg/</guid>
-      <description>Variable arguments #   anyVararg varargAny varargAll any...Vararg varargAny... varargAll...  </description>
+      <description>(TODO) Matching variable arguments with &lt;code&gt;anyVararg&lt;/code&gt; and more.</description>
+    </item>
+    
+    <item>
+      <title>Comparables</title>
+      <link>https://notwoods.github.io/mockk-guidebook/docs/matching/compareto/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://notwoods.github.io/mockk-guidebook/docs/matching/compareto/</guid>
+      <description>Matching smaller numbers, bigger numbers, and &lt;code&gt;more&lt;/code&gt;.</description>
+    </item>
+    
+    <item>
+      <title>Combine matchers</title>
+      <link>https://notwoods.github.io/mockk-guidebook/docs/matching/combine/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://notwoods.github.io/mockk-guidebook/docs/matching/combine/</guid>
+      <description>(TODO) Logical operators &lt;code&gt;and&lt;/code&gt;, &lt;code&gt;or&lt;/code&gt;, &lt;code&gt;not&lt;/code&gt; for matchers.</description>
     </item>
     
   </channel>
