@@ -9,7 +9,7 @@
 <meta property="og:description" content="verify that a method was called." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://notwoods.github.io/mockk-guidebook/docs/mockito-migrate/verify/" />
-<meta property="article:modified_time" content="2020-07-08T16:12:14-07:00" />
+<meta property="article:modified_time" content="2020-07-09T12:16:26-07:00" />
 <title>`verify` | MockK Guidebook</title>
 <link rel="manifest" href="/mockk-guidebook/manifest.json">
 <link rel="icon" href="/mockk-guidebook/favicon.png" type="image/x-icon">
@@ -328,7 +328,7 @@ verify { listOf(mockTwo, mockThree) wasNot Called }
   <a class="anchor" href="#coroutines">#</a>
 </h2>
 <p>As MockK uses function literals to create stubs, small changes are needed to verify suspend functions. MockK provides functions prefixed with <code>co</code> as equivalents to other functions, such as <code>coVerify</code>. See 
-  <a href="../matching/coroutines.md">Coroutines and suspend functions</a> for more details.</p>
+  <a href="/mockk-guidebook/docs/mocking/coroutines/">Coroutines and suspend functions</a> for more details.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">val</span> mockedFile = mockk&lt;File&gt;()
 
 coVerify { mockedFile.readAsync() }
@@ -342,9 +342,9 @@ coVerify { mockedFile.readAsync() }
 
 
 
-  <div><a class="flex align-center" href="https://github.com/NotWoods/mockk-guidebook//commit/d6ddc3d80a5dd35c96a65e595b23cee14520da82" title='Last modified by Tiger Oakes | July 8, 2020' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/NotWoods/mockk-guidebook//commit/376a61532beac4358625b58594eceb30b6ff46fb" title='Last modified by Tiger Oakes | July 9, 2020' target="_blank" rel="noopener">
       <img src="/mockk-guidebook/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>July 8, 2020</span>
+      <span>July 9, 2020</span>
     </a>
   </div>
 
