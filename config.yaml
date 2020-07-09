@@ -2,6 +2,12 @@ baseURL: https://notwoods.github.io/mockk-guidebook/
 title: MockK Guidebook
 theme: book
 
+disableKinds:
+  - RSS
+  - taxonomy
+  - taxonomyTerm
+  - term
+
 # Book configuration
 enableGitInfo: true
 

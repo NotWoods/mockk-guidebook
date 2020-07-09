@@ -111,7 +111,7 @@ confirmVerified(mockOne, mockTwo)
 
 ## Coroutines
 
-As MockK uses function literals to create stubs, small changes are needed to verify suspend functions. MockK provides functions prefixed with `co` as equivalents to other functions, such as `coVerify`. See [Coroutines and suspend functions](../matching/coroutines.md) for more details.
+As MockK uses function literals to create stubs, small changes are needed to verify suspend functions. MockK provides functions prefixed with `co` as equivalents to other functions, such as `coVerify`. See [Coroutines and suspend functions](../mocking/coroutines.md) for more details.
 
 ```kotlin
 val mockedFile = mockk<File>()

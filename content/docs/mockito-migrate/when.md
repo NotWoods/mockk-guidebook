@@ -143,7 +143,7 @@ every { mockedFile.read() } returns "successful read" andThenThrows RuntimeExcep
 
 ## Coroutines
 
-As MockK uses function literals to create stubs, small changes are needed to stub suspend functions. MockK provides functions prefixed with `co` as equivalents to other functions, such as `coEvery` and `coAnswers`. See [Coroutines and suspend functions](../matching/coroutines.md) for more details.
+As MockK uses function literals to create stubs, small changes are needed to stub suspend functions. MockK provides functions prefixed with `co` as equivalents to other functions, such as `coEvery` and `coAnswers`. See [Coroutines and suspend functions](../mocking/coroutines.md) for more details.
 
 ```kotlin
 val mockedFile = mockk<File>()
