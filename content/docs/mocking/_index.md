@@ -1,5 +1,7 @@
 ---
 title: Mocking
+summary: >
+  Mocking start with one call, the `mockk` function.
 ---
 
 # Mocking
