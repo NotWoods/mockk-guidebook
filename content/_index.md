@@ -7,6 +7,8 @@ aliases:
 
 # MockK Guidebook
 
+<img alt="" src="cover/mockk-bike-iso-transparent.svg" width="640" height="320">
+
 A guide to using the [MockK testing library](https://mockk.io/).
 
 - Pages that are ~~crossed out~~ are not yet written.

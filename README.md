@@ -1,5 +1,7 @@
 # MockK Guidebook
 
+<img alt="" src="static/cover/mockk-bike-iso.png" width="640" height="320">
+
 A guide to using the [MockK testing library](https://mockk.io/).
 
 This resource is designed to help you learn how to use MockK, whether you're new to mocking or [transitioning from another framework](./content/docs/mockito-migrate). You can skim and skip around different pages. It's a living document, so it will be receiving updates to add more information over time.
