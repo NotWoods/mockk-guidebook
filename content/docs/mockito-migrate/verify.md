@@ -29,6 +29,18 @@ verify { mockedFile.read() }
 
 Mockito lets extra arguments such as `never()` be passed to verify in the second parameter, all of which implement a `VerificationMode` interface. MockK has equivalents for these modes as keyword arguments in `verify`.
 
+### `never`
+
+```kotlin
+// Mockito
+verify(mockedFile, never()).write()
+```
+
+```kotlin
+// MockK
+verify(inverse = true) { mockedFile.write() }
+```
+
 ### `atLeast`/`atLeastOnce`
 
 ```kotlin
@@ -57,18 +69,16 @@ verify(atMost = 3) { mockedFile.read() }
 verify(atMost = 1) { mockedFile.write() }
 ```
 
-### `never`/`times`
+### `times`
 
 ```kotlin
 // Mockito
 verify(mockedFile, times(3)).read()
-verify(mockedFile, never()).write()
 ```
 
 ```kotlin
 // MockK
 verify(exactly = 3) { mockedFile.read() }
-verify(exactly = 0) { mockedFile.write() }
 ```
 
 ### `timeout`

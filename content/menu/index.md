@@ -8,7 +8,7 @@ headless: true
 * [Android Quickstart](docs/quick/android.md)
 * [**Mocking**](docs/mocking/)
   * [Stub out behaviour](docs/mocking/stubbing.md)
-  * [~~Verify that functions were called~~](docs/mocking/verify.md)
+  * [Verify that functions were called](docs/mocking/verify.md)
   * [Automatically stub by relaxing](docs/mocking/relax.md)
   * [Spy on existing classes](docs/mocking/spy.md)
   * [Coroutines and suspend functions](docs/mocking/coroutines.md)
