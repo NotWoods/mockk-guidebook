@@ -10,7 +10,7 @@
 <link rel="manifest" href="/mockk-guidebook/manifest.json">
 <link rel="icon" href="/mockk-guidebook/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/mockk-guidebook/book.min.745103b237c9853dec7cc6a6930b75058c5b3c455b5b3c0b19e9a8b616058f9d.css" integrity="sha256-dFEDsjfJhT3sfMamkwt1BYxbPEVbWzwLGemothYFj50=">
-<script defer src="/mockk-guidebook/en.search.min.fd5530cc49e12d2abb0f2710f80892d875dbe0beaed612aa0c8f91a084cb90cb.js" integrity="sha256-/VUwzEnhLSq7DycQ&#43;AiS2HXb4L6u1hKqDI&#43;RoITLkMs="></script>
+<script defer src="/mockk-guidebook/en.search.min.48cf0b08c49baf1a7c4ff7ff374fa4418d3b66389f74758bf4f4dbbe2af905c6.js" integrity="sha256-SM8LCMSbrxp8T/f/N0&#43;kQY07ZjifdHWL9PTbvir5BcY="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -94,7 +94,7 @@ https://github.com/alex-shpak/hugo-book
 <li>
   <a href="/mockk-guidebook/docs/mocking/stubbing/">Stub out behaviour</a></li>
 <li>
-  <a href="/mockk-guidebook/docs/mocking/verify/"class=active><del>Verify that functions were called</del></a></li>
+  <a href="/mockk-guidebook/docs/mocking/verify/"class=active>Verify that functions were called</a></li>
 <li>
   <a href="/mockk-guidebook/docs/mocking/relax/">Automatically stub by relaxing</a></li>
 <li>
@@ -231,7 +231,19 @@ https://github.com/alex-shpak/hugo-book
     
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#verify-that-functions-were-called">Verify that functions were called</a></li>
+    <li><a href="#verify-that-functions-were-called">Verify that functions were called</a>
+      <ul>
+        <li><a href="#verifying-dependencies">Verifying dependencies</a></li>
+        <li><a href="#verifying-that-a-function-is-never-called">Verifying that a function is never called</a></li>
+        <li><a href="#verifying-a-function-is-called-a-certain-number-of-times">Verifying a function is called a certain number of times</a>
+          <ul>
+            <li><a href="#using-a-range">Using a range</a></li>
+          </ul>
+        </li>
+        <li><a href="#verifying-multiple-functions">Verifying multiple functions</a></li>
+        <li><a href="#confirming-all-calls-were-verified">Confirming all calls were verified</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
@@ -247,7 +259,97 @@ https://github.com/alex-shpak/hugo-book
   Verify that functions were called
   <a class="anchor" href="#verify-that-functions-were-called">#</a>
 </h1>
-<p>TODO</p>
+<p>When using mocked dependencies, you usually want to test that your code calls the correct functions. In MockK, this is accomplished using the <code>verify</code> function.</p>
+<p>Using <code>verify</code> to verify that a function was called looks a lot like using <code>every</code> for stubbing. A simple example is to call a method and immediately check that it was called.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">import</span> io.mockk.every
+<span style="color:#66d9ef">import</span> io.mockk.mockk
+<span style="color:#66d9ef">import</span> io.mockk.verify
+
+<span style="color:#66d9ef">val</span> navigator = mockk&lt;Navigator&gt;()
+every { navigator.navigateTo(any()) } returns Unit
+
+navigator.navigateTo(<span style="color:#e6db74">&#34;Park&#34;</span>)
+verify { navigator.navigateTo(<span style="color:#e6db74">&#34;Park&#34;</span>) }
+</code></pre></div><p>Similar to 
+  <a href="../stubbing.md">stubbing with <code>every</code></a>, <code>verify</code> starts a verification block and uses anonymous functions and 
+  <a href="https://kotlinlang.org/docs/reference/functions.html#infix-notation">infix functions</a> to define what will be verified. <code>verify</code> supports the same 
+  <a href="/mockk-guidebook/docs/matching/">argument matchers</a> as <code>every</code>, along with a few 
+  <a href="/mockk-guidebook/docs/matching/with/">additional matchers</a>.</p>
+<p>Inside the verification block (between the opening curly bracket <code>{</code> and closing curly bracket <code>}</code>), you write the method you want to verify. <code>{ navigator.navigateTo(&quot;Park&quot;) }</code> tells MockK to check if the <code>navigateTo</code> method on the <code>navigator</code> object was called with the argument <code>&quot;Park&quot;</code>.</p>
+<h2 id="verifying-dependencies">
+  Verifying dependencies
+  <a class="anchor" href="#verifying-dependencies">#</a>
+</h2>
+<p>In the previous simple example, verification isn&rsquo;t very helpful as it just checks that the previous line ran. Verification becomes more useful when you are testing other classes, that depend on mocked instances. Let&rsquo;s start testing a button.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Button</span> {
+  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">var</span> clickListener: (() -&gt; Unit)? = <span style="color:#66d9ef">null</span>
+
+  <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">setOnClickListener</span>(listener: () -&gt; Unit) {
+    clickListener = listener
+  }
+
+  <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">performClick</span>() {
+    clickListener<span style="color:#f92672">?.</span>invoke()
+  }
+}
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">NavigationView</span>(
+  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">val</span> navigator: Navigator
+) {
+
+  <span style="color:#66d9ef">val</span> goToParkButton = Button()
+
+  init {
+    goToParkButton.setOnClickListener {
+      navigator.navigate(<span style="color:#e6db74">&#34;Park&#34;</span>)
+    }
+  }
+}
+</code></pre></div><p>A test for the above <code>NavigationView</code> class should check that clicking the <code>goToParkButton</code> tells the <code>navigator</code> to go to the park. If the navigator doesn&rsquo;t record where it goes, then it can be difficult to check that the button does its job correctly. This is a scenario where MockK can shine.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#75715e">// Mock the dependency needed for navigationView
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">val</span> navigator = mockk&lt;Navigator&gt;()
+every { navigator.navigateTo(any()) } returns Unit
+
+<span style="color:#75715e">// Create the navigation view to test
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">val</span> navigationView = NavigationView(navigator)
+
+<span style="color:#75715e">// Test the button in navigation view
+</span><span style="color:#75715e"></span>navigationView.goToParkButton.performClick()
+verify { navigator.navigateTo(<span style="color:#e6db74">&#34;Park&#34;</span>) }
+</code></pre></div><p>This test ensures that the button tells the navigator to go where we expect. If the <code>NavigationView</code> view gets changed in the future, the test will throw if this expectation is broken.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-diff" data-lang="diff">    goToParkButton.setOnClickListener {
+<span style="color:#f92672">-     navigator.navigate(&#34;Park&#34;)
+</span><span style="color:#f92672"></span><span style="color:#a6e22e">+     navigator.navigate(&#34;Parka&#34;)
+</span><span style="color:#a6e22e"></span>    }
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">navigationView.goToParkButton.performClick()
+<span style="color:#75715e">// Throws as navigateTo(&#34;Park&#34;) was never called.
+</span><span style="color:#75715e">// MockK will mention in the error that navigateTo(&#34;Parka&#34;) was called.
+</span><span style="color:#75715e"></span>verify { navigator.navigateTo(<span style="color:#e6db74">&#34;Park&#34;</span>) }
+</code></pre></div><h2 id="verifying-that-a-function-is-never-called">
+  Verifying that a function is never called
+  <a class="anchor" href="#verifying-that-a-function-is-never-called">#</a>
+</h2>
+<p>TODO: <code>inverse</code>, <code>wasNot Called</code></p>
+<h2 id="verifying-a-function-is-called-a-certain-number-of-times">
+  Verifying a function is called a certain number of times
+  <a class="anchor" href="#verifying-a-function-is-called-a-certain-number-of-times">#</a>
+</h2>
+<p>TODO: <code>exactly</code></p>
+<h3 id="using-a-range">
+  Using a range
+  <a class="anchor" href="#using-a-range">#</a>
+</h3>
+<p>TODO: <code>atLeast</code>, <code>atMost</code></p>
+<h2 id="verifying-multiple-functions">
+  Verifying multiple functions
+  <a class="anchor" href="#verifying-multiple-functions">#</a>
+</h2>
+<p>TODO: <code>ordering</code>, <code>verifyAll</code>,</p>
+<h2 id="confirming-all-calls-were-verified">
+  Confirming all calls were verified
+  <a class="anchor" href="#confirming-all-calls-were-verified">#</a>
+</h2>
+<p>TODO: <code>confirmVerified</code>, <code>excludeRecords</code></p>
 </article>
  
       
@@ -258,9 +360,9 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <div><a class="flex align-center" href="https://github.com/NotWoods/mockk-guidebook//commit/d8dd2a0c676bb40e7caeef05f0437bf2c5a0823c" title='Last modified by Tiger Oakes | July 11, 2020' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/NotWoods/mockk-guidebook//commit/49d3f3f1d588571130963c74f247090506977220" title='Last modified by Tiger Oakes | July 19, 2020' target="_blank" rel="noopener">
       <img src="/mockk-guidebook/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>July 11, 2020</span>
+      <span>July 19, 2020</span>
     </a>
   </div>
 
@@ -291,7 +393,19 @@ https://github.com/alex-shpak/hugo-book
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#verify-that-functions-were-called">Verify that functions were called</a></li>
+    <li><a href="#verify-that-functions-were-called">Verify that functions were called</a>
+      <ul>
+        <li><a href="#verifying-dependencies">Verifying dependencies</a></li>
+        <li><a href="#verifying-that-a-function-is-never-called">Verifying that a function is never called</a></li>
+        <li><a href="#verifying-a-function-is-called-a-certain-number-of-times">Verifying a function is called a certain number of times</a>
+          <ul>
+            <li><a href="#using-a-range">Using a range</a></li>
+          </ul>
+        </li>
+        <li><a href="#verifying-multiple-functions">Verifying multiple functions</a></li>
+        <li><a href="#confirming-all-calls-were-verified">Confirming all calls were verified</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
