@@ -96,6 +96,7 @@ verify { navigator wasNot Called }
 
 ## Verifying that a function is never called
 ```kotlin
+verify(inverse = true) { navigator.navigateTo("Park") }
 verify(exactly = 0) { navigator.navigateTo("Park") }
 ```
 
