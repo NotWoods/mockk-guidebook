@@ -102,11 +102,19 @@ verify(exactly = 0) { navigator.navigateTo("Park") }
 
 ## Verifying a function is called a certain number of times
 
-TODO: `exactly`
+```kotlin
+verify(exactly = 1) { navigator.navigateTo("Park") }
+verify(atLeast = 1, atMost = 1) { navigator.navigateTo("Park") }
+```
 
 ### Using a range
+```kotlin
+verify(atLeast = 2, atMost = 3) { navigator.navigateTo("Park") }
+```
 
-TODO: `atLeast`, `atMost`
+In the sample test will be green in the following cases:
+1. Function called two times
+2. Function called three times
 
 ## Verifying multiple functions
 
