@@ -89,9 +89,16 @@ navigationView.goToParkButton.performClick()
 verify { navigator.navigateTo("Park") }
 ```
 
-## Verifying that a function is never called
+## Verifying that any mock functions is never called
+```kotlin
+verify { navigator wasNot Called }
+```
 
-TODO: `inverse`, `wasNot Called`
+## Verifying that a function is never called
+```kotlin
+verify(inverse = true) { navigator.navigateTo("Park") }
+verify(exactly = 0) { navigator.navigateTo("Park") }
+```
 
 ## Verifying a function is called a certain number of times
 
