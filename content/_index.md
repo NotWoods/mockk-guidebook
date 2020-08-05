@@ -1,5 +1,5 @@
 ---
-title: Introduction
+title: MockK Guidebook, the upcoming all-in-one guide for the Kotlin mocking library
 type: docs
 aliases:
   - /docs/index.html
@@ -12,7 +12,7 @@ summary: >
 
 <img alt="" src="cover/mockk-bike-iso-transparent.svg" width="640" height="320">
 
-A guide to using the [MockK testing library](https://mockk.io/).
+The upcoming all-in-one guide for the Kotlin mocking library [MockK](https://mockk.io/) in your tests.
 
 - Pages that are ~~crossed out~~ are not yet written.
 - Other pages are in progress.
