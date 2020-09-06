@@ -43,3 +43,4 @@ headless: true
   * [~~Chains~~](docs/tips/chains.md)
   * [~~Timeouts~~](docs/tips/timeout.md)
   * [~~Exclude recording~~](docs/tips/exclude.md)
+* [Method index](docs/method-index.md)
