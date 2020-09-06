@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html lang="en" dir=>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Index of MockK methods and corresponding guidebook chapters.">
+
+<title>Method index | MockK Guidebook</title>
+<link rel="manifest" href="/mockk-guidebook/manifest.json">
+<link rel="icon" href="/mockk-guidebook/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/mockk-guidebook/book.min.745103b237c9853dec7cc6a6930b75058c5b3c455b5b3c0b19e9a8b616058f9d.css" integrity="sha256-dFEDsjfJhT3sfMamkwt1BYxbPEVbWzwLGemothYFj50=">
+<script defer src="/mockk-guidebook/en.search.min.f57b1002eebbbfc0399a36a8ebd004f8448f928c4a5aad83169496232fe6f92a.js" integrity="sha256-9XsQAu67v8A5mjao69AE&#43;ESPkoxKWq2DFpSWIy/m&#43;So="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  <meta name="monetization" content="$ilp.uphold.com/p2WKq3nJHA8w">
+<script async src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
+<script async defer src='/mockk-guidebook/ads.min.js'></script>
+
+<meta property="og:title" content='Method index' />
+<meta property="og:site_name" content='MockK Guidebook' />
+<meta property="og:type" content="book" />
+<meta property="og:image" content='https://notwoods.github.io/mockk-guidebook/cover/mockk-bike-iso.png' />
+<meta property="og:image:width" content="1280" />
+<meta property="og:image:height" content="640" />
+<meta property="og:url" content='https://notwoods.github.io/mockk-guidebook/docs/method-index/' />
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@Not_Woods">
+<meta name="twitter:title" content="Method index | MockK Guidebook">
+<meta name="twitter:image" content='https://notwoods.github.io/mockk-guidebook/cover/mockk-bike-iso.png'>
+<meta name="twitter:description" content="Index of MockK methods and corresponding guidebook chapters.">
+
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/mockk-guidebook"><span>MockK Guidebook</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+<a href="https://tigeroakes.com">
+  <svg width="135" height="20" viewBox="0 0 88 13" xmlns="http://www.w3.org/2000/svg" fill="currentColor" stroke="currentColor">
+    <title>Tiger Oakes</title>
+    <g transform="translate(.5 .5)">
+      <path d="M0 0h12v12H0z" fill="none"/>
+      <circle cx="3" cy="4" r="1.5" fill="none"/>
+      <circle cx="9" cy="4" r="1.5" fill="none"/>
+      <path d="M2.5 5.5V9L5 10.5m4.5-4.9V9L7 10.5" fill="none"/>
+      <path d="M6 8.6L7.5 7h-3L6 8.6z" stroke="none"/>
+      <path d="M86.6 3.97a.53.53 0 01-.15.17.32.32 0 01-.2.05.5.5 0 01-.26-.08l-.33-.2a2.7 2.7 0 00-.44-.2 1.9 1.9 0 00-.6-.08c-.22 0-.4.03-.56.08-.16.05-.3.12-.4.2-.1.1-.18.2-.23.33-.06.13-.08.27-.08.42 0 .2.05.35.16.47.1.13.25.24.42.33.18.1.38.17.6.24l.7.23c.23.08.46.17.7.28.22.1.42.24.6.4.18.17.32.37.42.6.1.24.16.53.16.87 0 .36-.06.7-.18 1.03a2.4 2.4 0 01-1.44 1.4 3.88 3.88 0 01-3.88-.86l.45-.73c.04-.05.08-.1.14-.13a.37.37 0 01.2-.06c.1 0 .2.04.3.12.1.08.24.16.4.26.15.1.32.17.52.25.2.08.44.12.73.12.43 0 .76-.1 1-.3.23-.2.35-.5.35-.88a.82.82 0 00-.16-.52 1.3 1.3 0 00-.42-.34c-.18-.1-.38-.17-.6-.24l-.7-.2a5.9 5.9 0 01-.68-.28 1.87 1.87 0 01-1.03-1.04 2.42 2.42 0 01.54-2.55c.22-.22.5-.4.83-.52a3.8 3.8 0 012.46.03 3 3 0 011.04.63l-.38.7zM35.07 6.55v3.3c-.4.3-.85.52-1.32.66-.47.14-.97.2-1.5.2-.66 0-1.27-.1-1.8-.3a3.77 3.77 0 01-2.26-2.18 4.4 4.4 0 01-.3-1.67c0-.6.1-1.17.3-1.68a3.8 3.8 0 012.17-2.18 5.17 5.17 0 013.48 0 3.44 3.44 0 011.23.76l-.43.7a.4.4 0 01-.27.2c-.1 0-.22 0-.35-.08l-.37-.22a3.33 3.33 0 00-1.58-.37c-.4 0-.77.08-1.1.2-.32.14-.6.33-.83.58-.23.25-.4.55-.53.9-.12.36-.18.75-.18 1.2 0 .46.06.88.2 1.24a2.4 2.4 0 001.44 1.5c.33.14.7.2 1.13.2a3.1 3.1 0 001.5-.35V7.68h-1a.3.3 0 01-.23-.08.27.27 0 01-.08-.2v-.85h2.7zm24.75 0c0 .6-.1 1.16-.3 1.66a3.88 3.88 0 01-2.13 2.2c-.5.2-1.07.3-1.68.3-.62 0-1.18-.1-1.7-.3a3.83 3.83 0 01-2.14-2.2c-.2-.5-.3-1.06-.3-1.65 0-.6.1-1.15.3-1.66a3.9 3.9 0 012.14-2.2c.5-.2 1.07-.3 1.7-.3a4.57 4.57 0 012.16.55 3.72 3.72 0 011.44 1.47 4.8 4.8 0 01.52 2.14zM24.42 3.74h-2.45v6.9h-1.52v-6.9H18V2.5h6.42v1.24zm2.36 6.9h-1.52V2.48h1.52v8.13zm54.37-6.94h-3.62v2.26h2.85v1.16h-2.84v2.3h3.6v1.2h-5.12V2.5h5.13v1.2zm-39.7 0h-3.62v2.26h2.85v1.16h-2.85v2.3h3.62v1.2H36.3V2.5h5.13v1.2zm2.62 6.93h-1.5V2.5h2.48c.55 0 1 .06 1.42.17.4.12.72.28.97.48.26.2.44.46.56.74.12.3.18.6.18.95a2.24 2.24 0 01-1.03 1.96 2.8 2.8 0 01-.76.36 1.5 1.5 0 01.5.47l2.03 3h-1.37c-.26 0-.44-.1-.56-.3l-1.7-2.6a.6.6 0 00-.2-.2.74.74 0 00-.34-.06h-.65v3.17zm25.97 0h-1.5V2.5h1.5v3.4h.36c.14 0 .26-0 .35-.05a.6.6 0 00.24-.2l2.25-2.84c.1-.12.2-.2.3-.25.1-.05.23-.07.38-.07h1.3L72.5 5.87c-.16.2-.33.35-.5.44.12.04.23.1.33.2.1.08.2.18.3.32l2.82 3.8H74.1a.83.83 0 01-.4-.07.63.63 0 01-.23-.22l-2.3-3a.6.6 0 00-.24-.22c-.1-.04-.23-.06-.4-.06h-.48v3.57zm-2.13 0h-1.17a.5.5 0 01-.32-.1.6.6 0 01-.2-.24l-.6-1.66h-3.37l-.6 1.66a.54.54 0 01-.17.24c-.1.07-.2.1-.33.1h-1.18l3.2-8.13h1.55l3.2 8.13zm-9.62-4.06c0-.45-.06-.85-.18-1.2-.12-.36-.3-.66-.52-.9a2.2 2.2 0 00-.8-.57c-.32-.14-.68-.2-1.07-.2-.4 0-.76.06-1.08.2-.3.13-.58.32-.8.56-.23.25-.4.55-.52.9-.12.36-.18.76-.18 1.2 0 .45.06.85.18 1.2a2.24 2.24 0 001.32 1.47c.32.13.68.2 1.08.2s.75-.07 1.07-.2c.3-.13.58-.32.8-.56.23-.25.4-.55.52-.9.12-.36.18-.76.18-1.2zm6.95 1l-1-2.7a6.14 6.14 0 01-.3-.96 10.83 10.83 0 01-.3.97l-1 2.7h2.6zm-20.2-3.9h-.97v2.7h.95c.28 0 .53-.04.74-.1.2-.08.4-.18.53-.3.13-.13.23-.28.3-.45.07-.17.1-.36.1-.57 0-.4-.13-.73-.4-.95-.28-.22-.7-.33-1.25-.33z" stroke="none"/>
+    </g>
+  </svg>
+</a>
+
+
+
+
+
+
+
+
+  <ul>
+<li>
+  <a href="/mockk-guidebook/docs/getting-started/">Getting Started</a>
+<ul>
+<li>
+  <a href="/mockk-guidebook/docs/getting-started/why-mocking/"><del>Why use mocks</del></a></li>
+<li>
+  <a href="/mockk-guidebook/docs/getting-started/why-mockk/"><del>Why MockK</del></a></li>
+</ul>
+</li>
+<li>
+  <a href="/mockk-guidebook/docs/quick/android/">Android Quickstart</a></li>
+<li>
+  <a href="/mockk-guidebook/docs/mocking/"><strong>Mocking</strong></a>
+<ul>
+<li>
+  <a href="/mockk-guidebook/docs/mocking/stubbing/">Stub out behaviour</a></li>
+<li>
+  <a href="/mockk-guidebook/docs/mocking/verify/">Verify that functions were called</a></li>
+<li>
+  <a href="/mockk-guidebook/docs/mocking/relax/">Automatically stub by relaxing</a></li>
+<li>
+  <a href="/mockk-guidebook/docs/mocking/spy/">Spy on existing classes</a></li>
+<li>
+  <a href="/mockk-guidebook/docs/mocking/coroutines/">Coroutines and suspend functions</a></li>
+<li>
+  <a href="/mockk-guidebook/docs/mocking/constructor/">Mock constructors in code you don&rsquo;t own</a></li>
+<li>
+  <a href="/mockk-guidebook/docs/mocking/static/">Mock singleton objects and static methods</a></li>
+<li>
+  <a href="/mockk-guidebook/docs/mocking/extension/">Mock top-level and extension functions</a></li>
+<li>
+  <a href="/mockk-guidebook/docs/mocking/clear/"><del>Clear state</del></a></li>
+<li>
+  <a href="/mockk-guidebook/docs/mocking/annotation/">Create many mocks quickly with annotations</a></li>
+<li>
+  <a href="/mockk-guidebook/docs/mocking/hierarchies/"><del>Chain mocks into hierarchies</del></a></li>
+<li>
+  <a href="/mockk-guidebook/docs/mocking/answers/"><del>Create more complicated answers for stubs</del></a></li>
+</ul>
+</li>
+<li>
+  <a href="/mockk-guidebook/docs/matching/"><strong>Argument matching</strong></a>
+<ul>
+<li>
+  <a href="/mockk-guidebook/docs/matching/equal/"><del>Check equality</del></a></li>
+<li>
+  <a href="/mockk-guidebook/docs/matching/any/"><del>Allow any argument</del></a></li>
+<li>
+  <a href="/mockk-guidebook/docs/matching/oftype/"><del>Argument of a certain type</del></a></li>
+<li>
+  <a href="/mockk-guidebook/docs/matching/with/">Assertions with an argument</a></li>
+<li>
+  <a href="/mockk-guidebook/docs/matching/custom/"><del>Custom matching functions</del></a></li>
+<li>
+  <a href="/mockk-guidebook/docs/matching/capture/"><del>Capture arguments to check later</del></a></li>
+<li>
+  <a href="/mockk-guidebook/docs/matching/vararg/"><del>Variable arguments</del></a></li>
+<li>
+  <a href="/mockk-guidebook/docs/matching/compareto/">Comparables</a></li>
+<li>
+  <a href="/mockk-guidebook/docs/matching/combine/"><del>Combine matchers</del></a></li>
+</ul>
+</li>
+<li>
+  <a href="/mockk-guidebook/docs/mockito-migrate/"><strong>Migrating from Mockito</strong></a>
+<ul>
+<li>
+  <a href="/mockk-guidebook/docs/mockito-migrate/create-mock/">Create a mock</a></li>
+<li>
+  <a href="/mockk-guidebook/docs/mockito-migrate/when/"><code>when</code> and <code>do*</code></a></li>
+<li>
+  <a href="/mockk-guidebook/docs/mockito-migrate/eq/"><code>eq</code></a></li>
+<li>
+  <a href="/mockk-guidebook/docs/mockito-migrate/any/"><code>any*</code></a></li>
+<li>
+  <a href="/mockk-guidebook/docs/mockito-migrate/verify/"><code>verify</code></a></li>
+<li>
+  <a href="/mockk-guidebook/docs/mockito-migrate/arg-that/"><del><code>argThat</code></del></a></li>
+<li>
+  <a href="/mockk-guidebook/docs/mockito-migrate/argument-captor/"><del><code>ArgumentCaptor</code></del></a></li>
+<li>
+  <a href="/mockk-guidebook/docs/mockito-migrate/void/"><code>void</code> methods</a></li>
+</ul>
+</li>
+<li>
+  <a href="/mockk-guidebook/docs/tips/"><strong>TIPs</strong></a>
+<ul>
+<li>
+  <a href="/mockk-guidebook/docs/tips/unit/">Return <code>Unit</code></a></li>
+<li>
+  <a href="/mockk-guidebook/docs/tips/chains/"><del>Chains</del></a></li>
+<li>
+  <a href="/mockk-guidebook/docs/tips/timeout/"><del>Timeouts</del></a></li>
+<li>
+  <a href="/mockk-guidebook/docs/tips/exclude/"><del>Exclude recording</del></a></li>
+</ul>
+</li>
+<li>
+  <a href="/mockk-guidebook/docs/method-index/"class=active>Method index</a></li>
+</ul>
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="https://github.com/NotWoods/mockk-guidebook/" target="_blank" rel="noopener">
+        Github
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/mockk-guidebook/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Method index</strong>
+
+  <label for="toc-control">
+    
+    <img src="/mockk-guidebook/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#method-index">Method index</a>
+      <ul>
+        <li><a href="#top-level-functions">Top level functions</a>
+          <ul>
+            <li><a href="#mockkt"><code>mockk&lt;T&gt;(...)</code></a></li>
+            <li><a href="#spykt"><code>spyk&lt;T&gt;()</code></a></li>
+            <li><a href="#spykobj"><code>spyk(obj)</code></a></li>
+            <li><a href="#slot"><code>slot</code></a></li>
+            <li><a href="#every"><code>every</code></a></li>
+            <li><a href="#coevery"><code>coEvery</code></a></li>
+            <li><a href="#verify"><code>verify</code></a></li>
+            <li><a href="#coverify"><code>coVerify</code></a></li>
+            <li><a href="#verifyall"><code>verifyAll</code></a></li>
+            <li><a href="#coverifyall"><code>coVerifyAll</code></a></li>
+            <li><a href="#verifyorder"><code>verifyOrder</code></a></li>
+            <li><a href="#coverifyorder"><code>coVerifyOrder</code></a></li>
+            <li><a href="#verifysequence"><code>verifySequence</code></a></li>
+            <li><a href="#coverifysequence"><code>coVerifySequence</code></a></li>
+            <li><a href="#excluderecords"><code>excludeRecords</code></a></li>
+            <li><a href="#confirmverified"><code>confirmVerified</code></a></li>
+            <li><a href="#clearmocks"><code>clearMocks</code></a></li>
+            <li><a href="#registerinstancefactory"><code>registerInstanceFactory</code></a></li>
+            <li><a href="#mockkclass"><code>mockkClass</code></a></li>
+            <li><a href="#mockkobject"><code>mockkObject</code></a></li>
+            <li><a href="#unmockkobject"><code>unmockkObject</code></a></li>
+            <li><a href="#mockkstatic"><code>mockkStatic</code></a></li>
+            <li><a href="#unmockkstatic"><code>unmockkStatic</code></a></li>
+            <li><a href="#clearstaticmockk"><code>clearStaticMockk</code></a></li>
+            <li><a href="#mockkconstructor"><code>mockkConstructor</code></a></li>
+            <li><a href="#unmockkconstructor"><code>unmockkConstructor</code></a></li>
+            <li><a href="#clearconstructormockk"><code>clearConstructorMockk</code></a></li>
+            <li><a href="#unmockkall"><code>unmockkAll</code></a></li>
+            <li><a href="#clearallmocks"><code>clearAllMocks</code></a></li>
+          </ul>
+        </li>
+        <li><a href="#matchers">Matchers</a>
+          <ul>
+            <li><a href="#any"><code>any()</code></a></li>
+            <li><a href="#allany"><code>allAny()</code></a></li>
+            <li><a href="#isnull"><code>isNull()</code></a></li>
+            <li><a href="#isnullinversetrue"><code>isNull(inverse=true)</code></a></li>
+            <li><a href="#oftypetype"><code>ofType(type)</code></a></li>
+            <li><a href="#match--itstartswithstring-"><code>match { it.startsWith(&quot;string&quot;) }</code></a></li>
+            <li><a href="#comatch--itstartswithstring-"><code>coMatch { it.startsWith(&quot;string&quot;) }</code></a></li>
+            <li><a href="#matchnullable--itstartswithstring-"><code>matchNullable { it?.startsWith(&quot;string&quot;) }</code></a></li>
+            <li><a href="#comatchnullable--itstartswithstring-"><code>coMatchNullable { it?.startsWith(&quot;string&quot;) }</code></a></li>
+            <li><a href="#eqvalue"><code>eq(value)</code></a></li>
+            <li><a href="#eqvalue-inversetrue"><code>eq(value, inverse=true))</code></a></li>
+            <li><a href="#neqvalue"><code>neq(value)</code></a></li>
+            <li><a href="#refeqvalue"><code>refEq(value)</code></a></li>
+            <li><a href="#refeqvalue-inversetrue"><code>refEq(value, inverse=true)</code></a></li>
+            <li><a href="#nrefeqvalue"><code>nrefEq(value)</code></a></li>
+            <li><a href="#cmpeqvalue"><code>cmpEq(value)</code></a></li>
+            <li><a href="#lessvalue"><code>less(value)</code></a></li>
+            <li><a href="#morevalue"><code>more(value)</code></a></li>
+            <li><a href="#lessvalue-andequalstrue"><code>less(value, andEquals=true)</code></a></li>
+            <li><a href="#morevalue-andequalstrue"><code>more(value, andEquals=true)</code></a></li>
+            <li><a href="#rangefrom-to-frominclusivetrue-toinclusivetrue"><code>range(from, to, fromInclusive=true, toInclusive=true)</code></a></li>
+            <li><a href="#andleft-right"><code>and(left, right)</code></a></li>
+            <li><a href="#orleft-right"><code>or(left, right)</code></a></li>
+            <li><a href="#notmatcher"><code>not(matcher)</code></a></li>
+            <li><a href="#captureslot"><code>capture(slot)</code></a></li>
+            <li><a href="#capturemutablelist"><code>capture(mutableList)</code></a></li>
+            <li><a href="#capturenullablemutablelist"><code>captureNullable(mutableList)</code></a></li>
+            <li><a href="#capturelambda"><code>captureLambda()</code></a></li>
+            <li><a href="#capturecoroutine"><code>captureCoroutine()</code></a></li>
+            <li><a href="#invoke"><code>invoke(...)</code></a></li>
+            <li><a href="#coinvoke"><code>coInvoke(...)</code></a></li>
+            <li><a href="#hintcls"><code>hint(cls)</code></a></li>
+            <li><a href="#anyvararg"><code>anyVararg()</code></a></li>
+            <li><a href="#vararganymatcher"><code>varargAny(matcher)</code></a></li>
+            <li><a href="#varargallmatcher"><code>varargAll(matcher)</code></a></li>
+            <li><a href="#anyvararg-1"><code>any...Vararg()</code></a></li>
+            <li><a href="#vararganymatcher-1"><code>varargAny...(matcher)</code></a></li>
+            <li><a href="#varargallmatcher-1"><code>varargAll...(matcher)</code></a></li>
+            <li><a href="#witharg--code-"><code>withArg { code }</code></a></li>
+            <li><a href="#withnullablearg--code-"><code>withNullableArg { code }</code></a></li>
+            <li><a href="#cowitharg--code-"><code>coWithArg { code }</code></a></li>
+            <li><a href="#cowithnullablearg--code-"><code>coWithNullableArg { code }</code></a></li>
+          </ul>
+        </li>
+        <li><a href="#validators">Validators</a>
+          <ul>
+            <li><a href="#verify--mockcall-"><code>verify { mock.call() }</code></a></li>
+            <li><a href="#verifyinversetrue--mockcall-"><code>verify(inverse=true) { mock.call() }</code></a></li>
+            <li><a href="#verifyatleastn--mockcall-"><code>verify(atLeast=n) { mock.call() }</code></a></li>
+            <li><a href="#verifyatmostn--mockcall-"><code>verify(atMost=n) { mock.call() }</code></a></li>
+            <li><a href="#verifyexactlyn--mockcall-"><code>verify(exactly=n) { mock.call() }</code></a></li>
+            <li><a href="#verifyall--mockcall1-mockcall2-"><code>verifyAll { mock.call1(); mock.call2() }</code></a></li>
+            <li><a href="#verifyorder--mockcall1-mockcall2-"><code>verifyOrder { mock.call1(); mock.call2() }</code></a></li>
+            <li><a href="#verifysequence--mockcall1-mockcall2-"><code>verifySequence { mock.call1(); mock.call2() }</code></a></li>
+            <li><a href="#verify--mock-wasnot-called-"><code>verify { mock wasNot Called }</code></a></li>
+            <li><a href="#verify--listofmock1-mock2-wasnot-called-"><code>verify { listOf(mock1, mock2) wasNot Called }</code></a></li>
+          </ul>
+        </li>
+        <li><a href="#answers">Answers</a>
+          <ul>
+            <li><a href="#returns-value"><code>returns value</code></a></li>
+            <li><a href="#returnsmany-list"><code>returnsMany list</code></a></li>
+            <li><a href="#throws-ex"><code>throws ex</code></a></li>
+            <li><a href="#answers--code-"><code>answers { code }</code></a></li>
+            <li><a href="#coanswers--code-"><code>coAnswers { code }</code></a></li>
+            <li><a href="#answers-answerobj"><code>answers answerObj</code></a></li>
+            <li><a href="#answers--nothing-"><code>answers { nothing }</code></a></li>
+            <li><a href="#just-runs"><code>just Runs</code></a></li>
+            <li><a href="#propertytype-class"><code>propertyType Class</code></a></li>
+            <li><a href="#nullablepropertytype-class"><code>nullablePropertyType Class</code></a></li>
+          </ul>
+        </li>
+        <li><a href="#additional-answers">Additional answer(s)</a>
+          <ul>
+            <li><a href="#andthen-value"><code>andThen value</code></a></li>
+            <li><a href="#andthenmany-list"><code>andThenMany list</code></a></li>
+            <li><a href="#andthenthrows-ex"><code>andThenThrows ex</code></a></li>
+            <li><a href="#andthen--code-"><code>andThen { code }</code></a></li>
+            <li><a href="#coandthen--code-"><code>coAndThen { code }</code></a></li>
+            <li><a href="#andthenanswer-answerobj"><code>andThenAnswer answerObj</code></a></li>
+            <li><a href="#andthen--nothing-"><code>andThen { nothing }</code></a></li>
+          </ul>
+        </li>
+        <li><a href="#answer-scope">Answer scope</a>
+          <ul>
+            <li><a href="#call"><code>call</code></a></li>
+            <li><a href="#invocation"><code>invocation</code></a></li>
+            <li><a href="#matcher"><code>matcher</code></a></li>
+            <li><a href="#self"><code>self</code></a></li>
+            <li><a href="#method"><code>method</code></a></li>
+            <li><a href="#args"><code>args</code></a></li>
+            <li><a href="#nargs"><code>nArgs</code></a></li>
+            <li><a href="#argn"><code>arg(n)</code></a></li>
+            <li><a href="#firstarg"><code>firstArg()</code></a></li>
+            <li><a href="#secondarg"><code>secondArg()</code></a></li>
+            <li><a href="#thirdarg"><code>thirdArg()</code></a></li>
+            <li><a href="#lastarg"><code>lastArg()</code></a></li>
+            <li><a href="#captured"><code>captured()</code></a></li>
+            <li><a href="#lambdainvoke"><code>lambda&lt;...&gt;().invoke()</code></a></li>
+            <li><a href="#coroutinecoinvoke"><code>coroutine&lt;...&gt;().coInvoke()</code></a></li>
+            <li><a href="#nothing"><code>nothing</code></a></li>
+            <li><a href="#fieldvalue"><code>fieldValue</code></a></li>
+            <li><a href="#fieldvalueany"><code>fieldValueAny</code></a></li>
+            <li><a href="#value"><code>value</code></a></li>
+            <li><a href="#valueany"><code>valueAny</code></a></li>
+          </ul>
+        </li>
+        <li><a href="#vararg-scope">Vararg scope</a>
+          <ul>
+            <li><a href="#position"><code>position</code></a></li>
+            <li><a href="#nargs-1"><code>nArgs</code></a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+  </aside>
+  
+ 
+      </header>
+
+      <div class="dark" data-ea-publisher="notwoodsgithubio-mockk-guidebook" data-ea-type="text"></div>
+
+      
+  <article class="markdown"><h1 id="method-index">
+  Method index
+  <a class="anchor" href="#method-index">#</a>
+</h1>
+<p>Index of MockK methods and corresponding guidebook chapters.</p>
+<h2 id="top-level-functions">
+  Top level functions
+  <a class="anchor" href="#top-level-functions">#</a>
+</h2>
+<h3 id="mockkt">
+  <code>mockk&lt;T&gt;(...)</code>
+  <a class="anchor" href="#mockkt">#</a>
+</h3>
+<p><em>Chapter: 
+  <a href="/mockk-guidebook/docs/mocking/">Mocking</a></em><br>
+builds a regular mock</p>
+<h3 id="spykt">
+  <code>spyk&lt;T&gt;()</code>
+  <a class="anchor" href="#spykt">#</a>
+</h3>
+<p><em>Chapter: 
+  <a href="/mockk-guidebook/docs/mocking/spy/">Spy on existing classes</a></em><br>
+builds a spy using the default constructor</p>
+<h3 id="spykobj">
+  <code>spyk(obj)</code>
+  <a class="anchor" href="#spykobj">#</a>
+</h3>
+<p><em>Chapter: 
+  <a href="/mockk-guidebook/docs/mocking/spy/">Spy on existing classes</a></em><br>
+builds a spy by copying from <code>obj</code></p>
+<h3 id="slot">
+  <code>slot</code>
+  <a class="anchor" href="#slot">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+creates a capturing slot</p>
+<h3 id="every">
+  <code>every</code>
+  <a class="anchor" href="#every">#</a>
+</h3>
+<p><em>Chapter: 
+  <a href="/mockk-guidebook/docs/mocking/stubbing/">Stub out behaviour</a></em><br>
+starts a stubbing block</p>
+<h3 id="coevery">
+  <code>coEvery</code>
+  <a class="anchor" href="#coevery">#</a>
+</h3>
+<p><em>Chapter: 
+  <a href="/mockk-guidebook/docs/mocking/coroutines/">Coroutines and suspend functions</a></em><br>
+starts a stubbing block for coroutines</p>
+<h3 id="verify">
+  <code>verify</code>
+  <a class="anchor" href="#verify">#</a>
+</h3>
+<p><em>Chapter: 
+  <a href="/mockk-guidebook/docs/mocking/verify/">Verify that functions were called</a></em><br>
+starts a verification block</p>
+<h3 id="coverify">
+  <code>coVerify</code>
+  <a class="anchor" href="#coverify">#</a>
+</h3>
+<p><em>Chapter: 
+  <a href="/mockk-guidebook/docs/mocking/coroutines/">Coroutines and suspend functions</a></em><br>
+starts a verification block for coroutines</p>
+<h3 id="verifyall">
+  <code>verifyAll</code>
+  <a class="anchor" href="#verifyall">#</a>
+</h3>
+<p><em>Chapter: 
+  <a href="/mockk-guidebook/docs/mocking/verify/#verifying-multiple-functions">Verify that functions were called</a></em><br>
+starts a verification block that should include all calls</p>
+<h3 id="coverifyall">
+  <code>coVerifyAll</code>
+  <a class="anchor" href="#coverifyall">#</a>
+</h3>
+<p><em>Chapter: 
+  <a href="/mockk-guidebook/docs/mocking/coroutines/">Coroutines and suspend functions</a></em><br>
+starts a verification block that should include all calls for coroutines</p>
+<h3 id="verifyorder">
+  <code>verifyOrder</code>
+  <a class="anchor" href="#verifyorder">#</a>
+</h3>
+<p><em>Chapter: 
+  <a href="/mockk-guidebook/docs/mocking/verify/#verifying-multiple-functions">Verify that functions were called</a></em><br>
+starts a verification block that checks the order</p>
+<h3 id="coverifyorder">
+  <code>coVerifyOrder</code>
+  <a class="anchor" href="#coverifyorder">#</a>
+</h3>
+<p><em>Chapter: 
+  <a href="/mockk-guidebook/docs/mocking/coroutines/">Coroutines and suspend functions</a></em><br>
+starts a verification block that checks the order for coroutines</p>
+<h3 id="verifysequence">
+  <code>verifySequence</code>
+  <a class="anchor" href="#verifysequence">#</a>
+</h3>
+<p><em>Chapter: 
+  <a href="/mockk-guidebook/docs/mocking/verify/#verifying-multiple-functions">Verify that functions were called</a></em><br>
+starts a verification block that checks whether all calls were made in a specified sequence</p>
+<h3 id="coverifysequence">
+  <code>coVerifySequence</code>
+  <a class="anchor" href="#coverifysequence">#</a>
+</h3>
+<p><em>Chapter: 
+  <a href="/mockk-guidebook/docs/mocking/coroutines/">Coroutines and suspend functions</a></em><br>
+starts a verification block that checks whether all calls were made in a specified sequence for coroutines</p>
+<h3 id="excluderecords">
+  <code>excludeRecords</code>
+  <a class="anchor" href="#excluderecords">#</a>
+</h3>
+<p><em>Chapter: 
+  <a href="/mockk-guidebook/docs/mocking/verify/#confirming-all-calls-were-verified">Verify that functions were called</a></em><br>
+exclude some calls from being recorded</p>
+<h3 id="confirmverified">
+  <code>confirmVerified</code>
+  <a class="anchor" href="#confirmverified">#</a>
+</h3>
+<p><em>Chapter: 
+  <a href="/mockk-guidebook/docs/mocking/verify/#confirming-all-calls-were-verified">Verify that functions were called</a></em><br>
+confirms that all recorded calls were verified</p>
+<h3 id="clearmocks">
+  <code>clearMocks</code>
+  <a class="anchor" href="#clearmocks">#</a>
+</h3>
+<p><em>Chapter: 
+  <a href="/mockk-guidebook/docs/mocking/clear/">Clear state</a></em><br>
+clears specified mocks</p>
+<h3 id="registerinstancefactory">
+  <code>registerInstanceFactory</code>
+  <a class="anchor" href="#registerinstancefactory">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+allows you to redefine the way of instantiation for certain object</p>
+<h3 id="mockkclass">
+  <code>mockkClass</code>
+  <a class="anchor" href="#mockkclass">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+builds a regular mock by passing the class as parameter</p>
+<h3 id="mockkobject">
+  <code>mockkObject</code>
+  <a class="anchor" href="#mockkobject">#</a>
+</h3>
+<p><em>Chapter: 
+  <a href="/mockk-guidebook/docs/mocking/static/#mocking-objects">Mock singleton objects and static methods</a></em><br>
+makes an object an object mock or clears it if was already transformed</p>
+<h3 id="unmockkobject">
+  <code>unmockkObject</code>
+  <a class="anchor" href="#unmockkobject">#</a>
+</h3>
+<p><em>Chapter: 
+  <a href="/mockk-guidebook/docs/mocking/static/#unmocking">Mock singleton objects and static methods</a></em><br>
+makes an object mock back to a regular object</p>
+<h3 id="mockkstatic">
+  <code>mockkStatic</code>
+  <a class="anchor" href="#mockkstatic">#</a>
+</h3>
+<p><em>Chapter: 
+  <a href="/mockk-guidebook/docs/mocking/static/#mocking-objects">Mock singleton objects and static methods</a></em><br>
+makes a static mock out of a class or clears it if it was already transformed</p>
+<h3 id="unmockkstatic">
+  <code>unmockkStatic</code>
+  <a class="anchor" href="#unmockkstatic">#</a>
+</h3>
+<p><em>Chapter: 
+  <a href="/mockk-guidebook/docs/mocking/static/#unmocking">Mock singleton objects and static methods</a></em><br>
+makes a static mock back to a regular class</p>
+<h3 id="clearstaticmockk">
+  <code>clearStaticMockk</code>
+  <a class="anchor" href="#clearstaticmockk">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+clears a static mock</p>
+<h3 id="mockkconstructor">
+  <code>mockkConstructor</code>
+  <a class="anchor" href="#mockkconstructor">#</a>
+</h3>
+<p><em>Chapter: 
+  <a href="/mockk-guidebook/docs/mocking/constructor/">Mock constructors in code you don&rsquo;t own</a></em><br>
+makes a constructor mock out of a class or clears it if it was already transformed</p>
+<h3 id="unmockkconstructor">
+  <code>unmockkConstructor</code>
+  <a class="anchor" href="#unmockkconstructor">#</a>
+</h3>
+<p><em>Chapter: 
+  <a href="/mockk-guidebook/docs/mocking/constructor/#unmocking">Mock constructors in code you don&rsquo;t own</a></em><br>
+makes a constructor mock back to a regular class</p>
+<h3 id="clearconstructormockk">
+  <code>clearConstructorMockk</code>
+  <a class="anchor" href="#clearconstructormockk">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+clears the constructor mock</p>
+<h3 id="unmockkall">
+  <code>unmockkAll</code>
+  <a class="anchor" href="#unmockkall">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+unmocks object, static and constructor mocks</p>
+<h3 id="clearallmocks">
+  <code>clearAllMocks</code>
+  <a class="anchor" href="#clearallmocks">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+clears regular, object, static and constructor mocks</p>
+<h2 id="matchers">
+  Matchers
+  <a class="anchor" href="#matchers">#</a>
+</h2>
+<p>By default, simple arguments are matched using <code>eq()</code>.</p>
+<h3 id="any">
+  <code>any()</code>
+  <a class="anchor" href="#any">#</a>
+</h3>
+<p><em>Chapter: 
+  <a href="/mockk-guidebook/docs/matching/any/">Allow any argument</a></em><br>
+matches any argument</p>
+<h3 id="allany">
+  <code>allAny()</code>
+  <a class="anchor" href="#allany">#</a>
+</h3>
+<p><em>Chapter: 
+  <a href="/mockk-guidebook/docs/matching/any/">Allow any argument</a></em><br>
+special matcher that uses <code>any()</code> instead of <code>eq()</code> for matchers that are provided as simple arguments</p>
+<h3 id="isnull">
+  <code>isNull()</code>
+  <a class="anchor" href="#isnull">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+checks if the value is null</p>
+<h3 id="isnullinversetrue">
+  <code>isNull(inverse=true)</code>
+  <a class="anchor" href="#isnullinversetrue">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+checks if the value is not null</p>
+<h3 id="oftypetype">
+  <code>ofType(type)</code>
+  <a class="anchor" href="#oftypetype">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+checks if the value belongs to the type</p>
+<h3 id="match--itstartswithstring-">
+  <code>match { it.startsWith(&quot;string&quot;) }</code>
+  <a class="anchor" href="#match--itstartswithstring-">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+matches via the passed predicate</p>
+<h3 id="comatch--itstartswithstring-">
+  <code>coMatch { it.startsWith(&quot;string&quot;) }</code>
+  <a class="anchor" href="#comatch--itstartswithstring-">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+matches via the passed coroutine predicate</p>
+<h3 id="matchnullable--itstartswithstring-">
+  <code>matchNullable { it?.startsWith(&quot;string&quot;) }</code>
+  <a class="anchor" href="#matchnullable--itstartswithstring-">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+matches nullable value via the passed predicate</p>
+<h3 id="comatchnullable--itstartswithstring-">
+  <code>coMatchNullable { it?.startsWith(&quot;string&quot;) }</code>
+  <a class="anchor" href="#comatchnullable--itstartswithstring-">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+matches nullable value via the passed coroutine predicate</p>
+<h3 id="eqvalue">
+  <code>eq(value)</code>
+  <a class="anchor" href="#eqvalue">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+matches if the value is equal to the provided value via the <code>deepEquals</code> function</p>
+<h3 id="eqvalue-inversetrue">
+  <code>eq(value, inverse=true))</code>
+  <a class="anchor" href="#eqvalue-inversetrue">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+matches if the value is not equal to the provided value via the <code>deepEquals</code> function</p>
+<h3 id="neqvalue">
+  <code>neq(value)</code>
+  <a class="anchor" href="#neqvalue">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+matches if the value is not equal to the provided value via <code>deepEquals</code> function</p>
+<h3 id="refeqvalue">
+  <code>refEq(value)</code>
+  <a class="anchor" href="#refeqvalue">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+matches if the value is equal to the provided value via reference comparison</p>
+<h3 id="refeqvalue-inversetrue">
+  <code>refEq(value, inverse=true)</code>
+  <a class="anchor" href="#refeqvalue-inversetrue">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+matches if the value is not equal to the provided value via reference comparison</p>
+<h3 id="nrefeqvalue">
+  <code>nrefEq(value)</code>
+  <a class="anchor" href="#nrefeqvalue">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+matches if the value is not equal to the provided value via reference comparison</p>
+<h3 id="cmpeqvalue">
+  <code>cmpEq(value)</code>
+  <a class="anchor" href="#cmpeqvalue">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+matches if the value is equal to the provided value via the <code>compareTo</code> function</p>
+<h3 id="lessvalue">
+  <code>less(value)</code>
+  <a class="anchor" href="#lessvalue">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+matches if the value is less than the provided value via the <code>compareTo</code> function</p>
+<h3 id="morevalue">
+  <code>more(value)</code>
+  <a class="anchor" href="#morevalue">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+matches if the value is more than the provided value via the <code>compareTo</code> function</p>
+<h3 id="lessvalue-andequalstrue">
+  <code>less(value, andEquals=true)</code>
+  <a class="anchor" href="#lessvalue-andequalstrue">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+matches if the value is less than or equal to the provided value via the <code>compareTo</code> function</p>
+<h3 id="morevalue-andequalstrue">
+  <code>more(value, andEquals=true)</code>
+  <a class="anchor" href="#morevalue-andequalstrue">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+matches if the value is more than or equal to the provided value via the <code>compareTo</code> function</p>
+<h3 id="rangefrom-to-frominclusivetrue-toinclusivetrue">
+  <code>range(from, to, fromInclusive=true, toInclusive=true)</code>
+  <a class="anchor" href="#rangefrom-to-frominclusivetrue-toinclusivetrue">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+matches if the value is in range via the <code>compareTo</code> function</p>
+<h3 id="andleft-right">
+  <code>and(left, right)</code>
+  <a class="anchor" href="#andleft-right">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+combines two matchers via a logical and</p>
+<h3 id="orleft-right">
+  <code>or(left, right)</code>
+  <a class="anchor" href="#orleft-right">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+combines two matchers via a logical or</p>
+<h3 id="notmatcher">
+  <code>not(matcher)</code>
+  <a class="anchor" href="#notmatcher">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+negates the matcher</p>
+<h3 id="captureslot">
+  <code>capture(slot)</code>
+  <a class="anchor" href="#captureslot">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+captures a value to a <code>CapturingSlot</code></p>
+<h3 id="capturemutablelist">
+  <code>capture(mutableList)</code>
+  <a class="anchor" href="#capturemutablelist">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+captures a value to a list</p>
+<h3 id="capturenullablemutablelist">
+  <code>captureNullable(mutableList)</code>
+  <a class="anchor" href="#capturenullablemutablelist">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+captures a value to a list together with null values</p>
+<h3 id="capturelambda">
+  <code>captureLambda()</code>
+  <a class="anchor" href="#capturelambda">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+captures a lambda</p>
+<h3 id="capturecoroutine">
+  <code>captureCoroutine()</code>
+  <a class="anchor" href="#capturecoroutine">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+captures a coroutine</p>
+<h3 id="invoke">
+  <code>invoke(...)</code>
+  <a class="anchor" href="#invoke">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+calls a matched argument</p>
+<h3 id="coinvoke">
+  <code>coInvoke(...)</code>
+  <a class="anchor" href="#coinvoke">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+calls a matched argument for a coroutine</p>
+<h3 id="hintcls">
+  <code>hint(cls)</code>
+  <a class="anchor" href="#hintcls">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+hints the next return type in case it&rsquo;s gotten erased</p>
+<h3 id="anyvararg">
+  <code>anyVararg()</code>
+  <a class="anchor" href="#anyvararg">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+matches any elements in a vararg</p>
+<h3 id="vararganymatcher">
+  <code>varargAny(matcher)</code>
+  <a class="anchor" href="#vararganymatcher">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+matches if any element is matching the matcher</p>
+<h3 id="varargallmatcher">
+  <code>varargAll(matcher)</code>
+  <a class="anchor" href="#varargallmatcher">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+matches if all elements are matching the matcher</p>
+<h3 id="anyvararg-1">
+  <code>any...Vararg()</code>
+  <a class="anchor" href="#anyvararg-1">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+matches any elements in vararg (specific to primitive type)</p>
+<h3 id="vararganymatcher-1">
+  <code>varargAny...(matcher)</code>
+  <a class="anchor" href="#vararganymatcher-1">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+matches if any element is matching the matcher (specific to the primitive type)</p>
+<h3 id="varargallmatcher-1">
+  <code>varargAll...(matcher)</code>
+  <a class="anchor" href="#varargallmatcher-1">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+matches if all elements are matching the matcher (specific to the primitive type)</p>
+<p>A few special matchers available in verification mode only:</p>
+<h3 id="witharg--code-">
+  <code>withArg { code }</code>
+  <a class="anchor" href="#witharg--code-">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+matches any value and allows to execute some code</p>
+<h3 id="withnullablearg--code-">
+  <code>withNullableArg { code }</code>
+  <a class="anchor" href="#withnullablearg--code-">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+matches any nullable value and allows to execute some code</p>
+<h3 id="cowitharg--code-">
+  <code>coWithArg { code }</code>
+  <a class="anchor" href="#cowitharg--code-">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+matches any value and allows to execute some coroutine code</p>
+<h3 id="cowithnullablearg--code-">
+  <code>coWithNullableArg { code }</code>
+  <a class="anchor" href="#cowithnullablearg--code-">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+matches any nullable value and allows to execute some coroutine code</p>
+<h2 id="validators">
+  Validators
+  <a class="anchor" href="#validators">#</a>
+</h2>
+<h3 id="verify--mockcall-">
+  <code>verify { mock.call() }</code>
+  <a class="anchor" href="#verify--mockcall-">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+Do unordered verification that a call was performed</p>
+<h3 id="verifyinversetrue--mockcall-">
+  <code>verify(inverse=true) { mock.call() }</code>
+  <a class="anchor" href="#verifyinversetrue--mockcall-">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+Do unordered verification that a call was not performed</p>
+<h3 id="verifyatleastn--mockcall-">
+  <code>verify(atLeast=n) { mock.call() }</code>
+  <a class="anchor" href="#verifyatleastn--mockcall-">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+Do unordered verification that a call was performed at least <code>n</code> times</p>
+<h3 id="verifyatmostn--mockcall-">
+  <code>verify(atMost=n) { mock.call() }</code>
+  <a class="anchor" href="#verifyatmostn--mockcall-">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+Do unordered verification that a call was performed at most <code>n</code> times</p>
+<h3 id="verifyexactlyn--mockcall-">
+  <code>verify(exactly=n) { mock.call() }</code>
+  <a class="anchor" href="#verifyexactlyn--mockcall-">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+Do unordered verification that a call was performed exactly <code>n</code> times</p>
+<h3 id="verifyall--mockcall1-mockcall2-">
+  <code>verifyAll { mock.call1(); mock.call2() }</code>
+  <a class="anchor" href="#verifyall--mockcall1-mockcall2-">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+Do unordered verification that only the specified calls were executed for the mentioned mocks</p>
+<h3 id="verifyorder--mockcall1-mockcall2-">
+  <code>verifyOrder { mock.call1(); mock.call2() }</code>
+  <a class="anchor" href="#verifyorder--mockcall1-mockcall2-">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+Do verification that the sequence of calls went one after another</p>
+<h3 id="verifysequence--mockcall1-mockcall2-">
+  <code>verifySequence { mock.call1(); mock.call2() }</code>
+  <a class="anchor" href="#verifysequence--mockcall1-mockcall2-">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+Do verification that only the specified sequence of calls were executed for the mentioned mocks</p>
+<h3 id="verify--mock-wasnot-called-">
+  <code>verify { mock wasNot Called }</code>
+  <a class="anchor" href="#verify--mock-wasnot-called-">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+Do verification that a mock was not called</p>
+<h3 id="verify--listofmock1-mock2-wasnot-called-">
+  <code>verify { listOf(mock1, mock2) wasNot Called }</code>
+  <a class="anchor" href="#verify--listofmock1-mock2-wasnot-called-">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+Do verification that a list of mocks were not called</p>
+<h2 id="answers">
+  Answers
+  <a class="anchor" href="#answers">#</a>
+</h2>
+<p>An Answer can be followed up by one or more additional answers.</p>
+<h3 id="returns-value">
+  <code>returns value</code>
+  <a class="anchor" href="#returns-value">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+specify that the matched call returns a specified value</p>
+<h3 id="returnsmany-list">
+  <code>returnsMany list</code>
+  <a class="anchor" href="#returnsmany-list">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+specify that the matched call returns a value from the list, with subsequent calls returning the next element</p>
+<h3 id="throws-ex">
+  <code>throws ex</code>
+  <a class="anchor" href="#throws-ex">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+specify that the matched call throws an exception</p>
+<h3 id="answers--code-">
+  <code>answers { code }</code>
+  <a class="anchor" href="#answers--code-">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+specify that the matched call answers with a code block scoped with <code>answer scope</code></p>
+<h3 id="coanswers--code-">
+  <code>coAnswers { code }</code>
+  <a class="anchor" href="#coanswers--code-">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+specify that the matched call answers with a coroutine code block with <code>answer scope</code></p>
+<h3 id="answers-answerobj">
+  <code>answers answerObj</code>
+  <a class="anchor" href="#answers-answerobj">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+specify that the matched call answers with an Answer object</p>
+<h3 id="answers--nothing-">
+  <code>answers { nothing }</code>
+  <a class="anchor" href="#answers--nothing-">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+specify that the matched call answers null</p>
+<h3 id="just-runs">
+  <code>just Runs</code>
+  <a class="anchor" href="#just-runs">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+specify that the matched call is returning Unit (returns null)</p>
+<h3 id="propertytype-class">
+  <code>propertyType Class</code>
+  <a class="anchor" href="#propertytype-class">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+specify the type of backing field accessor</p>
+<h3 id="nullablepropertytype-class">
+  <code>nullablePropertyType Class</code>
+  <a class="anchor" href="#nullablepropertytype-class">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+specify the type of backing field accessor as a nullable type</p>
+<h2 id="additional-answers">
+  Additional answer(s)
+  <a class="anchor" href="#additional-answers">#</a>
+</h2>
+<p>A next answer is returned on each consequent call and the last value is persisted.
+So this is similar to the <code>returnsMany</code> semantics.</p>
+<h3 id="andthen-value">
+  <code>andThen value</code>
+  <a class="anchor" href="#andthen-value">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+specify that the matched call returns one specified value</p>
+<h3 id="andthenmany-list">
+  <code>andThenMany list</code>
+  <a class="anchor" href="#andthenmany-list">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+specify that the matched call returns value from the list, returning each time next element</p>
+<h3 id="andthenthrows-ex">
+  <code>andThenThrows ex</code>
+  <a class="anchor" href="#andthenthrows-ex">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+specify that the matched call throws an exception</p>
+<h3 id="andthen--code-">
+  <code>andThen { code }</code>
+  <a class="anchor" href="#andthen--code-">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+specify that the matched call answers with a code block scoped with <code>answer scope</code></p>
+<h3 id="coandthen--code-">
+  <code>coAndThen { code }</code>
+  <a class="anchor" href="#coandthen--code-">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+specify that the matched call answers with a coroutine code block with <code>answer scope</code></p>
+<h3 id="andthenanswer-answerobj">
+  <code>andThenAnswer answerObj</code>
+  <a class="anchor" href="#andthenanswer-answerobj">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+specify that the matched call answers with an Answer object</p>
+<h3 id="andthen--nothing-">
+  <code>andThen { nothing }</code>
+  <a class="anchor" href="#andthen--nothing-">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+specify that the matched call answers null</p>
+<h2 id="answer-scope">
+  Answer scope
+  <a class="anchor" href="#answer-scope">#</a>
+</h2>
+<h3 id="call">
+  <code>call</code>
+  <a class="anchor" href="#call">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+a call object that consists of an invocation and a matcher</p>
+<h3 id="invocation">
+  <code>invocation</code>
+  <a class="anchor" href="#invocation">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+contains information regarding the actual function invoked</p>
+<h3 id="matcher">
+  <code>matcher</code>
+  <a class="anchor" href="#matcher">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+contains information regarding the matcher used to match the invocation</p>
+<h3 id="self">
+  <code>self</code>
+  <a class="anchor" href="#self">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+reference to the object invocation made</p>
+<h3 id="method">
+  <code>method</code>
+  <a class="anchor" href="#method">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+reference to the function invocation made</p>
+<h3 id="args">
+  <code>args</code>
+  <a class="anchor" href="#args">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+reference to the arguments of invocation</p>
+<h3 id="nargs">
+  <code>nArgs</code>
+  <a class="anchor" href="#nargs">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+number of invocation argument</p>
+<h3 id="argn">
+  <code>arg(n)</code>
+  <a class="anchor" href="#argn">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+n-th argument</p>
+<h3 id="firstarg">
+  <code>firstArg()</code>
+  <a class="anchor" href="#firstarg">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+first argument</p>
+<h3 id="secondarg">
+  <code>secondArg()</code>
+  <a class="anchor" href="#secondarg">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+second argument</p>
+<h3 id="thirdarg">
+  <code>thirdArg()</code>
+  <a class="anchor" href="#thirdarg">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+third argument</p>
+<h3 id="lastarg">
+  <code>lastArg()</code>
+  <a class="anchor" href="#lastarg">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+last argument</p>
+<h3 id="captured">
+  <code>captured()</code>
+  <a class="anchor" href="#captured">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+the last element in the list for convenience when capturing to a list</p>
+<h3 id="lambdainvoke">
+  <code>lambda&lt;...&gt;().invoke()</code>
+  <a class="anchor" href="#lambdainvoke">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+call the captured lambda</p>
+<h3 id="coroutinecoinvoke">
+  <code>coroutine&lt;...&gt;().coInvoke()</code>
+  <a class="anchor" href="#coroutinecoinvoke">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+call the captured coroutine</p>
+<h3 id="nothing">
+  <code>nothing</code>
+  <a class="anchor" href="#nothing">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+null value for returning nothing as an answer</p>
+<h3 id="fieldvalue">
+  <code>fieldValue</code>
+  <a class="anchor" href="#fieldvalue">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+accessor to the property backing field</p>
+<h3 id="fieldvalueany">
+  <code>fieldValueAny</code>
+  <a class="anchor" href="#fieldvalueany">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+accessor to the property backing field with <code>Any?</code> type</p>
+<h3 id="value">
+  <code>value</code>
+  <a class="anchor" href="#value">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+value being set casted to same type as the property backing field</p>
+<h3 id="valueany">
+  <code>valueAny</code>
+  <a class="anchor" href="#valueany">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+value being set with <code>Any?</code> type</p>
+<h2 id="vararg-scope">
+  Vararg scope
+  <a class="anchor" href="#vararg-scope">#</a>
+</h2>
+<h3 id="position">
+  <code>position</code>
+  <a class="anchor" href="#position">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+the position of an argument in vararg array</p>
+<h3 id="nargs-1">
+  <code>nArgs</code>
+  <a class="anchor" href="#nargs-1">#</a>
+</h3>
+<p><em>Chapter: TODO</em><br>
+overall count of arguments in vararg array</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+  <div><a class="flex align-center" href="https://github.com/NotWoods/mockk-guidebook//commit/0752c33c21655de8392fd4d262d3319f0aff43ae" title='Last modified by Tiger Oakes | September 6, 2020' target="_blank" rel="noopener">
+      <img src="/mockk-guidebook/svg/calendar.svg" class="book-icon" alt="Calendar" />
+      <span>September 6, 2020</span>
+    </a>
+  </div>
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/NotWoods/mockk-guidebook//edit/main/content/docs/method-index.md" target="_blank" rel="noopener">
+      <img src="/mockk-guidebook/svg/edit.svg" class="book-icon" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#method-index">Method index</a>
+      <ul>
+        <li><a href="#top-level-functions">Top level functions</a>
+          <ul>
+            <li><a href="#mockkt"><code>mockk&lt;T&gt;(...)</code></a></li>
+            <li><a href="#spykt"><code>spyk&lt;T&gt;()</code></a></li>
+            <li><a href="#spykobj"><code>spyk(obj)</code></a></li>
+            <li><a href="#slot"><code>slot</code></a></li>
+            <li><a href="#every"><code>every</code></a></li>
+            <li><a href="#coevery"><code>coEvery</code></a></li>
+            <li><a href="#verify"><code>verify</code></a></li>
+            <li><a href="#coverify"><code>coVerify</code></a></li>
+            <li><a href="#verifyall"><code>verifyAll</code></a></li>
+            <li><a href="#coverifyall"><code>coVerifyAll</code></a></li>
+            <li><a href="#verifyorder"><code>verifyOrder</code></a></li>
+            <li><a href="#coverifyorder"><code>coVerifyOrder</code></a></li>
+            <li><a href="#verifysequence"><code>verifySequence</code></a></li>
+            <li><a href="#coverifysequence"><code>coVerifySequence</code></a></li>
+            <li><a href="#excluderecords"><code>excludeRecords</code></a></li>
+            <li><a href="#confirmverified"><code>confirmVerified</code></a></li>
+            <li><a href="#clearmocks"><code>clearMocks</code></a></li>
+            <li><a href="#registerinstancefactory"><code>registerInstanceFactory</code></a></li>
+            <li><a href="#mockkclass"><code>mockkClass</code></a></li>
+            <li><a href="#mockkobject"><code>mockkObject</code></a></li>
+            <li><a href="#unmockkobject"><code>unmockkObject</code></a></li>
+            <li><a href="#mockkstatic"><code>mockkStatic</code></a></li>
+            <li><a href="#unmockkstatic"><code>unmockkStatic</code></a></li>
+            <li><a href="#clearstaticmockk"><code>clearStaticMockk</code></a></li>
+            <li><a href="#mockkconstructor"><code>mockkConstructor</code></a></li>
+            <li><a href="#unmockkconstructor"><code>unmockkConstructor</code></a></li>
+            <li><a href="#clearconstructormockk"><code>clearConstructorMockk</code></a></li>
+            <li><a href="#unmockkall"><code>unmockkAll</code></a></li>
+            <li><a href="#clearallmocks"><code>clearAllMocks</code></a></li>
+          </ul>
+        </li>
+        <li><a href="#matchers">Matchers</a>
+          <ul>
+            <li><a href="#any"><code>any()</code></a></li>
+            <li><a href="#allany"><code>allAny()</code></a></li>
+            <li><a href="#isnull"><code>isNull()</code></a></li>
+            <li><a href="#isnullinversetrue"><code>isNull(inverse=true)</code></a></li>
+            <li><a href="#oftypetype"><code>ofType(type)</code></a></li>
+            <li><a href="#match--itstartswithstring-"><code>match { it.startsWith(&quot;string&quot;) }</code></a></li>
+            <li><a href="#comatch--itstartswithstring-"><code>coMatch { it.startsWith(&quot;string&quot;) }</code></a></li>
+            <li><a href="#matchnullable--itstartswithstring-"><code>matchNullable { it?.startsWith(&quot;string&quot;) }</code></a></li>
+            <li><a href="#comatchnullable--itstartswithstring-"><code>coMatchNullable { it?.startsWith(&quot;string&quot;) }</code></a></li>
+            <li><a href="#eqvalue"><code>eq(value)</code></a></li>
+            <li><a href="#eqvalue-inversetrue"><code>eq(value, inverse=true))</code></a></li>
+            <li><a href="#neqvalue"><code>neq(value)</code></a></li>
+            <li><a href="#refeqvalue"><code>refEq(value)</code></a></li>
+            <li><a href="#refeqvalue-inversetrue"><code>refEq(value, inverse=true)</code></a></li>
+            <li><a href="#nrefeqvalue"><code>nrefEq(value)</code></a></li>
+            <li><a href="#cmpeqvalue"><code>cmpEq(value)</code></a></li>
+            <li><a href="#lessvalue"><code>less(value)</code></a></li>
+            <li><a href="#morevalue"><code>more(value)</code></a></li>
+            <li><a href="#lessvalue-andequalstrue"><code>less(value, andEquals=true)</code></a></li>
+            <li><a href="#morevalue-andequalstrue"><code>more(value, andEquals=true)</code></a></li>
+            <li><a href="#rangefrom-to-frominclusivetrue-toinclusivetrue"><code>range(from, to, fromInclusive=true, toInclusive=true)</code></a></li>
+            <li><a href="#andleft-right"><code>and(left, right)</code></a></li>
+            <li><a href="#orleft-right"><code>or(left, right)</code></a></li>
+            <li><a href="#notmatcher"><code>not(matcher)</code></a></li>
+            <li><a href="#captureslot"><code>capture(slot)</code></a></li>
+            <li><a href="#capturemutablelist"><code>capture(mutableList)</code></a></li>
+            <li><a href="#capturenullablemutablelist"><code>captureNullable(mutableList)</code></a></li>
+            <li><a href="#capturelambda"><code>captureLambda()</code></a></li>
+            <li><a href="#capturecoroutine"><code>captureCoroutine()</code></a></li>
+            <li><a href="#invoke"><code>invoke(...)</code></a></li>
+            <li><a href="#coinvoke"><code>coInvoke(...)</code></a></li>
+            <li><a href="#hintcls"><code>hint(cls)</code></a></li>
+            <li><a href="#anyvararg"><code>anyVararg()</code></a></li>
+            <li><a href="#vararganymatcher"><code>varargAny(matcher)</code></a></li>
+            <li><a href="#varargallmatcher"><code>varargAll(matcher)</code></a></li>
+            <li><a href="#anyvararg-1"><code>any...Vararg()</code></a></li>
+            <li><a href="#vararganymatcher-1"><code>varargAny...(matcher)</code></a></li>
+            <li><a href="#varargallmatcher-1"><code>varargAll...(matcher)</code></a></li>
+            <li><a href="#witharg--code-"><code>withArg { code }</code></a></li>
+            <li><a href="#withnullablearg--code-"><code>withNullableArg { code }</code></a></li>
+            <li><a href="#cowitharg--code-"><code>coWithArg { code }</code></a></li>
+            <li><a href="#cowithnullablearg--code-"><code>coWithNullableArg { code }</code></a></li>
+          </ul>
+        </li>
+        <li><a href="#validators">Validators</a>
+          <ul>
+            <li><a href="#verify--mockcall-"><code>verify { mock.call() }</code></a></li>
+            <li><a href="#verifyinversetrue--mockcall-"><code>verify(inverse=true) { mock.call() }</code></a></li>
+            <li><a href="#verifyatleastn--mockcall-"><code>verify(atLeast=n) { mock.call() }</code></a></li>
+            <li><a href="#verifyatmostn--mockcall-"><code>verify(atMost=n) { mock.call() }</code></a></li>
+            <li><a href="#verifyexactlyn--mockcall-"><code>verify(exactly=n) { mock.call() }</code></a></li>
+            <li><a href="#verifyall--mockcall1-mockcall2-"><code>verifyAll { mock.call1(); mock.call2() }</code></a></li>
+            <li><a href="#verifyorder--mockcall1-mockcall2-"><code>verifyOrder { mock.call1(); mock.call2() }</code></a></li>
+            <li><a href="#verifysequence--mockcall1-mockcall2-"><code>verifySequence { mock.call1(); mock.call2() }</code></a></li>
+            <li><a href="#verify--mock-wasnot-called-"><code>verify { mock wasNot Called }</code></a></li>
+            <li><a href="#verify--listofmock1-mock2-wasnot-called-"><code>verify { listOf(mock1, mock2) wasNot Called }</code></a></li>
+          </ul>
+        </li>
+        <li><a href="#answers">Answers</a>
+          <ul>
+            <li><a href="#returns-value"><code>returns value</code></a></li>
+            <li><a href="#returnsmany-list"><code>returnsMany list</code></a></li>
+            <li><a href="#throws-ex"><code>throws ex</code></a></li>
+            <li><a href="#answers--code-"><code>answers { code }</code></a></li>
+            <li><a href="#coanswers--code-"><code>coAnswers { code }</code></a></li>
+            <li><a href="#answers-answerobj"><code>answers answerObj</code></a></li>
+            <li><a href="#answers--nothing-"><code>answers { nothing }</code></a></li>
+            <li><a href="#just-runs"><code>just Runs</code></a></li>
+            <li><a href="#propertytype-class"><code>propertyType Class</code></a></li>
+            <li><a href="#nullablepropertytype-class"><code>nullablePropertyType Class</code></a></li>
+          </ul>
+        </li>
+        <li><a href="#additional-answers">Additional answer(s)</a>
+          <ul>
+            <li><a href="#andthen-value"><code>andThen value</code></a></li>
+            <li><a href="#andthenmany-list"><code>andThenMany list</code></a></li>
+            <li><a href="#andthenthrows-ex"><code>andThenThrows ex</code></a></li>
+            <li><a href="#andthen--code-"><code>andThen { code }</code></a></li>
+            <li><a href="#coandthen--code-"><code>coAndThen { code }</code></a></li>
+            <li><a href="#andthenanswer-answerobj"><code>andThenAnswer answerObj</code></a></li>
+            <li><a href="#andthen--nothing-"><code>andThen { nothing }</code></a></li>
+          </ul>
+        </li>
+        <li><a href="#answer-scope">Answer scope</a>
+          <ul>
+            <li><a href="#call"><code>call</code></a></li>
+            <li><a href="#invocation"><code>invocation</code></a></li>
+            <li><a href="#matcher"><code>matcher</code></a></li>
+            <li><a href="#self"><code>self</code></a></li>
+            <li><a href="#method"><code>method</code></a></li>
+            <li><a href="#args"><code>args</code></a></li>
+            <li><a href="#nargs"><code>nArgs</code></a></li>
+            <li><a href="#argn"><code>arg(n)</code></a></li>
+            <li><a href="#firstarg"><code>firstArg()</code></a></li>
+            <li><a href="#secondarg"><code>secondArg()</code></a></li>
+            <li><a href="#thirdarg"><code>thirdArg()</code></a></li>
+            <li><a href="#lastarg"><code>lastArg()</code></a></li>
+            <li><a href="#captured"><code>captured()</code></a></li>
+            <li><a href="#lambdainvoke"><code>lambda&lt;...&gt;().invoke()</code></a></li>
+            <li><a href="#coroutinecoinvoke"><code>coroutine&lt;...&gt;().coInvoke()</code></a></li>
+            <li><a href="#nothing"><code>nothing</code></a></li>
+            <li><a href="#fieldvalue"><code>fieldValue</code></a></li>
+            <li><a href="#fieldvalueany"><code>fieldValueAny</code></a></li>
+            <li><a href="#value"><code>value</code></a></li>
+            <li><a href="#valueany"><code>valueAny</code></a></li>
+          </ul>
+        </li>
+        <li><a href="#vararg-scope">Vararg scope</a>
+          <ul>
+            <li><a href="#position"><code>position</code></a></li>
+            <li><a href="#nargs-1"><code>nArgs</code></a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  <script src="https://getinsights.io/static/js/insights.js"></script>
+<script>
+    insights.init("dRGDHrNTA8KoTJ07");
+    insights.trackPages();
+</script>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
