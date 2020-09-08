@@ -27,7 +27,7 @@ builds a spy by copying from `obj`
 
 ### `slot`
 
-_Chapter: TODO_ \
+_Chapter: [Capture arguments to check later](docs/matching/capture.md)_ \
 creates a capturing slot
 
 ### `every`
@@ -181,7 +181,7 @@ checks if the value is not null
 
 ### `ofType(type)`
 
-_Chapter: TODO_ \
+_Chapter: [Argument of a certain type](docs/matching/oftype.md)_ \
 checks if the value belongs to the type
 
 ### `match { it.startsWith("string") }`
@@ -206,102 +206,102 @@ matches nullable value via the passed coroutine predicate
 
 ### `eq(value)`
 
-_Chapter: TODO_ \
+_Chapter: [Check equality](docs/matching/equal.md)_ \
 matches if the value is equal to the provided value via the `deepEquals` function
 
 ### `eq(value, inverse=true))`
 
-_Chapter: TODO_ \
+_Chapter: [Check equality](docs/matching/equal.md)_ \
 matches if the value is not equal to the provided value via the `deepEquals` function
 
 ### `neq(value)`
 
-_Chapter: TODO_ \
+_Chapter: [Check equality](docs/matching/equal.md)_ \
 matches if the value is not equal to the provided value via `deepEquals` function
 
 ### `refEq(value)`
 
-_Chapter: TODO_ \
+_Chapter: [Check equality](docs/matching/equal.md)_ \
 matches if the value is equal to the provided value via reference comparison
 
 ### `refEq(value, inverse=true)`
 
-_Chapter: TODO_ \
+_Chapter: [Check equality](docs/matching/equal.md)_ \
 matches if the value is not equal to the provided value via reference comparison
 
 ### `nrefEq(value)`
 
-_Chapter: TODO_ \
+_Chapter: [Check equality](docs/matching/equal.md)_ \
 matches if the value is not equal to the provided value via reference comparison
 
 ### `cmpEq(value)`
 
-_Chapter: TODO_ \
+_Chapter: [Check equality](docs/matching/equal.md)_ \
 matches if the value is equal to the provided value via the `compareTo` function
 
 ### `less(value)`
 
-_Chapter: TODO_ \
+_Chapter: [Comparables](docs/matching/compareto.md)_ \
 matches if the value is less than the provided value via the `compareTo` function
 
 ### `more(value)`
 
-_Chapter: TODO_ \
+_Chapter: [Comparables](docs/matching/compareto.md)_ \
 matches if the value is more than the provided value via the `compareTo` function
 
 ### `less(value, andEquals=true)`
 
-_Chapter: TODO_ \
+_Chapter: [Comparables](docs/matching/compareto.md)_ \
 matches if the value is less than or equal to the provided value via the `compareTo` function
 
 ### `more(value, andEquals=true)`
 
-_Chapter: TODO_ \
+_Chapter: [Comparables](docs/matching/compareto.md)_ \
 matches if the value is more than or equal to the provided value via the `compareTo` function
 
 ### `range(from, to, fromInclusive=true, toInclusive=true)`
 
-_Chapter: TODO_ \
+_Chapter: [Comparables](docs/matching/compareto.md)_ \
 matches if the value is in range via the `compareTo` function
 
 ### `and(left, right)`
 
-_Chapter: TODO_ \
+_Chapter: [Combine matchers](docs/matching/combine.md)_ \
 combines two matchers via a logical and
 
 ### `or(left, right)`
 
-_Chapter: TODO_ \
+_Chapter: [Combine matchers](docs/matching/combine.md)_ \
 combines two matchers via a logical or
 
 ### `not(matcher)`
 
-_Chapter: TODO_ \
+_Chapter: [Combine matchers](docs/matching/combine.md)_ \
 negates the matcher
 
 ### `capture(slot)`
 
-_Chapter: TODO_ \
+_Chapter: [Capture arguments to check later](docs/matching/capture.md)_ \
 captures a value to a `CapturingSlot`
 
 ### `capture(mutableList)`
 
-_Chapter: TODO_ \
+_Chapter: [Capture arguments to check later](docs/matching/capture.md)_ \
 captures a value to a list
 
 ### `captureNullable(mutableList)`
 
-_Chapter: TODO_ \
+_Chapter: [Capture arguments to check later](docs/matching/capture.md)_ \
 captures a value to a list together with null values
 
 ### `captureLambda()`
 
-_Chapter: TODO_ \
+_Chapter: [Capture arguments to check later](docs/matching/capture.md)_ \
 captures a lambda
 
 ### `captureCoroutine()`
 
-_Chapter: TODO_ \
+_Chapter: [Capture arguments to check later](docs/matching/capture.md)_ \
 captures a coroutine
 
 ### `invoke(...)`
@@ -353,12 +353,12 @@ A few special matchers available in verification mode only:
 
 ### `withArg { code }`
 
-_Chapter: TODO_ \
+_Chapter: [Assertions with an argument](docs/matching/with.md)_ \
 matches any value and allows to execute some code
 
 ### `withNullableArg { code }`
 
-_Chapter: TODO_ \
+_Chapter: [Assertions with an argument](docs/matching/with.md)_ \
 matches any nullable value and allows to execute some code
 
 ### `coWithArg { code }`
