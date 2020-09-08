@@ -10,7 +10,7 @@
 <link rel="manifest" href="/mockk-guidebook/manifest.json">
 <link rel="icon" href="/mockk-guidebook/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/mockk-guidebook/book.min.745103b237c9853dec7cc6a6930b75058c5b3c455b5b3c0b19e9a8b616058f9d.css" integrity="sha256-dFEDsjfJhT3sfMamkwt1BYxbPEVbWzwLGemothYFj50=">
-<script defer src="/mockk-guidebook/en.search.min.f57b1002eebbbfc0399a36a8ebd004f8448f928c4a5aad83169496232fe6f92a.js" integrity="sha256-9XsQAu67v8A5mjao69AE&#43;ESPkoxKWq2DFpSWIy/m&#43;So="></script>
+<script defer src="/mockk-guidebook/en.search.min.ad262b3f7008d28bf389e6107b9233aafbe558d4c4ee0a92677fcea4d8d42659.js" integrity="sha256-rSYrP3AI0ovzieYQe5IzqvvlWNTE7gqSZ3/OpNjUJlk="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -433,7 +433,8 @@ builds a spy by copying from <code>obj</code></p>
   <code>slot</code>
   <a class="anchor" href="#slot">#</a>
 </h3>
-<p><em>Chapter: TODO</em><br>
+<p><em>Chapter: 
+  <a href="/mockk-guidebook/docs/matching/capture/">Capture arguments to check later</a></em><br>
 creates a capturing slot</p>
 <h3 id="every">
   <code>every</code>
@@ -639,7 +640,8 @@ checks if the value is not null</p>
   <code>ofType(type)</code>
   <a class="anchor" href="#oftypetype">#</a>
 </h3>
-<p><em>Chapter: TODO</em><br>
+<p><em>Chapter: 
+  <a href="/mockk-guidebook/docs/matching/oftype/">Argument of a certain type</a></em><br>
 checks if the value belongs to the type</p>
 <h3 id="match--itstartswithstring-">
   <code>match { it.startsWith(&quot;string&quot;) }</code>
@@ -669,121 +671,141 @@ matches nullable value via the passed coroutine predicate</p>
   <code>eq(value)</code>
   <a class="anchor" href="#eqvalue">#</a>
 </h3>
-<p><em>Chapter: TODO</em><br>
+<p><em>Chapter: 
+  <a href="/mockk-guidebook/docs/matching/equal/">Check equality</a></em><br>
 matches if the value is equal to the provided value via the <code>deepEquals</code> function</p>
 <h3 id="eqvalue-inversetrue">
   <code>eq(value, inverse=true))</code>
   <a class="anchor" href="#eqvalue-inversetrue">#</a>
 </h3>
-<p><em>Chapter: TODO</em><br>
+<p><em>Chapter: 
+  <a href="/mockk-guidebook/docs/matching/equal/">Check equality</a></em><br>
 matches if the value is not equal to the provided value via the <code>deepEquals</code> function</p>
 <h3 id="neqvalue">
   <code>neq(value)</code>
   <a class="anchor" href="#neqvalue">#</a>
 </h3>
-<p><em>Chapter: TODO</em><br>
+<p><em>Chapter: 
+  <a href="/mockk-guidebook/docs/matching/equal/">Check equality</a></em><br>
 matches if the value is not equal to the provided value via <code>deepEquals</code> function</p>
 <h3 id="refeqvalue">
   <code>refEq(value)</code>
   <a class="anchor" href="#refeqvalue">#</a>
 </h3>
-<p><em>Chapter: TODO</em><br>
+<p><em>Chapter: 
+  <a href="/mockk-guidebook/docs/matching/equal/">Check equality</a></em><br>
 matches if the value is equal to the provided value via reference comparison</p>
 <h3 id="refeqvalue-inversetrue">
   <code>refEq(value, inverse=true)</code>
   <a class="anchor" href="#refeqvalue-inversetrue">#</a>
 </h3>
-<p><em>Chapter: TODO</em><br>
+<p><em>Chapter: 
+  <a href="/mockk-guidebook/docs/matching/equal/">Check equality</a></em><br>
 matches if the value is not equal to the provided value via reference comparison</p>
 <h3 id="nrefeqvalue">
   <code>nrefEq(value)</code>
   <a class="anchor" href="#nrefeqvalue">#</a>
 </h3>
-<p><em>Chapter: TODO</em><br>
+<p><em>Chapter: 
+  <a href="/mockk-guidebook/docs/matching/equal/">Check equality</a></em><br>
 matches if the value is not equal to the provided value via reference comparison</p>
 <h3 id="cmpeqvalue">
   <code>cmpEq(value)</code>
   <a class="anchor" href="#cmpeqvalue">#</a>
 </h3>
-<p><em>Chapter: TODO</em><br>
+<p><em>Chapter: 
+  <a href="/mockk-guidebook/docs/matching/equal/">Check equality</a></em><br>
 matches if the value is equal to the provided value via the <code>compareTo</code> function</p>
 <h3 id="lessvalue">
   <code>less(value)</code>
   <a class="anchor" href="#lessvalue">#</a>
 </h3>
-<p><em>Chapter: TODO</em><br>
+<p><em>Chapter: 
+  <a href="/mockk-guidebook/docs/matching/compareto/">Comparables</a></em><br>
 matches if the value is less than the provided value via the <code>compareTo</code> function</p>
 <h3 id="morevalue">
   <code>more(value)</code>
   <a class="anchor" href="#morevalue">#</a>
 </h3>
-<p><em>Chapter: TODO</em><br>
+<p><em>Chapter: 
+  <a href="/mockk-guidebook/docs/matching/compareto/">Comparables</a></em><br>
 matches if the value is more than the provided value via the <code>compareTo</code> function</p>
 <h3 id="lessvalue-andequalstrue">
   <code>less(value, andEquals=true)</code>
   <a class="anchor" href="#lessvalue-andequalstrue">#</a>
 </h3>
-<p><em>Chapter: TODO</em><br>
+<p><em>Chapter: 
+  <a href="/mockk-guidebook/docs/matching/compareto/">Comparables</a></em><br>
 matches if the value is less than or equal to the provided value via the <code>compareTo</code> function</p>
 <h3 id="morevalue-andequalstrue">
   <code>more(value, andEquals=true)</code>
   <a class="anchor" href="#morevalue-andequalstrue">#</a>
 </h3>
-<p><em>Chapter: TODO</em><br>
+<p><em>Chapter: 
+  <a href="/mockk-guidebook/docs/matching/compareto/">Comparables</a></em><br>
 matches if the value is more than or equal to the provided value via the <code>compareTo</code> function</p>
 <h3 id="rangefrom-to-frominclusivetrue-toinclusivetrue">
   <code>range(from, to, fromInclusive=true, toInclusive=true)</code>
   <a class="anchor" href="#rangefrom-to-frominclusivetrue-toinclusivetrue">#</a>
 </h3>
-<p><em>Chapter: TODO</em><br>
+<p><em>Chapter: 
+  <a href="/mockk-guidebook/docs/matching/compareto/">Comparables</a></em><br>
 matches if the value is in range via the <code>compareTo</code> function</p>
 <h3 id="andleft-right">
   <code>and(left, right)</code>
   <a class="anchor" href="#andleft-right">#</a>
 </h3>
-<p><em>Chapter: TODO</em><br>
+<p><em>Chapter: 
+  <a href="/mockk-guidebook/docs/matching/combine/">Combine matchers</a></em><br>
 combines two matchers via a logical and</p>
 <h3 id="orleft-right">
   <code>or(left, right)</code>
   <a class="anchor" href="#orleft-right">#</a>
 </h3>
-<p><em>Chapter: TODO</em><br>
+<p><em>Chapter: 
+  <a href="/mockk-guidebook/docs/matching/combine/">Combine matchers</a></em><br>
 combines two matchers via a logical or</p>
 <h3 id="notmatcher">
   <code>not(matcher)</code>
   <a class="anchor" href="#notmatcher">#</a>
 </h3>
-<p><em>Chapter: TODO</em><br>
+<p><em>Chapter: 
+  <a href="/mockk-guidebook/docs/matching/combine/">Combine matchers</a></em><br>
 negates the matcher</p>
 <h3 id="captureslot">
   <code>capture(slot)</code>
   <a class="anchor" href="#captureslot">#</a>
 </h3>
-<p><em>Chapter: TODO</em><br>
+<p><em>Chapter: 
+  <a href="/mockk-guidebook/docs/matching/capture/">Capture arguments to check later</a></em><br>
 captures a value to a <code>CapturingSlot</code></p>
 <h3 id="capturemutablelist">
   <code>capture(mutableList)</code>
   <a class="anchor" href="#capturemutablelist">#</a>
 </h3>
-<p><em>Chapter: TODO</em><br>
+<p><em>Chapter: 
+  <a href="/mockk-guidebook/docs/matching/capture/">Capture arguments to check later</a></em><br>
 captures a value to a list</p>
 <h3 id="capturenullablemutablelist">
   <code>captureNullable(mutableList)</code>
   <a class="anchor" href="#capturenullablemutablelist">#</a>
 </h3>
-<p><em>Chapter: TODO</em><br>
+<p><em>Chapter: 
+  <a href="/mockk-guidebook/docs/matching/capture/">Capture arguments to check later</a></em><br>
 captures a value to a list together with null values</p>
 <h3 id="capturelambda">
   <code>captureLambda()</code>
   <a class="anchor" href="#capturelambda">#</a>
 </h3>
-<p><em>Chapter: TODO</em><br>
+<p><em>Chapter: 
+  <a href="/mockk-guidebook/docs/matching/capture/">Capture arguments to check later</a></em><br>
 captures a lambda</p>
 <h3 id="capturecoroutine">
   <code>captureCoroutine()</code>
   <a class="anchor" href="#capturecoroutine">#</a>
 </h3>
-<p><em>Chapter: TODO</em><br>
+<p><em>Chapter: 
+  <a href="/mockk-guidebook/docs/matching/capture/">Capture arguments to check later</a></em><br>
 captures a coroutine</p>
 <h3 id="invoke">
   <code>invoke(...)</code>
@@ -844,13 +866,15 @@ matches if all elements are matching the matcher (specific to the primitive type
   <code>withArg { code }</code>
   <a class="anchor" href="#witharg--code-">#</a>
 </h3>
-<p><em>Chapter: TODO</em><br>
+<p><em>Chapter: 
+  <a href="/mockk-guidebook/docs/matching/with/">Assertions with an argument</a></em><br>
 matches any value and allows to execute some code</p>
 <h3 id="withnullablearg--code-">
   <code>withNullableArg { code }</code>
   <a class="anchor" href="#withnullablearg--code-">#</a>
 </h3>
-<p><em>Chapter: TODO</em><br>
+<p><em>Chapter: 
+  <a href="/mockk-guidebook/docs/matching/with/">Assertions with an argument</a></em><br>
 matches any nullable value and allows to execute some code</p>
 <h3 id="cowitharg--code-">
   <code>coWithArg { code }</code>
@@ -1191,9 +1215,9 @@ overall count of arguments in vararg array</p>
 
 
 
-  <div><a class="flex align-center" href="https://github.com/NotWoods/mockk-guidebook//commit/0752c33c21655de8392fd4d262d3319f0aff43ae" title='Last modified by Tiger Oakes | September 6, 2020' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/NotWoods/mockk-guidebook//commit/7d0638a20094093cad7163aaf4a6311f7f5e9a5e" title='Last modified by Tiger Oakes | September 8, 2020' target="_blank" rel="noopener">
       <img src="/mockk-guidebook/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>September 6, 2020</span>
+      <span>September 8, 2020</span>
     </a>
   </div>
 
