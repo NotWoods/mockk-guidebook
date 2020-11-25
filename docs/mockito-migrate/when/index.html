@@ -8,7 +8,8 @@
 
 <title>`when` and `do*` | MockK Guidebook</title>
 <link rel="manifest" href="/mockk-guidebook/manifest.json">
-<link rel="icon" href="/mockk-guidebook/favicon.png" type="image/x-icon">
+<link rel="icon" href="/mockk-guidebook/favicon.png" sizes="48x48" type="image/png">
+<link rel="icon" href="/mockk-guidebook/favicon.svg" sizes="any" type="image/svg+xml">
 <link rel="stylesheet" href="/mockk-guidebook/book.min.745103b237c9853dec7cc6a6930b75058c5b3c455b5b3c0b19e9a8b616058f9d.css" integrity="sha256-dFEDsjfJhT3sfMamkwt1BYxbPEVbWzwLGemothYFj50=">
 <script defer src="/mockk-guidebook/en.search.min.ad262b3f7008d28bf389e6107b9233aafbe558d4c4ee0a92677fcea4d8d42659.js" integrity="sha256-rSYrP3AI0ovzieYQe5IzqvvlWNTE7gqSZ3/OpNjUJlk="></script>
 <!--
@@ -265,11 +266,11 @@ https://github.com/alex-shpak/hugo-book
 <p>Most stubs in Mockito are written with <code>when</code> at the beginning of the line, following the format &ldquo;<strong>when</strong> the method is called <strong>then</strong> return something&rdquo;. Stubs written with the <code>when</code> method look like this:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">val</span> mockedFile = mock(File<span style="color:#f92672">::</span><span style="color:#66d9ef">class</span>.java)
 
-`when`(mockedFile.read()).thenReturn(<span style="color:#e6db74">&#34;hello world&#34;</span>)
+<span style="color:#a6e22e">`when</span><span style="color:#960050;background-color:#1e0010">`</span>(mockedFile.read()).thenReturn(<span style="color:#e6db74">&#34;hello world&#34;</span>)
 </code></pre></div><p>Sometimes this syntax cannot be used in Mockito, so an alternative approach is available. <code>doReturn</code> and the related <code>doThrow</code>, <code>doAnswer</code>, <code>doNothing</code>, and <code>doCallRealMethod</code> methods are used for void methods, spies, and other occasions where the <code>when</code> method cannot be used. Stubs written with the <code>do*</code> family of methods look like this:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">val</span> mockedFile = mock(File<span style="color:#f92672">::</span><span style="color:#66d9ef">class</span>.java)
 
-doReturn(<span style="color:#e6db74">&#34;hello world&#34;</span>).`when`(mockedFile).read()
+doReturn(<span style="color:#e6db74">&#34;hello world&#34;</span>).<span style="color:#a6e22e">`when</span><span style="color:#960050;background-color:#1e0010">`</span>(mockedFile).read()
 </code></pre></div><p>In MockK, all 
   <a href="/mockk-guidebook/docs/mocking/stubbing/">stubs</a> can be written with the <code>every</code> method. <code>every</code> starts a stubbing block and uses anonymous functions and 
   <a href="https://kotlinlang.org/docs/reference/functions.html#infix-notation">infix functions</a> to define the stub. The syntax looks like this:</p>
@@ -284,8 +285,8 @@ every { mockedFile.read() } returns <span style="color:#e6db74">&#34;hello world
 <p>Returning a value is probably the most common stub to create. In Mockito, the syntax can look like one of two approaches:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">val</span> mockedFile = mock(File<span style="color:#f92672">::</span><span style="color:#66d9ef">class</span>.java)
 
-`when`(mockedFile.read()).thenReturn(<span style="color:#e6db74">&#34;hello world&#34;</span>)
-doReturn(<span style="color:#e6db74">&#34;hello world&#34;</span>).`when`(mockedFile).read()
+<span style="color:#a6e22e">`when</span><span style="color:#960050;background-color:#1e0010">`</span>(mockedFile.read()).thenReturn(<span style="color:#e6db74">&#34;hello world&#34;</span>)
+doReturn(<span style="color:#e6db74">&#34;hello world&#34;</span>).<span style="color:#a6e22e">`when</span><span style="color:#960050;background-color:#1e0010">`</span>(mockedFile).read()
 </code></pre></div><p>In MockK, an infix function is used instead.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">val</span> mockedFile = mockk&lt;File&gt;()
 
@@ -297,8 +298,8 @@ every { mockedFile.read() } returns <span style="color:#e6db74">&#34;hello world
 <p>Rather than returning values, stubs can throw errors. Mockito lets exceptions be specified with one of two approaches:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">val</span> mockedFile = mock(File<span style="color:#f92672">::</span><span style="color:#66d9ef">class</span>.java)
 
-`when`(mockedFile.read()).thenThrow(RuntimeException())
-doThrow(RuntimeException()).`when`(mockedFile).read()
+<span style="color:#a6e22e">`when</span><span style="color:#960050;background-color:#1e0010">`</span>(mockedFile.read()).thenThrow(RuntimeException())
+doThrow(RuntimeException()).<span style="color:#a6e22e">`when</span><span style="color:#960050;background-color:#1e0010">`</span>(mockedFile).read()
 </code></pre></div><p>MockK provides the <code>throws</code> infix method to throw in stubs.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">val</span> mockedFile = mockk&lt;File&gt;()
 
@@ -317,22 +318,22 @@ every { mockedFile.read() } throws RuntimeException()
   <a href="https://kotlinlang.org/docs/reference/java-interop.html#sam-conversions">SAM conversion</a>.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">val</span> mockedFile = mock(File<span style="color:#f92672">::</span><span style="color:#66d9ef">class</span>.java)
 
-`when`(mockedFile.write(any())).thenAnswer { invocation -&gt;
+<span style="color:#a6e22e">`when</span><span style="color:#960050;background-color:#1e0010">`</span>(mockedFile.write(any())).thenAnswer { invocation <span style="color:#f92672">-&gt;</span>
   println(<span style="color:#e6db74">&#34;called with arguments: &#34;</span> + invocation.arguments.joinToString())
   Unit
 }
-`when`(mockedFile.write(any())).then { invocation -&gt;
+<span style="color:#a6e22e">`when</span><span style="color:#960050;background-color:#1e0010">`</span>(mockedFile.write(any())).then { invocation <span style="color:#f92672">-&gt;</span>
   println(<span style="color:#e6db74">&#34;called with arguments: &#34;</span> + invocation.arguments.joinToString())
   Unit
 }
-doAnswer { invocation -&gt;
+doAnswer { invocation <span style="color:#f92672">-&gt;</span>
   println(<span style="color:#e6db74">&#34;called with arguments: &#34;</span> + invocation.arguments.joinToString())
   Unit
-}.`when`(mockedFile).write(any())
+}.<span style="color:#a6e22e">`when</span><span style="color:#960050;background-color:#1e0010">`</span>(mockedFile).write(any())
 </code></pre></div><p>MockK provides an equivalent infix function that also uses function literals.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">val</span> mockedFile = mockk&lt;File&gt;()
 
-every { mockedFile.write(any()) } answers { call -&gt;
+every { mockedFile.write(any()) } answers { call <span style="color:#f92672">-&gt;</span>
   println(<span style="color:#e6db74">&#34;called with arguments: &#34;</span> + call.invocation.args.joinToString())
   Unit
 }
@@ -344,12 +345,12 @@ every { mockedFile.write(any()) } answers { call -&gt;
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">val</span> mockedFile = mock(File<span style="color:#f92672">::</span><span style="color:#66d9ef">class</span>.java)
 
 <span style="color:#75715e">// Chain multiple calls
-</span><span style="color:#75715e"></span>`when`(mockedFile.read()).thenReturn(<span style="color:#e6db74">&#34;read 1&#34;</span>).thenReturn(<span style="color:#e6db74">&#34;read 2&#34;</span>).thenReturn(<span style="color:#e6db74">&#34;read 3&#34;</span>)
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">`when</span><span style="color:#960050;background-color:#1e0010">`</span>(mockedFile.read()).thenReturn(<span style="color:#e6db74">&#34;read 1&#34;</span>).thenReturn(<span style="color:#e6db74">&#34;read 2&#34;</span>).thenReturn(<span style="color:#e6db74">&#34;read 3&#34;</span>)
 <span style="color:#75715e">// Shorthand
-</span><span style="color:#75715e"></span>`when`(mockedFile.read()).thenReturn(<span style="color:#e6db74">&#34;read 1&#34;</span>, <span style="color:#e6db74">&#34;read 2&#34;</span>, <span style="color:#e6db74">&#34;read 3&#34;</span>)
-doReturn(<span style="color:#e6db74">&#34;read 1&#34;</span>, <span style="color:#e6db74">&#34;read 2&#34;</span>, <span style="color:#e6db74">&#34;read 3&#34;</span>).`when`(mockedFile).read()
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">`when</span><span style="color:#960050;background-color:#1e0010">`</span>(mockedFile.read()).thenReturn(<span style="color:#e6db74">&#34;read 1&#34;</span>, <span style="color:#e6db74">&#34;read 2&#34;</span>, <span style="color:#e6db74">&#34;read 3&#34;</span>)
+doReturn(<span style="color:#e6db74">&#34;read 1&#34;</span>, <span style="color:#e6db74">&#34;read 2&#34;</span>, <span style="color:#e6db74">&#34;read 3&#34;</span>).<span style="color:#a6e22e">`when</span><span style="color:#960050;background-color:#1e0010">`</span>(mockedFile).read()
 <span style="color:#75715e">// Use different answer types
-</span><span style="color:#75715e"></span>`when`(mockedFile.read())
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">`when</span><span style="color:#960050;background-color:#1e0010">`</span>(mockedFile.read())
   .thenReturn(<span style="color:#e6db74">&#34;successful read&#34;</span>)
   .thenThrow(RuntimeException())
 </code></pre></div><p>Additional answers is supported in MockK using various infix functions.</p>
@@ -371,7 +372,7 @@ every { mockedFile.read() } andThenMany listOf(<span style="color:#e6db74">&#34;
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">val</span> mockedFile = mockk&lt;File&gt;()
 
 coEvery { mockedFile.readAsync() } returns <span style="color:#e6db74">&#34;hello world&#34;</span>
-coEvery { mockedFile.writeAsync(any()) } coAnswers { call -&gt;
+coEvery { mockedFile.writeAsync(any()) } coAnswers { call <span style="color:#f92672">-&gt;</span>
   doAsyncWork()
   Unit
 }
@@ -385,9 +386,9 @@ coEvery { mockedFile.writeAsync(any()) } coAnswers { call -&gt;
 
 
 
-  <div><a class="flex align-center" href="https://github.com/NotWoods/mockk-guidebook//commit/7d0638a20094093cad7163aaf4a6311f7f5e9a5e" title='Last modified by Tiger Oakes | September 8, 2020' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/NotWoods/mockk-guidebook//commit/133feebd6bb0d35fe6ae919b44e3bea5e2915fb1" title='Last modified by Tiger Oakes | November 25, 2020' target="_blank" rel="noopener">
       <img src="/mockk-guidebook/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>September 8, 2020</span>
+      <span>November 25, 2020</span>
     </a>
   </div>
 

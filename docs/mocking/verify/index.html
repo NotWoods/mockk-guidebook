@@ -8,7 +8,8 @@
 
 <title>Verify that functions were called | MockK Guidebook</title>
 <link rel="manifest" href="/mockk-guidebook/manifest.json">
-<link rel="icon" href="/mockk-guidebook/favicon.png" type="image/x-icon">
+<link rel="icon" href="/mockk-guidebook/favicon.png" sizes="48x48" type="image/png">
+<link rel="icon" href="/mockk-guidebook/favicon.svg" sizes="any" type="image/svg+xml">
 <link rel="stylesheet" href="/mockk-guidebook/book.min.745103b237c9853dec7cc6a6930b75058c5b3c455b5b3c0b19e9a8b616058f9d.css" integrity="sha256-dFEDsjfJhT3sfMamkwt1BYxbPEVbWzwLGemothYFj50=">
 <script defer src="/mockk-guidebook/en.search.min.ad262b3f7008d28bf389e6107b9233aafbe558d4c4ee0a92677fcea4d8d42659.js" integrity="sha256-rSYrP3AI0ovzieYQe5IzqvvlWNTE7gqSZ3/OpNjUJlk="></script>
 <!--
@@ -288,9 +289,9 @@ verify { navigator.navigateTo(<span style="color:#e6db74">&#34;Park&#34;</span>)
 </h2>
 <p>In the previous simple example, verification isn&rsquo;t very helpful as it just checks that the previous line ran. Verification becomes more useful when you are testing other classes, that depend on mocked instances. Let&rsquo;s start testing a button.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Button</span> {
-  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">var</span> clickListener: (() -&gt; Unit)? = <span style="color:#66d9ef">null</span>
+  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">var</span> clickListener: (() <span style="color:#f92672">-&gt;</span> Unit)? = <span style="color:#66d9ef">null</span>
 
-  <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">setOnClickListener</span>(listener: () -&gt; Unit) {
+  <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">setOnClickListener</span>(listener: () <span style="color:#f92672">-&gt;</span> Unit) {
     clickListener = listener
   }
 
@@ -305,7 +306,7 @@ verify { navigator.navigateTo(<span style="color:#e6db74">&#34;Park&#34;</span>)
 
   <span style="color:#66d9ef">val</span> goToParkButton = Button()
 
-  init {
+  <span style="color:#66d9ef">init</span> {
     goToParkButton.setOnClickListener {
       navigator.navigate(<span style="color:#e6db74">&#34;Park&#34;</span>)
     }
@@ -378,9 +379,9 @@ verify(atLeast = <span style="color:#ae81ff">1</span>, atMost = <span style="col
 
 
 
-  <div><a class="flex align-center" href="https://github.com/NotWoods/mockk-guidebook//commit/7d0638a20094093cad7163aaf4a6311f7f5e9a5e" title='Last modified by Tiger Oakes | September 8, 2020' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/NotWoods/mockk-guidebook//commit/133feebd6bb0d35fe6ae919b44e3bea5e2915fb1" title='Last modified by Tiger Oakes | November 25, 2020' target="_blank" rel="noopener">
       <img src="/mockk-guidebook/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>September 8, 2020</span>
+      <span>November 25, 2020</span>
     </a>
   </div>
 

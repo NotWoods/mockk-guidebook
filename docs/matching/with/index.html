@@ -8,7 +8,8 @@
 
 <title>Assertions with an argument | MockK Guidebook</title>
 <link rel="manifest" href="/mockk-guidebook/manifest.json">
-<link rel="icon" href="/mockk-guidebook/favicon.png" type="image/x-icon">
+<link rel="icon" href="/mockk-guidebook/favicon.png" sizes="48x48" type="image/png">
+<link rel="icon" href="/mockk-guidebook/favicon.svg" sizes="any" type="image/svg+xml">
 <link rel="stylesheet" href="/mockk-guidebook/book.min.745103b237c9853dec7cc6a6930b75058c5b3c455b5b3c0b19e9a8b616058f9d.css" integrity="sha256-dFEDsjfJhT3sfMamkwt1BYxbPEVbWzwLGemothYFj50=">
 <script defer src="/mockk-guidebook/en.search.min.ad262b3f7008d28bf389e6107b9233aafbe558d4c4ee0a92677fcea4d8d42659.js" integrity="sha256-rSYrP3AI0ovzieYQe5IzqvvlWNTE7gqSZ3/OpNjUJlk="></script>
 <!--
@@ -273,7 +274,7 @@ https://github.com/alex-shpak/hugo-book
 
 <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">FileNetwork</span> {
   <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">download</span>(name: String): File
-  <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">upload</span>(file: File)
+  <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">upload</span>(<span style="color:#66d9ef">file</span>: File)
 }
 </code></pre></div><p>When using a capturing slot, testing the <code>FileNetwork.download</code> function looks like this:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">val</span> network = mockk&lt;FileNetwork&gt;()
@@ -286,7 +287,7 @@ network.download(<span style="color:#e6db74">&#34;testfile&#34;</span>)
 verify {
   network.download(any())
 }
-assertTrue(<span style="color:#e6db74">&#34;testfile&#34;</span> == slot.captured)
+assertTrue(<span style="color:#e6db74">&#34;testfile&#34;</span> <span style="color:#f92672">==</span> slot.captured)
 </code></pre></div><p><code>withArg</code> simplifies this code so no slot is needed.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">val</span> network = mockk&lt;FileNetwork&gt;()
 
@@ -296,7 +297,7 @@ network.download(<span style="color:#e6db74">&#34;testfile&#34;</span>)
 
 verify {
   network.download(withArg {
-    assertTrue(<span style="color:#e6db74">&#34;testfile&#34;</span> == it)
+    assertTrue(<span style="color:#e6db74">&#34;testfile&#34;</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">it</span>)
   })
 }
 </code></pre></div><h2 id="arrays-and-data-classes">
@@ -319,8 +320,8 @@ network.upload(File(<span style="color:#e6db74">&#34;hello&#34;</span>, <span st
 
 verify {
   network.upload(withArg {
-    assertTrue(expected.name == it.name)
-    assertTrue(expected.<span style="color:#66d9ef">data</span> contentEquals it.<span style="color:#66d9ef">data</span>)
+    assertTrue(expected.name <span style="color:#f92672">==</span> <span style="color:#66d9ef">it</span>.name)
+    assertTrue(expected.<span style="color:#66d9ef">data</span> contentEquals <span style="color:#66d9ef">it</span>.<span style="color:#66d9ef">data</span>)
   })
 }
 </code></pre></div><h2 id="nullable-arguments">
@@ -343,9 +344,9 @@ verify {
 
 
 
-  <div><a class="flex align-center" href="https://github.com/NotWoods/mockk-guidebook//commit/7d0638a20094093cad7163aaf4a6311f7f5e9a5e" title='Last modified by Tiger Oakes | September 8, 2020' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/NotWoods/mockk-guidebook//commit/133feebd6bb0d35fe6ae919b44e3bea5e2915fb1" title='Last modified by Tiger Oakes | November 25, 2020' target="_blank" rel="noopener">
       <img src="/mockk-guidebook/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>September 8, 2020</span>
+      <span>November 25, 2020</span>
     </a>
   </div>
 

@@ -8,7 +8,8 @@
 
 <title>Create many mocks quickly with annotations | MockK Guidebook</title>
 <link rel="manifest" href="/mockk-guidebook/manifest.json">
-<link rel="icon" href="/mockk-guidebook/favicon.png" type="image/x-icon">
+<link rel="icon" href="/mockk-guidebook/favicon.png" sizes="48x48" type="image/png">
+<link rel="icon" href="/mockk-guidebook/favicon.svg" sizes="any" type="image/svg+xml">
 <link rel="stylesheet" href="/mockk-guidebook/book.min.745103b237c9853dec7cc6a6930b75058c5b3c455b5b3c0b19e9a8b616058f9d.css" integrity="sha256-dFEDsjfJhT3sfMamkwt1BYxbPEVbWzwLGemothYFj50=">
 <script defer src="/mockk-guidebook/en.search.min.ad262b3f7008d28bf389e6107b9233aafbe558d4c4ee0a92677fcea4d8d42659.js" integrity="sha256-rSYrP3AI0ovzieYQe5IzqvvlWNTE7gqSZ3/OpNjUJlk="></script>
 <!--
@@ -260,17 +261,17 @@ https://github.com/alex-shpak/hugo-book
 <p>Sometimes you will need to create many mocks in your test class. As each mock needs to be declared as a property in the test class, then initialized in the test setup function, the amount of code needed to build all your mocks can grow very quickly. MockK provides a shorthand using annotations to make this simpler.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RepositoryTest</span> {
 
-  @MockK <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">lateinit</span> <span style="color:#66d9ef">var</span> foodDatabase: FoodDatabase
-  @MockK <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">lateinit</span> <span style="color:#66d9ef">var</span> recipeDatabase: RecipeDatabase
-  @MockK <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">lateinit</span> <span style="color:#66d9ef">var</span> networkClient: NetworkClient
-  @SpyK <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">var</span> logger = Logger()
+  <span style="color:#a6e22e">@MockK</span> <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">lateinit</span> <span style="color:#66d9ef">var</span> foodDatabase: FoodDatabase
+  <span style="color:#a6e22e">@MockK</span> <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">lateinit</span> <span style="color:#66d9ef">var</span> recipeDatabase: RecipeDatabase
+  <span style="color:#a6e22e">@MockK</span> <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">lateinit</span> <span style="color:#66d9ef">var</span> networkClient: NetworkClient
+  <span style="color:#a6e22e">@SpyK</span> <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">var</span> logger = Logger()
 
-  @Before
+  <span style="color:#a6e22e">@Before</span>
   <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">setup</span>() {
-    MockKAnnotations.init(<span style="color:#66d9ef">this</span>)
+    MockKAnnotations.<span style="color:#66d9ef">init</span>(<span style="color:#66d9ef">this</span>)
   }
 
-  @Test
+  <span style="color:#a6e22e">@Test</span>
   <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">testDatabaseAndNetwork</span>() {
     <span style="color:#75715e">// ... use foodDatabase, recipeDatabase, networkClient and debugger
 </span><span style="color:#75715e"></span>  }
@@ -283,7 +284,7 @@ https://github.com/alex-shpak/hugo-book
   <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">lateinit</span> <span style="color:#66d9ef">var</span> networkClient: NetworkClient
   <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">lateinit</span> <span style="color:#66d9ef">var</span> logger: Logger
 
-  @Before
+  <span style="color:#a6e22e">@Before</span>
   <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">setup</span>() {
     foodDatabase = mockk()
     recipeDatabase = mockk()
@@ -291,7 +292,7 @@ https://github.com/alex-shpak/hugo-book
     logger = spyk(Logger())
   }
 
-  @Test
+  <span style="color:#a6e22e">@Test</span>
   <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">testDatabaseAndNetwork</span>() {
     <span style="color:#75715e">// ... use foodDatabase, recipeDatabase, networkClient and debugger
 </span><span style="color:#75715e"></span>  }
@@ -304,12 +305,12 @@ https://github.com/alex-shpak/hugo-book
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#75715e">// Annotations
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RepositoryTest</span> {
 
-  @MockK(relaxed = <span style="color:#66d9ef">true</span>) <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">lateinit</span> <span style="color:#66d9ef">var</span> foodDatabase: FoodDatabase
-  @MockK(relaxUnitFun = <span style="color:#66d9ef">true</span>) <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">lateinit</span> <span style="color:#66d9ef">var</span> recipeDatabase: RecipeDatabase
+  <span style="color:#a6e22e">@MockK</span>(relaxed = <span style="color:#66d9ef">true</span>) <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">lateinit</span> <span style="color:#66d9ef">var</span> foodDatabase: FoodDatabase
+  <span style="color:#a6e22e">@MockK</span>(relaxUnitFun = <span style="color:#66d9ef">true</span>) <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">lateinit</span> <span style="color:#66d9ef">var</span> recipeDatabase: RecipeDatabase
 
-  @Before
+  <span style="color:#a6e22e">@Before</span>
   <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">setup</span>() {
-    MockKAnnotations.init(<span style="color:#66d9ef">this</span>)
+    MockKAnnotations.<span style="color:#66d9ef">init</span>(<span style="color:#66d9ef">this</span>)
   }
 }
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#75715e">// Long form
@@ -318,7 +319,7 @@ https://github.com/alex-shpak/hugo-book
   <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">lateinit</span> <span style="color:#66d9ef">var</span> foodDatabase: FoodDatabase
   <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">lateinit</span> <span style="color:#66d9ef">var</span> recipeDatabase: RecipeDatabase
 
-  @Before
+  <span style="color:#a6e22e">@Before</span>
   <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">setup</span>() {
     foodDatabase = mockk(relaxed = <span style="color:#66d9ef">true</span>)
     recipeDatabase = mockk(relaxUnitFun = <span style="color:#66d9ef">true</span>)
@@ -328,12 +329,12 @@ https://github.com/alex-shpak/hugo-book
 <p>If options are shared across every annotated mock, they can be passed to the <code>init</code> call instead.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RepositoryTest</span> {
 
-  @MockK <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">lateinit</span> <span style="color:#66d9ef">var</span> foodDatabase: FoodDatabase
-  @MockK <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">lateinit</span> <span style="color:#66d9ef">var</span> recipeDatabase: RecipeDatabase
+  <span style="color:#a6e22e">@MockK</span> <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">lateinit</span> <span style="color:#66d9ef">var</span> foodDatabase: FoodDatabase
+  <span style="color:#a6e22e">@MockK</span> <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">lateinit</span> <span style="color:#66d9ef">var</span> recipeDatabase: RecipeDatabase
 
-  @Before
+  <span style="color:#a6e22e">@Before</span>
   <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">setup</span>() {
-    MockKAnnotations.init(<span style="color:#66d9ef">this</span>, relaxed = <span style="color:#66d9ef">true</span>)
+    MockKAnnotations.<span style="color:#66d9ef">init</span>(<span style="color:#66d9ef">this</span>, relaxed = <span style="color:#66d9ef">true</span>)
   }
 }
 </code></pre></div><h2 id="spies">
@@ -351,9 +352,9 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <div><a class="flex align-center" href="https://github.com/NotWoods/mockk-guidebook//commit/7d0638a20094093cad7163aaf4a6311f7f5e9a5e" title='Last modified by Tiger Oakes | September 8, 2020' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/NotWoods/mockk-guidebook//commit/133feebd6bb0d35fe6ae919b44e3bea5e2915fb1" title='Last modified by Tiger Oakes | November 25, 2020' target="_blank" rel="noopener">
       <img src="/mockk-guidebook/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>September 8, 2020</span>
+      <span>November 25, 2020</span>
     </a>
   </div>
 
