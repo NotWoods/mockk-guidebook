@@ -6,7 +6,8 @@
 
 {{- $manifest := resources.Get "manifest.json" | resources.ExecuteAsTemplate "manifest.json" . }}
 <link rel="manifest" href="{{ $manifest.RelPermalink }}">
-<link rel="icon" href="{{ "favicon.png" | relURL }}" type="image/x-icon">
+<link rel="icon" href="{{ "favicon.png" | relURL }}" sizes="48x48" type="image/png">
+<link rel="icon" href="{{ "favicon.svg" | relURL }}" sizes="any" type="image/svg+xml">
 
 {{- range .Translations }}
 <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}" title="{{ partial "docs/title" . }}">
