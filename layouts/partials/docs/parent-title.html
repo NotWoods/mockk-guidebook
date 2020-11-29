@@ -1,0 +1,9 @@
+{{ $title := "" }}
+
+{{ with .Parent }}
+  {{ if and (ne .Title "Docs") (ne .Title "") }}
+    {{ $title = (printf " | %s" .Title) }}
+  {{ end }}
+{{ end }}
+
+{{ return $title }}

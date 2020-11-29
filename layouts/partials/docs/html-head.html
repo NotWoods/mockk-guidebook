@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="{{ default .Summary .Description }}">
 
-<title>{{ partial "docs/title" . }}{{ if not .IsHome }} | {{ .Site.Title }}{{ end }}</title>
+<title>{{ partial "docs/title" . }}{{ partial "docs/parent-title" . }}{{ if not .IsHome }} | {{ .Site.Title }}{{ end }}</title>
 
 {{- $manifest := resources.Get "manifest.json" | resources.ExecuteAsTemplate "manifest.json" . }}
 <link rel="manifest" href="{{ $manifest.RelPermalink }}">
