@@ -5,14 +5,14 @@
   <meta name="generator" content="Hugo 0.79.0" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="(TODO) Capturing arguments to check them later.">
+<meta name="description" content="Capturing arguments to check them later.">
 
-<title>ArgumentCaptor | Migrating from Mockito | MockK Guidebook</title>
+<title>`ArgumentCaptor` | Migrating from Mockito | MockK Guidebook</title>
 <link rel="manifest" href="/mockk-guidebook/manifest.json">
 <link rel="icon" href="/mockk-guidebook/favicon.png" sizes="48x48" type="image/png">
 <link rel="icon" href="/mockk-guidebook/favicon.svg" sizes="any" type="image/svg+xml">
 <link rel="stylesheet" href="/mockk-guidebook/book.min.acd72b28676a9f414043f937fdf64465b7620126ba327e468ed3ff6ce147e6b1.css" integrity="sha256-rNcrKGdqn0FAQ/k3/fZEZbdiASa6Mn5GjtP/bOFH5rE=">
-<script defer src="/mockk-guidebook/en.search.min.520238926fe9e72fce57795d482b4216cb2ff2e3cfd4eab4d218aae9a9ed33d1.js" integrity="sha256-UgI4km/p5y/OV3ldSCtCFssv8uPP1Oq00hiq6antM9E="></script>
+<script defer src="/mockk-guidebook/en.search.min.cb5f23d7971fad8fd241c0cb704cfcef96c05ba832fef29f050274a7b49b5c64.js" integrity="sha256-y18j15cfrY/SQcDLcEz875bAW6gy/vKfBQJ0p7SbXGQ="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -22,7 +22,7 @@ https://github.com/alex-shpak/hugo-book
 <script defer src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
 <script defer src='/mockk-guidebook/ads.min.js'></script>
 
-<meta property="og:title" content='ArgumentCaptor' />
+<meta property="og:title" content='`ArgumentCaptor`' />
 <meta property="og:site_name" content='MockK Guidebook' />
 <meta property="og:type" content="book" />
 <meta property="og:image" content='https://notwoods.github.io/mockk-guidebook/cover/mockk-bike-iso.png' />
@@ -32,9 +32,9 @@ https://github.com/alex-shpak/hugo-book
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:creator" content="@Not_Woods">
-<meta name="twitter:title" content="ArgumentCaptor | MockK Guidebook">
+<meta name="twitter:title" content="`ArgumentCaptor` | MockK Guidebook">
 <meta name="twitter:image" content='https://notwoods.github.io/mockk-guidebook/cover/mockk-bike-iso.png'>
-<meta name="twitter:description" content="(TODO) Capturing arguments to check them later.">
+<meta name="twitter:description" content="Capturing arguments to check them later.">
 
 </head>
 
@@ -158,9 +158,9 @@ https://github.com/alex-shpak/hugo-book
 <li>
   <a href="/mockk-guidebook/docs/mockito-migrate/verify/"><code>verify</code></a></li>
 <li>
-  <a href="/mockk-guidebook/docs/mockito-migrate/arg-that/"><del><code>argThat</code></del></a></li>
+  <a href="/mockk-guidebook/docs/mockito-migrate/arg-that/"><code>argThat</code></a></li>
 <li>
-  <a href="/mockk-guidebook/docs/mockito-migrate/argument-captor/"class=active><del><code>ArgumentCaptor</code></del></a></li>
+  <a href="/mockk-guidebook/docs/mockito-migrate/argument-captor/"class=active><code>ArgumentCaptor</code></a></li>
 <li>
   <a href="/mockk-guidebook/docs/mockito-migrate/void/"><code>void</code> methods</a></li>
 </ul>
@@ -233,7 +233,15 @@ https://github.com/alex-shpak/hugo-book
   
   <aside class="hidden clearfix">
     
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#argumentcaptor"><code>ArgumentCaptor</code></a>
+      <ul>
+        <li><a href="#inline-assertions">Inline assertions</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 
 
   </aside>
@@ -244,7 +252,37 @@ https://github.com/alex-shpak/hugo-book
       <div class="dark" data-ea-publisher="notwoodsgithubio-mockk-guidebook" data-ea-type="text" id="content-ad" data-ea-manual="true"></div>
 
       
-  <article class="markdown"></article>
+  <article class="markdown"><h1 id="argumentcaptor">
+  <code>ArgumentCaptor</code>
+  <a class="anchor" href="#argumentcaptor">#</a>
+</h1>
+<p>When you need to run additional assertions on an argument, the <code>ArgumentCaptor</code> is the tool for the job in Mockito. An <code>ArgumentCaptor</code> will keep track of arguments passed to a mocked method, then allow you to retreve the argument later.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">val</span> personArgument = ArgumentCaptor.forClass(Person<span style="color:#f92672">::</span><span style="color:#66d9ef">class</span>.java)
+
+verify(mockPhone).call(personArgument.capture())
+
+assertEquals(<span style="color:#e6db74">&#34;Sarah Jane&#34;</span>, personArgument.value.name)
+</code></pre></div><p>MockK has a similar 
+  <a href="/mockk-guidebook/docs/matching/capture/">utility called a <code>CapturingSlot</code></a>. The functionality is very similar to Mockito, but the usage is different. Rather than calling the method <code>argumentCaptor.capture()</code> to create a argument matcher, you wrap the slot in a <code>capture()</code> function. You access the captured value using the <code>slot.captured</code> property rather than the <code>argumentCaptor.value</code> getter.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">val</span> personSlot = slot&lt;Person&gt;()
+
+every { mockPhone.call(capture(personSlot)) }
+
+assertEquals(<span style="color:#e6db74">&#34;Sarah Jane&#34;</span>, personSlot.captured.name)
+</code></pre></div><p>As an alternative to <code>CapturingSlot</code>, a <code>MutableList</code> can be used to store captured arguments. Simply pass an instance of a mutable list to <code>capture</code> instead of the slot. This allows you to record all captured values, as <code>CapturingSlot</code> only records the most recent value.</p>
+<h2 id="inline-assertions">
+  Inline assertions
+  <a class="anchor" href="#inline-assertions">#</a>
+</h2>
+<p>It turns out that there is an even simpler way to run assertions on an argument in MockK. The 
+  <a href="/mockk-guidebook/docs/matching/with/"><code>withArg</code> function</a> is an argument matcher that takes a lambda that will be executed when the mocked function is called, with the argument passed to the lambda. This allows you to run assertions without managing argument captors or capturing slots.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">every {
+  mockPhone.call(withArg { person <span style="color:#f92672">-&gt;</span>
+    assertEquals(<span style="color:#e6db74">&#34;Sarah Jane&#34;</span>, person.captured.name)
+  })
+}
+</code></pre></div><p>When dealing with one-off assertions, <code>withArg</code> will do everything you need with less code.</p>
+</article>
  
       
 
@@ -254,7 +292,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <div><a class="flex align-center" href="https://github.com/NotWoods/mockk-guidebook//commit/68c76e5ef24675a52f589a0b7a08e31953d59c29" title='Last modified by Tiger Oakes | November 30, 2020' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/NotWoods/mockk-guidebook//commit/8e855bb1d967c74f6419f298654cadb76eae3e3a" title='Last modified by Tiger Oakes | November 30, 2020' target="_blank" rel="noopener">
       <img src="/mockk-guidebook/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>November 30, 2020</span>
     </a>
@@ -286,7 +324,15 @@ https://github.com/alex-shpak/hugo-book
     <aside class="book-toc">
       <nav class="book-toc-inner">
         
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#argumentcaptor"><code>ArgumentCaptor</code></a>
+      <ul>
+        <li><a href="#inline-assertions">Inline assertions</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 
  
         <div class="dark" data-ea-publisher="notwoodsgithubio-mockk-guidebook" data-ea-type="image" id="toc-sidebar-ad" data-ea-manual="true"></div>

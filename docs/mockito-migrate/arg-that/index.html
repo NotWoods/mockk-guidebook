@@ -5,14 +5,14 @@
   <meta name="generator" content="Hugo 0.79.0" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="(TODO) Porting custom matchers with argThat">
+<meta name="description" content="Porting custom matchers with argThat">
 
 <title>`argThat` | Migrating from Mockito | MockK Guidebook</title>
 <link rel="manifest" href="/mockk-guidebook/manifest.json">
 <link rel="icon" href="/mockk-guidebook/favicon.png" sizes="48x48" type="image/png">
 <link rel="icon" href="/mockk-guidebook/favicon.svg" sizes="any" type="image/svg+xml">
 <link rel="stylesheet" href="/mockk-guidebook/book.min.acd72b28676a9f414043f937fdf64465b7620126ba327e468ed3ff6ce147e6b1.css" integrity="sha256-rNcrKGdqn0FAQ/k3/fZEZbdiASa6Mn5GjtP/bOFH5rE=">
-<script defer src="/mockk-guidebook/en.search.min.520238926fe9e72fce57795d482b4216cb2ff2e3cfd4eab4d218aae9a9ed33d1.js" integrity="sha256-UgI4km/p5y/OV3ldSCtCFssv8uPP1Oq00hiq6antM9E="></script>
+<script defer src="/mockk-guidebook/en.search.min.cb5f23d7971fad8fd241c0cb704cfcef96c05ba832fef29f050274a7b49b5c64.js" integrity="sha256-y18j15cfrY/SQcDLcEz875bAW6gy/vKfBQJ0p7SbXGQ="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -34,7 +34,7 @@ https://github.com/alex-shpak/hugo-book
 <meta name="twitter:creator" content="@Not_Woods">
 <meta name="twitter:title" content="`argThat` | MockK Guidebook">
 <meta name="twitter:image" content='https://notwoods.github.io/mockk-guidebook/cover/mockk-bike-iso.png'>
-<meta name="twitter:description" content="(TODO) Porting custom matchers with argThat">
+<meta name="twitter:description" content="Porting custom matchers with argThat">
 
 </head>
 
@@ -158,9 +158,9 @@ https://github.com/alex-shpak/hugo-book
 <li>
   <a href="/mockk-guidebook/docs/mockito-migrate/verify/"><code>verify</code></a></li>
 <li>
-  <a href="/mockk-guidebook/docs/mockito-migrate/arg-that/"class=active><del><code>argThat</code></del></a></li>
+  <a href="/mockk-guidebook/docs/mockito-migrate/arg-that/"class=active><code>argThat</code></a></li>
 <li>
-  <a href="/mockk-guidebook/docs/mockito-migrate/argument-captor/"><del><code>ArgumentCaptor</code></del></a></li>
+  <a href="/mockk-guidebook/docs/mockito-migrate/argument-captor/"><code>ArgumentCaptor</code></a></li>
 <li>
   <a href="/mockk-guidebook/docs/mockito-migrate/void/"><code>void</code> methods</a></li>
 </ul>
@@ -233,7 +233,11 @@ https://github.com/alex-shpak/hugo-book
   
   <aside class="hidden clearfix">
     
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#argthat"><code>argThat</code></a></li>
+  </ul>
+</nav>
 
 
   </aside>
@@ -244,9 +248,22 @@ https://github.com/alex-shpak/hugo-book
       <div class="dark" data-ea-publisher="notwoodsgithubio-mockk-guidebook" data-ea-type="text" id="content-ad" data-ea-manual="true"></div>
 
       
-  <article class="markdown"><ul>
-<li><code>argThat</code> -&gt; <code>match</code></li>
-</ul>
+  <article class="markdown"><h1 id="argthat">
+  <code>argThat</code>
+  <a class="anchor" href="#argthat">#</a>
+</h1>
+<p>The <code>argThat</code> argument matcher in Mockito lets you create advanced argument matchers that run a function on passed arguments, and checks if the function returns <code>true</code>.</p>
+<p>If you have a complicated class that can&rsquo;t be easily checked using <code>.equals()</code>, a custom matcher can be a useful tool.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#a6e22e">`when</span><span style="color:#960050;background-color:#1e0010">`</span>(
+  mockedCar.drive(argThat { engine <span style="color:#f92672">-&gt;</span> engine.dieselEngine })
+).thenReturn(<span style="color:#66d9ef">true</span>)
+</code></pre></div><p>MockK has a similar 
+  <a href="/mockk-guidebook/docs/matching/custom/">argument matcher called <code>match</code></a>. Just like <code>argThat</code>, you can pass a lambda in that returns a boolean.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">every {
+  mockedCar.drive(match { engine <span style="color:#f92672">-&gt;</span> engine.dieselEngine })
+} returns <span style="color:#66d9ef">true</span>
+</code></pre></div><p>MockK also lets you use coroutines with <code>match</code>. Just replace the function with <code>coMatch</code>, then pass a suspend function lambda in. See 
+  <a href="/mockk-guidebook/docs/mocking/coroutines/">Coroutines and suspend functions</a> for more details.</p>
 </article>
  
       
@@ -257,7 +274,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <div><a class="flex align-center" href="https://github.com/NotWoods/mockk-guidebook//commit/68c76e5ef24675a52f589a0b7a08e31953d59c29" title='Last modified by Tiger Oakes | November 30, 2020' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/NotWoods/mockk-guidebook//commit/8e855bb1d967c74f6419f298654cadb76eae3e3a" title='Last modified by Tiger Oakes | November 30, 2020' target="_blank" rel="noopener">
       <img src="/mockk-guidebook/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>November 30, 2020</span>
     </a>
@@ -289,7 +306,11 @@ https://github.com/alex-shpak/hugo-book
     <aside class="book-toc">
       <nav class="book-toc-inner">
         
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#argthat"><code>argThat</code></a></li>
+  </ul>
+</nav>
 
  
         <div class="dark" data-ea-publisher="notwoodsgithubio-mockk-guidebook" data-ea-type="image" id="toc-sidebar-ad" data-ea-manual="true"></div>
