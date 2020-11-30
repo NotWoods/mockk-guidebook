@@ -3,14 +3,14 @@ title: Assertions with an argument
 summary: >
   Using `withArg` to run assertions in `verify` calls.
 weight: 40
+methods:
+  - withArg
+  - withNullableArg
+  - coWithArg
+  - coWithNullableArg
 ---
 
 # Run assertions with an argument
-
-- `withArg`
-- `withNullableArg`
-- `coWithArg`
-- `coWithNullableArg`
 
 There are some special argument matchers that can only be used when verifying that a mocked function was called. `withArg` and its variants allow you to capture an argument and run your own assertions on it without the need to set up a [capturing slot](capture.md).
 
