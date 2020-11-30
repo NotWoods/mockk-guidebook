@@ -18,3 +18,20 @@ coEvery { mockedFile.writeAsync(any()) } coAnswers { call ->
   Unit
 }
 ```
+
+The full list of methods with coroutine equivalents is:
+
+- [`coEvery`](./stubbing.md)
+- [`coJustRun`](../tips/unit.md)
+- [`coVerify`](./verify.md)
+- [`coVerifyAll`](./verify.md)
+- [`coVerifyOrder`](./verify.md)
+- [`coVerifySequence`](./verify.md)
+- [`coExcludeRecords`](../tips/exclude.md)
+- [`coMatch`](../matching/custom.md)
+- [`coMatchNullable`](../matching/custom.md)
+- [`coWithArg`](../matching/with.md)
+- [`coWithNullableArg`](../matching/with.md)
+- [`coAnswers`](./stubbing.md)
+- `coAndThen`
+- `coInvoke`
