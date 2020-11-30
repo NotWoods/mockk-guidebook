@@ -17,3 +17,25 @@ a del {
 .author:hover .logo-nose {
   fill: #000;
 }
+
+.book-toc .book-toc-inner nav {
+  width: auto;
+  padding: 0;
+  position: static;
+  overflow-x: unset;
+  overflow-y: unset;
+}
+.book-toc-inner {
+  width: $toc-width;
+  padding: $padding-16;
+
+  @include fixed;
+}
+@media screen and (min-width: $container-max-width) {
+  .book-toc .book-toc-inner nav {
+    padding: 0;
+  }
+  .book-toc-inner {
+    padding: $padding-16 * 2 $padding-16;
+  }
+}

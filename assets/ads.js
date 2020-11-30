@@ -1,3 +1,11 @@
+const mobileBreakpoint = '56rem'; // $mobile-breakpoint
+
+const invisibleAdId = window.matchMedia(`(max-width: ${mobileBreakpoint})`).matches
+  ? 'toc-sidebar-ad'
+  : 'content-ad'
+document.getElementById(invisibleAdId).remove();
+ethicalads.load();
+
 if (document.monetization) {
   document.monetization.addEventListener('monetizationstart', () => {
     if (document.monetization.state === 'started') {
