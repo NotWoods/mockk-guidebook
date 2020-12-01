@@ -118,7 +118,7 @@ In the sample test will be green in the following cases:
 
 ## Verifying multiple functions
 
-TODO: `ordering`, `verifyAll`,
+TODO: `ordering`, `verifyAll`, `verifySequence`, `verifyOrder`
 
 ## Confirming all calls were verified
 
