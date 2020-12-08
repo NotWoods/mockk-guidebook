@@ -5,14 +5,14 @@
   <meta name="generator" content="Hugo 0.79.0" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="(TODO) Using answers when returns just isn&rsquo;t enough.">
+<meta name="description" content="Using answers when returns just isn&rsquo;t enough.">
 
 <title>Create more complicated answers for stubs | Mocking | MockK Guidebook</title>
 <link rel="manifest" href="/mockk-guidebook/manifest.json">
 <link rel="icon" href="/mockk-guidebook/favicon.png" sizes="48x48" type="image/png">
 <link rel="icon" href="/mockk-guidebook/favicon.svg" sizes="any" type="image/svg+xml">
 <link rel="stylesheet" href="/mockk-guidebook/book.min.acd72b28676a9f414043f937fdf64465b7620126ba327e468ed3ff6ce147e6b1.css" integrity="sha256-rNcrKGdqn0FAQ/k3/fZEZbdiASa6Mn5GjtP/bOFH5rE=">
-<script defer src="/mockk-guidebook/en.search.min.b0daaa6a32ee933a6d8438dbc51bef3892d8271bb4ec3b7fbfcd51169fd1833f.js" integrity="sha256-sNqqajLukzpthDjbxRvvOJLYJxu07Dt/v81RFp/Rgz8="></script>
+<script defer src="/mockk-guidebook/en.search.min.5c27ea07f31dbdcd1f9d0d0609926695756bd8db049f7fa90bab696fa353e56b.js" integrity="sha256-XCfqB/Mdvc0fnQ0GCZJmlXVr2NsEn3&#43;pC6tpb6NT5Ws="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -34,7 +34,7 @@ https://github.com/alex-shpak/hugo-book
 <meta name="twitter:creator" content="@Not_Woods">
 <meta name="twitter:title" content="Create more complicated answers for stubs | MockK Guidebook">
 <meta name="twitter:image" content='https://notwoods.github.io/mockk-guidebook/cover/mockk-bike-iso.png'>
-<meta name="twitter:description" content="(TODO) Using answers when returns just isn&rsquo;t enough.">
+<meta name="twitter:description" content="Using answers when returns just isn&rsquo;t enough.">
 
 </head>
 
@@ -85,7 +85,7 @@ https://github.com/alex-shpak/hugo-book
   <a href="/mockk-guidebook/docs/getting-started/">Getting Started</a>
 <ul>
 <li>
-  <a href="/mockk-guidebook/docs/getting-started/why-mocking/"><del>Why use mocks</del></a></li>
+  <a href="/mockk-guidebook/docs/getting-started/why-mocking/">Why use mocks</a></li>
 <li>
   <a href="/mockk-guidebook/docs/getting-started/why-mockk/"><del>Why MockK</del></a></li>
 </ul>
@@ -118,7 +118,7 @@ https://github.com/alex-shpak/hugo-book
 <li>
   <a href="/mockk-guidebook/docs/mocking/hierarchies/"><del>Chain mocks into hierarchies</del></a></li>
 <li>
-  <a href="/mockk-guidebook/docs/mocking/answers/"class=active><del>Create more complicated answers for stubs</del></a></li>
+  <a href="/mockk-guidebook/docs/mocking/answers/"class=active>Create more complicated answers for stubs</a></li>
 </ul>
 </li>
 <li>
@@ -233,7 +233,21 @@ https://github.com/alex-shpak/hugo-book
   
   <aside class="hidden clearfix">
     
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#side-effects">Side effects</a></li>
+        <li><a href="#answer-scope">Answer scope</a>
+          <ul>
+            <li><a href="#individual-arguments">Individual arguments</a></li>
+            <li><a href="#all-arguments">All arguments</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 
 
   </aside>
@@ -244,7 +258,70 @@ https://github.com/alex-shpak/hugo-book
       <div class="dark" data-ea-publisher="notwoodsgithubio-mockk-guidebook" data-ea-type="text" id="content-ad" data-ea-manual="true"></div>
 
       
-  <article class="markdown"></article>
+  <article class="markdown"><p>Most 
+  <a href="/mockk-guidebook/docs/mocking/stubbing/">stubs</a> will use <code>returns</code> to always return the same value when the corresponding method is called. Sometimes, the method you&rsquo;re trying to mock may be more complicated and require a more advanced stub.</p>
+<p>If you want to change the result of a mocked method depending on its arguments, run additional code whenever a method is called, or just print out &ldquo;Hello world&rdquo; when a mock is used, <code>answers</code> is the tool you&rsquo;ll want to use.</p>
+<p><code>answers</code> takes the place of <code>returns</code> after an <code>every</code> call. When using <code>returns</code>, it should be followed by a value to return. When using <code>answers</code>, it should be followed by a lambda function that is run when the mocked method is called.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">import</span> io.mockk.every
+<span style="color:#66d9ef">import</span> io.mockk.mockk
+
+<span style="color:#66d9ef">val</span> navigator = mockk&lt;Navigator&gt;()
+every { navigator.currentLocation } returns <span style="color:#e6db74">&#34;Home&#34;</span>
+every { navigator.currentLocation } answers { <span style="color:#e6db74">&#34;Home&#34;</span> }
+</code></pre></div><h2 id="side-effects">
+  Side effects
+  <a class="anchor" href="#side-effects">#</a>
+</h2>
+<p>A function has &ldquo;side effects&rdquo; if it does something other than just returning a value, such as logging or mutating some outside state. <code>answers</code> lets you model side effects by putting additional statements inside its lambda function.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">every { navigator.currentLocation } answers {
+  println(<span style="color:#e6db74">&#34;Hello world!&#34;</span>)
+
+  <span style="color:#e6db74">&#34;Work&#34;</span>
+}
+
+<span style="color:#75715e">// prints &#34;Hello world!&#34;
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">val</span> location = navigator.currentLocation
+<span style="color:#75715e">// prints &#34;Work&#34;
+</span><span style="color:#75715e"></span>println(location)
+</code></pre></div><h2 id="answer-scope">
+  Answer scope
+  <a class="anchor" href="#answer-scope">#</a>
+</h2>
+<p>Inside of the <code>answers</code> lambda function, you can access information about the mocked method and how it was called. You can then use this to adjust the resulting answer.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">every { navigator.navigateTo(any()) } answers {
+  <span style="color:#66d9ef">val</span> destination = firstArg&lt;String&gt;()
+  <span style="color:#66d9ef">throw</span> IllegalStateException(<span style="color:#e6db74">&#34;Can&#39;t reach </span><span style="color:#e6db74">$destination</span><span style="color:#e6db74">&#34;</span>)
+}
+</code></pre></div><p>These values are properties on the 
+  <a href="https://mockk.io/#answer-scope"><code>MockKAnswerScope</code></a> class. The scope is passed as a 
+  <a href="https://kotlinlang.org/docs/reference/lambdas.html#function-literals-with-receiver">receiver object</a>, allowing variables to be called from the implicit <code>this</code> scope.</p>
+<h3 id="individual-arguments">
+  Individual arguments
+  <a class="anchor" href="#individual-arguments">#</a>
+</h3>
+<p>Single arugments can be obtained using <code>firstArg()</code>, <code>secondArg()</code>, <code>thirdArg()</code>, and <code>lastArg()</code>. Other arguments can be obtained with <code>arg(n)</code>, where <code>n</code> is the index of the argument. For example, <code>arg(3)</code> would return the fourth argument.</p>
+<p>Arguments do not have static type checking. Instead, the type is casted automatically using generic types.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">every { calculator.add(any&lt;Int&gt;(), any&lt;Int&gt;()) } answers {
+  <span style="color:#75715e">// tries to cast the second argument to a string
+</span><span style="color:#75715e"></span>  println(secondArg&lt;String&gt;())
+  <span style="color:#ae81ff">0</span>
+}
+</code></pre></div><p>The above code will compile, but when the test is run a <code>ClassCastException</code> will be thrown because you cannot cast an <code>Int</code> to a <code>String</code>.</p>
+<h3 id="all-arguments">
+  All arguments
+  <a class="anchor" href="#all-arguments">#</a>
+</h3>
+<p>The entire list of arguments can be obtained using <code>args</code>. <code>args</code> has the type <code>List&lt;Any?&gt;</code>, so you will need to manually cast values in the list if you want to work with them.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">every { calculator.add(any&lt;Int&gt;(), any&lt;Int&gt;()) } answers {
+  <span style="color:#66d9ef">val</span> numbers = args <span style="color:#66d9ef">as</span> List&lt;Int&gt;
+  numbers.sum()
+}
+
+<span style="color:#75715e">// prints &#34;4&#34;
+</span><span style="color:#75715e"></span>println(calculator.add(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">2</span>))
+</code></pre></div><p>If you only need to know the length of <code>args</code>, aka the number of arguments, you can use <code>nArgs</code>.</p>
+<p>TODO <code>call</code>, <code>invocation</code>, <code>matcher</code>, <code>self</code>, <code>method</code>, <code>captured</code>, <code>lambda</code>, <code>coroutine</code>, <code>nothing</code>, <code>fieldValue</code>, <code>fieldValueAny</code>, <code>value</code>, <code>valueAny</code>.</p>
+</article>
  
       
 
@@ -254,9 +331,9 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <div><a class="flex align-center" href="https://github.com/NotWoods/mockk-guidebook//commit/ea5b4ed091a366274d493986fd85aae5633e8922" title='Last modified by Tiger Oakes | December 1, 2020' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/NotWoods/mockk-guidebook//commit/2fb2e1ea4e85eb05fcf5afc61ab3db988b3a02ee" title='Last modified by Tiger Oakes | December 8, 2020' target="_blank" rel="noopener">
       <img src="/mockk-guidebook/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>December 1, 2020</span>
+      <span>December 8, 2020</span>
     </a>
   </div>
 
@@ -286,7 +363,21 @@ https://github.com/alex-shpak/hugo-book
     <aside class="book-toc">
       <nav class="book-toc-inner">
         
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#side-effects">Side effects</a></li>
+        <li><a href="#answer-scope">Answer scope</a>
+          <ul>
+            <li><a href="#individual-arguments">Individual arguments</a></li>
+            <li><a href="#all-arguments">All arguments</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 
  
         <div class="dark" data-ea-publisher="notwoodsgithubio-mockk-guidebook" data-ea-type="image" id="toc-sidebar-ad" data-ea-manual="true"></div>
