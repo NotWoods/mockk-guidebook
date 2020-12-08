@@ -3,7 +3,7 @@ headless: true
 ---
 
 * [Getting Started](docs/getting-started/)
-  * [~~Why use mocks~~](docs/getting-started/why-mocking.md)
+  * [Why use mocks](docs/getting-started/why-mocking.md)
   * [~~Why MockK~~](docs/getting-started/why-mockk.md)
 * [Android Quickstart](docs/quick/android.md)
 * [**Mocking**](docs/mocking/)
@@ -18,7 +18,7 @@ headless: true
   * [~~Clear state~~](docs/mocking/clear.md)
   * [Create many mocks quickly with annotations](docs/mocking/annotation.md)
   * [~~Chain mocks into hierarchies~~](docs/mocking/hierarchies.md)
-  * [~~Create more complicated answers for stubs~~](docs/mocking/answers.md)
+  * [Create more complicated answers for stubs](docs/mocking/answers.md)
 * [**Argument matching**](docs/matching/)
   * [~~Check equality~~](docs/matching/equal.md)
   * [~~Allow any argument~~](docs/matching/any.md)
