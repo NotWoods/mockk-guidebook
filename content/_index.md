@@ -10,7 +10,7 @@ summary: >
 
 # MockK Guidebook
 
-<img alt="" src="cover/mockk-bike-iso-transparent.svg" width="640" height="320">
+<img alt="" src="cover/mockk-bike-iso-transparent.svg" width="640" height="320" style="height:auto">
 
 The upcoming all-in-one guide for the Kotlin mocking library [MockK](https://mockk.io/) in your tests.
 
@@ -33,8 +33,14 @@ Looking to learn more about Kotlin and Android development? I write about it on 
 
 Thanks to everyone who has contributed to the book! PRs are welcome on GitHub.
 
-<a href="https://github.com/NotWoods/mockk-guidebook/graphs/contributors">
-  <img alt="Contributor list" src="https://contributors-img.web.app/image?repo=NotWoods/mockk-guidebook" />
-</a>
-
-_Made with [contributors-img](https://contributors-img.web.app)._
+<figure>
+  <a href="https://github.com/NotWoods/mockk-guidebook/graphs/contributors">
+    <img alt="Contributor list" src="https://contributors-img.web.app/image?repo=NotWoods/mockk-guidebook" />
+  </a>
+  <figcaption>
+    <em>
+      Made with
+      <a href="https://contributors-img.web.app">contributors-img</a>.
+    </em>
+  </figcaption>
+</figure>

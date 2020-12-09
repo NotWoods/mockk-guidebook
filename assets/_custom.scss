@@ -18,6 +18,10 @@ a del {
   fill: #000;
 }
 
+.book-menu nav {
+  max-width: calc(100vw - 2rem);
+}
+
 .book-toc .book-toc-inner nav {
   width: auto;
   padding: 0;
