@@ -8,8 +8,8 @@
 </head>
 
 <body dir={{ .Site.Language.LanguageDirection }}>
-  <input type="checkbox" class="hidden toggle" id="menu-control" />
-  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <input type="checkbox" class="hidden toggle" id="menu-control" accesskey="*" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" accesskey="#" />
   <main class="container flex">
     <aside class="book-menu">
       {{ template "menu" . }} <!-- Left menu Content -->

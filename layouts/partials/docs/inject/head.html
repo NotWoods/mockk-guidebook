@@ -1,6 +1,7 @@
 <meta name="monetization" content="$ilp.uphold.com/p2WKq3nJHA8w">
 <script defer src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
 <script defer src='{{ (resources.Get "ads.js" | resources.Minify).RelPermalink }}'></script>
+<script defer src='{{ (resources.Get "keys.js" | resources.Minify).RelPermalink }}'></script>
 
 <meta property="og:title" content='{{ .Title }}' />
 <meta property="og:site_name" content='{{ .Site.Title }}' />
