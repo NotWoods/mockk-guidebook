@@ -4,18 +4,23 @@ a del {
   opacity: 0.5;
 }
 
-.author:hover .text {
-  opacity: 0.5;
+.logo-icon {
+  transition: opacity 0.3s linear;
 }
-.author:hover .logo-box {
-  fill: #e66d31;
-  stroke: none;
+.logo-icon--color,
+.author:hover .logo-icon--monochrome {
+  opacity: 0;
 }
-.author:hover .logo-path {
-  stroke: #000;
+.author:hover .logo-icon--color {
+  opacity: 1;
 }
-.author:hover .logo-nose {
-  fill: #000;
+.text-over path {
+  stroke-dasharray: 25;
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 0.5s linear;
+}
+.author:hover .text-over path {
+  stroke-dashoffset: 25;
 }
 
 .book-menu nav {
