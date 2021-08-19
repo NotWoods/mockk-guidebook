@@ -2,7 +2,7 @@
 <html lang="en" dir=>
 
 <head>
-  <meta name="generator" content="Hugo 0.82.0" />
+  <meta name="generator" content="Hugo 0.87.0" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Porting custom matchers with argThat">
@@ -11,7 +11,7 @@
 <link rel="manifest" href="/mockk-guidebook/manifest.json">
 <link rel="icon" href="/mockk-guidebook/favicon.png" sizes="48x48" type="image/png">
 <link rel="icon" href="/mockk-guidebook/favicon.svg" sizes="any" type="image/svg+xml">
-<link rel="stylesheet" href="/mockk-guidebook/book.min.8cc9f19857b4d60e8dd0122133898d6981cc0574d3603584833f55232a9ad1da.css" integrity="sha256-jMnxmFe01g6N0BIhM4mNaYHMBXTTYDWEgz9VIyqa0do=">
+<link rel="stylesheet" href="/mockk-guidebook/book.min.1affec71d977bd55c1afed7cea9336f3bed14b0cfa79d84464a3e620e68c91b1.css" integrity="sha256-Gv/scdl3vVXBr&#43;186pM2877RSwz6edhEZKPmIOaMkbE=">
 <script defer src="/mockk-guidebook/en.search.min.35c27fe7ffbf333637ccd97e32b30c055c962f719190207486c603703e1c5b79.js" integrity="sha256-NcJ/5/&#43;/MzY3zNl&#43;MrMMBVyWL3GRkCB0hsYDcD4cW3k="></script>
 <!--
 Made with Book Theme
@@ -22,6 +22,7 @@ https://github.com/alex-shpak/hugo-book
 <script defer src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
 <script defer src='/mockk-guidebook/ads.min.js'></script>
 <script defer src='/mockk-guidebook/keys.min.js'></script>
+<script src="https://caterpilla.tigeroakes.com/script.js" data-site="BZTAEHGH" defer></script>
 
 <meta property="og:title" content='`argThat`' />
 <meta property="og:site_name" content='MockK Guidebook' />
@@ -295,12 +296,12 @@ https://github.com/alex-shpak/hugo-book
 </h1>
 <p>The <code>argThat</code> argument matcher in Mockito lets you create advanced argument matchers that run a function on passed arguments, and checks if the function returns <code>true</code>.</p>
 <p>If you have a complicated class that can&rsquo;t be easily checked using <code>.equals()</code>, a custom matcher can be a useful tool.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#a6e22e">`when</span><span style="color:#960050;background-color:#1e0010">`</span>(
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#a6e22e">`when</span><span style="color:#960050;background-color:#1e0010">`</span>(
   mockedCar.drive(argThat { engine <span style="color:#f92672">-&gt;</span> engine.dieselEngine })
 ).thenReturn(<span style="color:#66d9ef">true</span>)
 </code></pre></div><p>MockK has a similar 
   <a href="/mockk-guidebook/docs/matching/custom/">argument matcher called <code>match</code></a>. Just like <code>argThat</code>, you can pass a lambda in that returns a boolean.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">every {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">every {
   mockedCar.drive(match { engine <span style="color:#f92672">-&gt;</span> engine.dieselEngine })
 } returns <span style="color:#66d9ef">true</span>
 </code></pre></div><p>MockK also lets you use coroutines with <code>match</code>. Just replace the function with <code>coMatch</code>, then pass a suspend function lambda in. See 
@@ -315,9 +316,9 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <div><a class="flex align-center" href="https://github.com/NotWoods/mockk-guidebook//commit/534949d5413fdd22fd266a423b6037b38dc2194a" title='Last modified by Tiger Oakes | April 7, 2021' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/NotWoods/mockk-guidebook//commit/d8539fa522fd0f842b6f0c9f83fdcf0f351dcb2d" title='Last modified by Tiger Oakes | August 19, 2021' target="_blank" rel="noopener">
       <img src="/mockk-guidebook/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>April 7, 2021</span>
+      <span>August 19, 2021</span>
     </a>
   </div>
 
@@ -370,12 +371,7 @@ https://github.com/alex-shpak/hugo-book
     
   </main>
 
-  <script src="https://getinsights.io/static/js/insights.js"></script>
-<script>
-    insights.init("dRGDHrNTA8KoTJ07");
-    insights.trackPages();
-</script>
-
+  
 </body>
 
 </html>

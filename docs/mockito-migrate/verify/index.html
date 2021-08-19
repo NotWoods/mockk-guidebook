@@ -2,7 +2,7 @@
 <html lang="en" dir=>
 
 <head>
-  <meta name="generator" content="Hugo 0.82.0" />
+  <meta name="generator" content="Hugo 0.87.0" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="verify that a method was called.">
@@ -11,7 +11,7 @@
 <link rel="manifest" href="/mockk-guidebook/manifest.json">
 <link rel="icon" href="/mockk-guidebook/favicon.png" sizes="48x48" type="image/png">
 <link rel="icon" href="/mockk-guidebook/favicon.svg" sizes="any" type="image/svg+xml">
-<link rel="stylesheet" href="/mockk-guidebook/book.min.8cc9f19857b4d60e8dd0122133898d6981cc0574d3603584833f55232a9ad1da.css" integrity="sha256-jMnxmFe01g6N0BIhM4mNaYHMBXTTYDWEgz9VIyqa0do=">
+<link rel="stylesheet" href="/mockk-guidebook/book.min.1affec71d977bd55c1afed7cea9336f3bed14b0cfa79d84464a3e620e68c91b1.css" integrity="sha256-Gv/scdl3vVXBr&#43;186pM2877RSwz6edhEZKPmIOaMkbE=">
 <script defer src="/mockk-guidebook/en.search.min.35c27fe7ffbf333637ccd97e32b30c055c962f719190207486c603703e1c5b79.js" integrity="sha256-NcJ/5/&#43;/MzY3zNl&#43;MrMMBVyWL3GRkCB0hsYDcD4cW3k="></script>
 <!--
 Made with Book Theme
@@ -22,6 +22,7 @@ https://github.com/alex-shpak/hugo-book
 <script defer src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
 <script defer src='/mockk-guidebook/ads.min.js'></script>
 <script defer src='/mockk-guidebook/keys.min.js'></script>
+<script src="https://caterpilla.tigeroakes.com/script.js" data-site="BZTAEHGH" defer></script>
 
 <meta property="og:title" content='`verify`' />
 <meta property="og:site_name" content='MockK Guidebook' />
@@ -309,12 +310,12 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#verify">#</a>
 </h1>
 <p>Verifying that a method was called has similar syntax in Mockito and MockK. MockK uses inline functions and keyword arguments in place of Mockito&rsquo;s verification modes.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#75715e">// Mockito
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#75715e">// Mockito
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">val</span> mockedFile = mock(File<span style="color:#f92672">::</span><span style="color:#66d9ef">class</span>.java)
 
 mockedFile.read()
 verify(mockedFile).read()
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#75715e">// MockK
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#75715e">// MockK
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">val</span> mockedFile = mockk&lt;File&gt;()
 
 mockedFile.read()
@@ -328,63 +329,63 @@ verify { mockedFile.read() }
   <code>never</code>
   <a class="anchor" href="#never">#</a>
 </h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#75715e">// Mockito
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#75715e">// Mockito
 </span><span style="color:#75715e"></span>verify(mockedFile, never()).write()
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#75715e">// MockK
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#75715e">// MockK
 </span><span style="color:#75715e"></span>verify(inverse = <span style="color:#66d9ef">true</span>) { mockedFile.write() }
 </code></pre></div><h3 id="atleastatleastonce">
   <code>atLeast</code>/<code>atLeastOnce</code>
   <a class="anchor" href="#atleastatleastonce">#</a>
 </h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#75715e">// Mockito
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#75715e">// Mockito
 </span><span style="color:#75715e"></span>verify(mockedFile, atLeast(<span style="color:#ae81ff">3</span>)).read()
 verify(mockedFile, atLeastOnce()).write()
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#75715e">// MockK
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#75715e">// MockK
 </span><span style="color:#75715e"></span>verify(atLeast = <span style="color:#ae81ff">3</span>) { mockedFile.read() }
 verify(atLeast = <span style="color:#ae81ff">1</span>) { mockedFile.write() }
 </code></pre></div><h3 id="atmostatmostonce">
   <code>atMost</code>/<code>atMostOnce</code>
   <a class="anchor" href="#atmostatmostonce">#</a>
 </h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#75715e">// Mockito
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#75715e">// Mockito
 </span><span style="color:#75715e"></span>verify(mockedFile, atMost(<span style="color:#ae81ff">3</span>)).read()
 verify(mockedFile, atMostOnce()).write()
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#75715e">// MockK
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#75715e">// MockK
 </span><span style="color:#75715e"></span>verify(atMost = <span style="color:#ae81ff">3</span>) { mockedFile.read() }
 verify(atMost = <span style="color:#ae81ff">1</span>) { mockedFile.write() }
 </code></pre></div><h3 id="times">
   <code>times</code>
   <a class="anchor" href="#times">#</a>
 </h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#75715e">// Mockito
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#75715e">// Mockito
 </span><span style="color:#75715e"></span>verify(mockedFile, times(<span style="color:#ae81ff">3</span>)).read()
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#75715e">// MockK
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#75715e">// MockK
 </span><span style="color:#75715e"></span>verify(exactly = <span style="color:#ae81ff">3</span>) { mockedFile.read() }
 </code></pre></div><h3 id="timeout">
   <code>timeout</code>
   <a class="anchor" href="#timeout">#</a>
 </h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#75715e">// Mockito
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#75715e">// Mockito
 </span><span style="color:#75715e"></span>verify(mockedFile, timeout(<span style="color:#ae81ff">100</span>)).readAsync()
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#75715e">// MockK
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#75715e">// MockK
 </span><span style="color:#75715e"></span>verify(timeout = <span style="color:#ae81ff">100</span>) { mockedFile.readAsync() }
 </code></pre></div><h2 id="verifynointeractions">
   <code>verifyNoInteractions</code>
   <a class="anchor" href="#verifynointeractions">#</a>
 </h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#75715e">// Mockito
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#75715e">// Mockito
 </span><span style="color:#75715e"></span>verifyNoInteractions(mockOne)
 verifyNoInteractions(mockTwo, mockThree)
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#75715e">// MockK
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#75715e">// MockK
 </span><span style="color:#75715e"></span>verify { mockOne wasNot Called }
 verify { listOf(mockTwo, mockThree) wasNot Called }
 </code></pre></div><h2 id="verifynomoreinteractions">
   <code>verifyNoMoreInteractions</code>
   <a class="anchor" href="#verifynomoreinteractions">#</a>
 </h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#75715e">// Mockito
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#75715e">// Mockito
 </span><span style="color:#75715e"></span>verifyNoMoreInteractions(mockOne, mockTwo)
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#75715e">// MockK
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#75715e">// MockK
 </span><span style="color:#75715e"></span>confirmVerified(mockOne, mockTwo)
 </code></pre></div><h2 id="coroutines">
   Coroutines
@@ -392,7 +393,7 @@ verify { listOf(mockTwo, mockThree) wasNot Called }
 </h2>
 <p>As MockK uses function literals to create stubs, small changes are needed to verify suspend functions. MockK provides functions prefixed with <code>co</code> as equivalents to other functions, such as <code>coVerify</code>. See 
   <a href="/mockk-guidebook/docs/mocking/coroutines/">Coroutines and suspend functions</a> for more details.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">val</span> mockedFile = mockk&lt;File&gt;()
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">val</span> mockedFile = mockk&lt;File&gt;()
 
 coVerify { mockedFile.readAsync() }
 </code></pre></div></article>
@@ -405,9 +406,9 @@ coVerify { mockedFile.readAsync() }
 
 
 
-  <div><a class="flex align-center" href="https://github.com/NotWoods/mockk-guidebook//commit/534949d5413fdd22fd266a423b6037b38dc2194a" title='Last modified by Tiger Oakes | April 7, 2021' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/NotWoods/mockk-guidebook//commit/d8539fa522fd0f842b6f0c9f83fdcf0f351dcb2d" title='Last modified by Tiger Oakes | August 19, 2021' target="_blank" rel="noopener">
       <img src="/mockk-guidebook/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>April 7, 2021</span>
+      <span>August 19, 2021</span>
     </a>
   </div>
 
@@ -475,12 +476,7 @@ coVerify { mockedFile.readAsync() }
     
   </main>
 
-  <script src="https://getinsights.io/static/js/insights.js"></script>
-<script>
-    insights.init("dRGDHrNTA8KoTJ07");
-    insights.trackPages();
-</script>
-
+  
 </body>
 
 </html>

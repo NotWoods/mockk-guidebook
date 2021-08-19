@@ -2,7 +2,7 @@
 <html lang="en" dir=>
 
 <head>
-  <meta name="generator" content="Hugo 0.82.0" />
+  <meta name="generator" content="Hugo 0.87.0" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Using withArg to run assertions in verify calls.">
@@ -11,7 +11,7 @@
 <link rel="manifest" href="/mockk-guidebook/manifest.json">
 <link rel="icon" href="/mockk-guidebook/favicon.png" sizes="48x48" type="image/png">
 <link rel="icon" href="/mockk-guidebook/favicon.svg" sizes="any" type="image/svg+xml">
-<link rel="stylesheet" href="/mockk-guidebook/book.min.8cc9f19857b4d60e8dd0122133898d6981cc0574d3603584833f55232a9ad1da.css" integrity="sha256-jMnxmFe01g6N0BIhM4mNaYHMBXTTYDWEgz9VIyqa0do=">
+<link rel="stylesheet" href="/mockk-guidebook/book.min.1affec71d977bd55c1afed7cea9336f3bed14b0cfa79d84464a3e620e68c91b1.css" integrity="sha256-Gv/scdl3vVXBr&#43;186pM2877RSwz6edhEZKPmIOaMkbE=">
 <script defer src="/mockk-guidebook/en.search.min.35c27fe7ffbf333637ccd97e32b30c055c962f719190207486c603703e1c5b79.js" integrity="sha256-NcJ/5/&#43;/MzY3zNl&#43;MrMMBVyWL3GRkCB0hsYDcD4cW3k="></script>
 <!--
 Made with Book Theme
@@ -22,6 +22,7 @@ https://github.com/alex-shpak/hugo-book
 <script defer src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
 <script defer src='/mockk-guidebook/ads.min.js'></script>
 <script defer src='/mockk-guidebook/keys.min.js'></script>
+<script src="https://caterpilla.tigeroakes.com/script.js" data-site="BZTAEHGH" defer></script>
 
 <meta property="og:title" content='Assertions with an argument' />
 <meta property="og:site_name" content='MockK Guidebook' />
@@ -301,7 +302,7 @@ https://github.com/alex-shpak/hugo-book
 </h1>
 <p>There are some special argument matchers that can only be used when verifying that a mocked function was called. <code>withArg</code> and its variants allow you to capture an argument and run your own assertions on it without the need to set up a 
   <a href="/mockk-guidebook/docs/matching/capture/">capturing slot</a>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">data</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">File</span>(
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">data</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">File</span>(
   <span style="color:#66d9ef">val</span> name: String,
   <span style="color:#66d9ef">val</span> data: ByteArray
 )
@@ -311,7 +312,7 @@ https://github.com/alex-shpak/hugo-book
   <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">upload</span>(<span style="color:#66d9ef">file</span>: File)
 }
 </code></pre></div><p>When using a capturing slot, testing the <code>FileNetwork.download</code> function looks like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">val</span> network = mockk&lt;FileNetwork&gt;()
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">val</span> network = mockk&lt;FileNetwork&gt;()
 <span style="color:#66d9ef">val</span> slot = slot&lt;String&gt;()
 
 every { network.download(capture(slot)) } returns mockk()
@@ -323,7 +324,7 @@ verify {
 }
 assertTrue(<span style="color:#e6db74">&#34;testfile&#34;</span> <span style="color:#f92672">==</span> slot.captured)
 </code></pre></div><p><code>withArg</code> simplifies this code so no slot is needed.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">val</span> network = mockk&lt;FileNetwork&gt;()
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">val</span> network = mockk&lt;FileNetwork&gt;()
 
 every { network.download(any()) } returns mockk()
 
@@ -339,7 +340,7 @@ verify {
   <a class="anchor" href="#arrays-and-data-classes">#</a>
 </h2>
 <p><code>withArg</code> can be helpful when you use arguments that aren&rsquo;t easily compared, such as a data class containing arrays. The <code>equals()</code> function on an array works differently than on a <code>List</code>. Arrays are only equal if you compare with the exact same instance, while lists are equal if all of their items are equal. Since Kotlin data classes use the <code>equals()</code> function with each property, this array behaviour affects them.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">val</span> expected = File(<span style="color:#e6db74">&#34;hello&#34;</span>, <span style="color:#66d9ef">data</span> = <span style="color:#e6db74">&#34;world&#34;</span>.toByteArray())
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">val</span> expected = File(<span style="color:#e6db74">&#34;hello&#34;</span>, <span style="color:#66d9ef">data</span> = <span style="color:#e6db74">&#34;world&#34;</span>.toByteArray())
 
 network.upload(File(<span style="color:#e6db74">&#34;hello&#34;</span>, <span style="color:#66d9ef">data</span> = <span style="color:#e6db74">&#34;world&#34;</span>.toByteArray()))
 
@@ -348,7 +349,7 @@ network.upload(File(<span style="color:#e6db74">&#34;hello&#34;</span>, <span st
   network.upload(expected)
 }
 </code></pre></div><p>In your test, you can choose to compare properties individually using <code>withArg</code>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">val</span> expected = File(<span style="color:#e6db74">&#34;hello&#34;</span>, <span style="color:#66d9ef">data</span> = <span style="color:#e6db74">&#34;world&#34;</span>.toByteArray())
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">val</span> expected = File(<span style="color:#e6db74">&#34;hello&#34;</span>, <span style="color:#66d9ef">data</span> = <span style="color:#e6db74">&#34;world&#34;</span>.toByteArray())
 
 network.upload(File(<span style="color:#e6db74">&#34;hello&#34;</span>, <span style="color:#66d9ef">data</span> = <span style="color:#e6db74">&#34;world&#34;</span>.toByteArray()))
 
@@ -378,9 +379,9 @@ verify {
 
 
 
-  <div><a class="flex align-center" href="https://github.com/NotWoods/mockk-guidebook//commit/534949d5413fdd22fd266a423b6037b38dc2194a" title='Last modified by Tiger Oakes | April 7, 2021' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/NotWoods/mockk-guidebook//commit/d8539fa522fd0f842b6f0c9f83fdcf0f351dcb2d" title='Last modified by Tiger Oakes | August 19, 2021' target="_blank" rel="noopener">
       <img src="/mockk-guidebook/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>April 7, 2021</span>
+      <span>August 19, 2021</span>
     </a>
   </div>
 
@@ -439,12 +440,7 @@ verify {
     
   </main>
 
-  <script src="https://getinsights.io/static/js/insights.js"></script>
-<script>
-    insights.init("dRGDHrNTA8KoTJ07");
-    insights.trackPages();
-</script>
-
+  
 </body>
 
 </html>

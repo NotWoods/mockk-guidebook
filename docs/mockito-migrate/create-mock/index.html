@@ -2,7 +2,7 @@
 <html lang="en" dir=>
 
 <head>
-  <meta name="generator" content="Hugo 0.82.0" />
+  <meta name="generator" content="Hugo 0.87.0" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="The similarities and differences in creating mocks between Mockito and MockK.">
@@ -11,7 +11,7 @@
 <link rel="manifest" href="/mockk-guidebook/manifest.json">
 <link rel="icon" href="/mockk-guidebook/favicon.png" sizes="48x48" type="image/png">
 <link rel="icon" href="/mockk-guidebook/favicon.svg" sizes="any" type="image/svg+xml">
-<link rel="stylesheet" href="/mockk-guidebook/book.min.8cc9f19857b4d60e8dd0122133898d6981cc0574d3603584833f55232a9ad1da.css" integrity="sha256-jMnxmFe01g6N0BIhM4mNaYHMBXTTYDWEgz9VIyqa0do=">
+<link rel="stylesheet" href="/mockk-guidebook/book.min.1affec71d977bd55c1afed7cea9336f3bed14b0cfa79d84464a3e620e68c91b1.css" integrity="sha256-Gv/scdl3vVXBr&#43;186pM2877RSwz6edhEZKPmIOaMkbE=">
 <script defer src="/mockk-guidebook/en.search.min.35c27fe7ffbf333637ccd97e32b30c055c962f719190207486c603703e1c5b79.js" integrity="sha256-NcJ/5/&#43;/MzY3zNl&#43;MrMMBVyWL3GRkCB0hsYDcD4cW3k="></script>
 <!--
 Made with Book Theme
@@ -22,6 +22,7 @@ https://github.com/alex-shpak/hugo-book
 <script defer src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
 <script defer src='/mockk-guidebook/ads.min.js'></script>
 <script defer src='/mockk-guidebook/keys.min.js'></script>
+<script src="https://caterpilla.tigeroakes.com/script.js" data-site="BZTAEHGH" defer></script>
 
 <meta property="og:title" content='Create a mock' />
 <meta property="og:site_name" content='MockK Guidebook' />
@@ -294,23 +295,23 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#create-a-mock">#</a>
 </h1>
 <p>The syntax to create a mock is very similar in Mockito and MockK. However, the behaviour is slightly different.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#75715e">// Mockito
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#75715e">// Mockito
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">val</span> mockedFile = mock(File<span style="color:#f92672">::</span><span style="color:#66d9ef">class</span>.java)
 
 mockedFile.read() <span style="color:#75715e">// does nothing
-</span></code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#75715e">// MockK
+</span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#75715e">// MockK
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">val</span> mockedFile = mockk&lt;File&gt;()
 
 mockedFile.read() <span style="color:#75715e">// throws because the method was not stubbed
 </span></code></pre></div><p>Mocked objects in MockK resemble Mockito&rsquo;s 
   <a href="https://javadoc.io/static/org.mockito/mockito-core/3.3.3/org/mockito/quality/Strictness.html#STRICT_STUBS"><code>STRICT_STUBS</code></a> mode by default. If a method is not stubbed, then it will throw. This makes it easier to catch methods that are being called when you do not expect it, or when methods are being called with different arguments.</p>
 <p>Mockito&rsquo;s default lenient behaviour can be replicated with the <code>relaxed</code> setting. Relaxed mocks will have default stubs for all methods.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#75715e">// MockK
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#75715e">// MockK
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">val</span> mockedFile = mockk&lt;File&gt;(relaxed = <span style="color:#66d9ef">true</span>)
 
 mockedFile.read() <span style="color:#75715e">// will not throw
 </span></code></pre></div><p>If desired, you can choose to only relax methods that return <code>Unit</code>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#75715e">// MockK
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#75715e">// MockK
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">val</span> mockedFile = mockk&lt;File&gt;(relaxUnitFun = <span style="color:#66d9ef">true</span>)
 
 mockedFile.read() <span style="color:#75715e">// returns Unit, will not throw
@@ -325,9 +326,9 @@ mockedFile.read() <span style="color:#75715e">// returns Unit, will not throw
 
 
 
-  <div><a class="flex align-center" href="https://github.com/NotWoods/mockk-guidebook//commit/534949d5413fdd22fd266a423b6037b38dc2194a" title='Last modified by Tiger Oakes | April 7, 2021' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/NotWoods/mockk-guidebook//commit/d8539fa522fd0f842b6f0c9f83fdcf0f351dcb2d" title='Last modified by Tiger Oakes | August 19, 2021' target="_blank" rel="noopener">
       <img src="/mockk-guidebook/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>April 7, 2021</span>
+      <span>August 19, 2021</span>
     </a>
   </div>
 
@@ -380,12 +381,7 @@ mockedFile.read() <span style="color:#75715e">// returns Unit, will not throw
     
   </main>
 
-  <script src="https://getinsights.io/static/js/insights.js"></script>
-<script>
-    insights.init("dRGDHrNTA8KoTJ07");
-    insights.trackPages();
-</script>
-
+  
 </body>
 
 </html>

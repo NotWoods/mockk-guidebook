@@ -2,7 +2,7 @@
 <html lang="en" dir=>
 
 <head>
-  <meta name="generator" content="Hugo 0.82.0" />
+  <meta name="generator" content="Hugo 0.87.0" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Using verify to check that a function was used.">
@@ -11,7 +11,7 @@
 <link rel="manifest" href="/mockk-guidebook/manifest.json">
 <link rel="icon" href="/mockk-guidebook/favicon.png" sizes="48x48" type="image/png">
 <link rel="icon" href="/mockk-guidebook/favicon.svg" sizes="any" type="image/svg+xml">
-<link rel="stylesheet" href="/mockk-guidebook/book.min.8cc9f19857b4d60e8dd0122133898d6981cc0574d3603584833f55232a9ad1da.css" integrity="sha256-jMnxmFe01g6N0BIhM4mNaYHMBXTTYDWEgz9VIyqa0do=">
+<link rel="stylesheet" href="/mockk-guidebook/book.min.1affec71d977bd55c1afed7cea9336f3bed14b0cfa79d84464a3e620e68c91b1.css" integrity="sha256-Gv/scdl3vVXBr&#43;186pM2877RSwz6edhEZKPmIOaMkbE=">
 <script defer src="/mockk-guidebook/en.search.min.35c27fe7ffbf333637ccd97e32b30c055c962f719190207486c603703e1c5b79.js" integrity="sha256-NcJ/5/&#43;/MzY3zNl&#43;MrMMBVyWL3GRkCB0hsYDcD4cW3k="></script>
 <!--
 Made with Book Theme
@@ -22,6 +22,7 @@ https://github.com/alex-shpak/hugo-book
 <script defer src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
 <script defer src='/mockk-guidebook/ads.min.js'></script>
 <script defer src='/mockk-guidebook/keys.min.js'></script>
+<script src="https://caterpilla.tigeroakes.com/script.js" data-site="BZTAEHGH" defer></script>
 
 <meta property="og:title" content='Verify that functions were called' />
 <meta property="og:site_name" content='MockK Guidebook' />
@@ -308,7 +309,7 @@ https://github.com/alex-shpak/hugo-book
 </h1>
 <p>When using mocked dependencies, you usually want to test that your code calls the correct functions. In MockK, this is accomplished using the <code>verify</code> function.</p>
 <p>Using <code>verify</code> to verify that a function was called looks a lot like using <code>every</code> for stubbing. A simple example is to call a method and immediately check that it was called.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">import</span> io.mockk.every
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">import</span> io.mockk.every
 <span style="color:#66d9ef">import</span> io.mockk.mockk
 <span style="color:#66d9ef">import</span> io.mockk.verify
 
@@ -328,7 +329,7 @@ verify { navigator.navigateTo(<span style="color:#e6db74">&#34;Park&#34;</span>)
   <a class="anchor" href="#verifying-dependencies">#</a>
 </h2>
 <p>In the previous simple example, verification isn&rsquo;t very helpful as it just checks that the previous line ran. Verification becomes more useful when you are testing other classes, that depend on mocked instances. Let&rsquo;s start testing a button.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Button</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Button</span> {
   <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">var</span> clickListener: (() <span style="color:#f92672">-&gt;</span> Unit)? = <span style="color:#66d9ef">null</span>
 
   <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">setOnClickListener</span>(listener: () <span style="color:#f92672">-&gt;</span> Unit) {
@@ -353,7 +354,7 @@ verify { navigator.navigateTo(<span style="color:#e6db74">&#34;Park&#34;</span>)
   }
 }
 </code></pre></div><p>A test for the above <code>NavigationView</code> class should check that clicking the <code>goToParkButton</code> tells the <code>navigator</code> to go to the park. If the navigator doesn&rsquo;t record where it goes, then it can be difficult to check that the button does its job correctly. This is a scenario where MockK can shine.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#75715e">// Mock the dependency needed for navigationView
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#75715e">// Mock the dependency needed for navigationView
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">val</span> navigator = mockk&lt;Navigator&gt;()
 every { navigator.navigateTo(any()) } returns Unit
 
@@ -364,11 +365,11 @@ every { navigator.navigateTo(any()) } returns Unit
 </span><span style="color:#75715e"></span>navigationView.goToParkButton.performClick()
 verify { navigator.navigateTo(<span style="color:#e6db74">&#34;Park&#34;</span>) }
 </code></pre></div><p>This test ensures that the button tells the navigator to go where we expect. If the <code>NavigationView</code> view gets changed in the future, the test will throw if this expectation is broken.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-diff" data-lang="diff">    goToParkButton.setOnClickListener {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-diff" data-lang="diff">    goToParkButton.setOnClickListener {
 <span style="color:#f92672">-     navigator.navigate(&#34;Park&#34;)
 </span><span style="color:#f92672"></span><span style="color:#a6e22e">+     navigator.navigate(&#34;Parka&#34;)
 </span><span style="color:#a6e22e"></span>    }
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">navigationView.goToParkButton.performClick()
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">navigationView.goToParkButton.performClick()
 <span style="color:#75715e">// Throws as navigateTo(&#34;Park&#34;) was never called.
 </span><span style="color:#75715e">// MockK will mention in the error that navigateTo(&#34;Parka&#34;) was called.
 </span><span style="color:#75715e"></span>verify { navigator.navigateTo(<span style="color:#e6db74">&#34;Park&#34;</span>) }
@@ -376,24 +377,24 @@ verify { navigator.navigateTo(<span style="color:#e6db74">&#34;Park&#34;</span>)
   Verifying that any mock functions is never called
   <a class="anchor" href="#verifying-that-any-mock-functions-is-never-called">#</a>
 </h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">verify { navigator wasNot Called }
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">verify { navigator wasNot Called }
 </code></pre></div><h2 id="verifying-that-a-function-is-never-called">
   Verifying that a function is never called
   <a class="anchor" href="#verifying-that-a-function-is-never-called">#</a>
 </h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">verify(inverse = <span style="color:#66d9ef">true</span>) { navigator.navigateTo(<span style="color:#e6db74">&#34;Park&#34;</span>) }
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">verify(inverse = <span style="color:#66d9ef">true</span>) { navigator.navigateTo(<span style="color:#e6db74">&#34;Park&#34;</span>) }
 verify(exactly = <span style="color:#ae81ff">0</span>) { navigator.navigateTo(<span style="color:#e6db74">&#34;Park&#34;</span>) }
 </code></pre></div><h2 id="verifying-a-function-is-called-a-certain-number-of-times">
   Verifying a function is called a certain number of times
   <a class="anchor" href="#verifying-a-function-is-called-a-certain-number-of-times">#</a>
 </h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">verify(exactly = <span style="color:#ae81ff">1</span>) { navigator.navigateTo(<span style="color:#e6db74">&#34;Park&#34;</span>) }
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">verify(exactly = <span style="color:#ae81ff">1</span>) { navigator.navigateTo(<span style="color:#e6db74">&#34;Park&#34;</span>) }
 verify(atLeast = <span style="color:#ae81ff">1</span>, atMost = <span style="color:#ae81ff">1</span>) { navigator.navigateTo(<span style="color:#e6db74">&#34;Park&#34;</span>) }
 </code></pre></div><h3 id="using-a-range">
   Using a range
   <a class="anchor" href="#using-a-range">#</a>
 </h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">verify(atLeast = <span style="color:#ae81ff">2</span>, atMost = <span style="color:#ae81ff">3</span>) { navigator.navigateTo(<span style="color:#e6db74">&#34;Park&#34;</span>) }
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">verify(atLeast = <span style="color:#ae81ff">2</span>, atMost = <span style="color:#ae81ff">3</span>) { navigator.navigateTo(<span style="color:#e6db74">&#34;Park&#34;</span>) }
 </code></pre></div><p>In the sample test will be green in the following cases:</p>
 <ol>
 <li>Function called two times</li>
@@ -419,9 +420,9 @@ verify(atLeast = <span style="color:#ae81ff">1</span>, atMost = <span style="col
 
 
 
-  <div><a class="flex align-center" href="https://github.com/NotWoods/mockk-guidebook//commit/534949d5413fdd22fd266a423b6037b38dc2194a" title='Last modified by Tiger Oakes | April 7, 2021' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/NotWoods/mockk-guidebook//commit/d8539fa522fd0f842b6f0c9f83fdcf0f351dcb2d" title='Last modified by Tiger Oakes | August 19, 2021' target="_blank" rel="noopener">
       <img src="/mockk-guidebook/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>April 7, 2021</span>
+      <span>August 19, 2021</span>
     </a>
   </div>
 
@@ -487,12 +488,7 @@ verify(atLeast = <span style="color:#ae81ff">1</span>, atMost = <span style="col
     
   </main>
 
-  <script src="https://getinsights.io/static/js/insights.js"></script>
-<script>
-    insights.init("dRGDHrNTA8KoTJ07");
-    insights.trackPages();
-</script>
-
+  
 </body>
 
 </html>

@@ -2,7 +2,7 @@
 <html lang="en" dir=>
 
 <head>
-  <meta name="generator" content="Hugo 0.82.0" />
+  <meta name="generator" content="Hugo 0.87.0" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Advanced static mocking with mockkStatic and mockkObject.">
@@ -11,7 +11,7 @@
 <link rel="manifest" href="/mockk-guidebook/manifest.json">
 <link rel="icon" href="/mockk-guidebook/favicon.png" sizes="48x48" type="image/png">
 <link rel="icon" href="/mockk-guidebook/favicon.svg" sizes="any" type="image/svg+xml">
-<link rel="stylesheet" href="/mockk-guidebook/book.min.8cc9f19857b4d60e8dd0122133898d6981cc0574d3603584833f55232a9ad1da.css" integrity="sha256-jMnxmFe01g6N0BIhM4mNaYHMBXTTYDWEgz9VIyqa0do=">
+<link rel="stylesheet" href="/mockk-guidebook/book.min.1affec71d977bd55c1afed7cea9336f3bed14b0cfa79d84464a3e620e68c91b1.css" integrity="sha256-Gv/scdl3vVXBr&#43;186pM2877RSwz6edhEZKPmIOaMkbE=">
 <script defer src="/mockk-guidebook/en.search.min.35c27fe7ffbf333637ccd97e32b30c055c962f719190207486c603703e1c5b79.js" integrity="sha256-NcJ/5/&#43;/MzY3zNl&#43;MrMMBVyWL3GRkCB0hsYDcD4cW3k="></script>
 <!--
 Made with Book Theme
@@ -22,6 +22,7 @@ https://github.com/alex-shpak/hugo-book
 <script defer src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
 <script defer src='/mockk-guidebook/ads.min.js'></script>
 <script defer src='/mockk-guidebook/keys.min.js'></script>
+<script src="https://caterpilla.tigeroakes.com/script.js" data-site="BZTAEHGH" defer></script>
 
 <meta property="og:title" content='Mock singleton objects and static methods' />
 <meta property="og:site_name" content='MockK Guidebook' />
@@ -305,7 +306,7 @@ https://github.com/alex-shpak/hugo-book
 </h2>
 <p>When you need a singleton in Kotlin, you can use an 
   <a href="https://kotlinlang.org/docs/tutorials/kotlin-for-py/objects-and-companion-objects.html"><code>object</code></a>. These specialized classes will only ever have one instance, so you can&rsquo;t mock them in the usual manner. Instead, MockK provides specialized functions to create object mocks.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">object</span> <span style="color:#a6e22e">FeatureFlags</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">object</span> <span style="color:#a6e22e">FeatureFlags</span> {
   <span style="color:#66d9ef">val</span> featureEnabled = <span style="color:#66d9ef">true</span>
 }
 
@@ -316,7 +317,7 @@ every { FeatureFlags.featureEnabled } returns <span style="color:#66d9ef">false<
 </span><span style="color:#75715e"></span>println(FeatureFlags.featureEnabled)
 </code></pre></div><p>Despite the name, object mocks behave more like 
   <a href="/mockk-guidebook/docs/mocking/spy/">spies</a>. If a method is not stubbed, then the real method will be called. This differs from regular mocks, where a method will either throw or do nothing if it is not stubbed.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Calculator1</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Calculator1</span> {
   <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">add</span>(a: Int, b: Int) {
     <span style="color:#66d9ef">return</span> a + b
   }
@@ -344,7 +345,7 @@ mockkObject(Calculator2)
   <a class="anchor" href="#mocking-static-methods">#</a>
 </h2>
 <p>Sometimes you may end up working with Java code in your tests, which can have static methods.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.name.app<span style="color:#f92672">;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.name.app<span style="color:#f92672">;</span>
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Writer</span> <span style="color:#f92672">{</span>
   <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> File <span style="color:#a6e22e">getFile</span><span style="color:#f92672">(</span>String path<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
@@ -352,9 +353,9 @@ mockkObject(Calculator2)
   <span style="color:#f92672">}</span>
 <span style="color:#f92672">}</span>
 </code></pre></div><p>Just like singleton objects, there will only ever be one version of static methods, so you cannot mock them in the usual manner. Again, MockK provides specialized functions to mock static methods.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">mockkStatic(<span style="color:#e6db74">&#34;com.name.app.Writer&#34;</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">mockkStatic(<span style="color:#e6db74">&#34;com.name.app.Writer&#34;</span>)
 </code></pre></div><p>Rather than passing a reference to the class, you pass the class name as a string. You can also choose to pass in a reference to the class, and MockK will figure out the class name.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">mockkStatic(Writer<span style="color:#f92672">::</span><span style="color:#66d9ef">class</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">mockkStatic(Writer<span style="color:#f92672">::</span><span style="color:#66d9ef">class</span>)
 </code></pre></div><p>Like object mocks, static mocks behave like 
   <a href="/mockk-guidebook/docs/mocking/spy/">spies</a>. The real method will be called if the method is not stubbed.</p>
 <h2 id="unmocking">
@@ -362,7 +363,7 @@ mockkObject(Calculator2)
   <a class="anchor" href="#unmocking">#</a>
 </h2>
 <p>If you&rsquo;d like to revert back to the real object, you can use the <code>unmockkObject</code> method. This removes any stubbed behaviour you may have added.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">object</span> <span style="color:#a6e22e">Calculator</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">object</span> <span style="color:#a6e22e">Calculator</span> {
   <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">add</span>(a: Int, b: Int) {
     <span style="color:#66d9ef">return</span> a + b
   }
@@ -388,9 +389,9 @@ unmockkObject(Calculator)
 
 
 
-  <div><a class="flex align-center" href="https://github.com/NotWoods/mockk-guidebook//commit/534949d5413fdd22fd266a423b6037b38dc2194a" title='Last modified by Tiger Oakes | April 7, 2021' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/NotWoods/mockk-guidebook//commit/d8539fa522fd0f842b6f0c9f83fdcf0f351dcb2d" title='Last modified by Tiger Oakes | August 19, 2021' target="_blank" rel="noopener">
       <img src="/mockk-guidebook/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>April 7, 2021</span>
+      <span>August 19, 2021</span>
     </a>
   </div>
 
@@ -449,12 +450,7 @@ unmockkObject(Calculator)
     
   </main>
 
-  <script src="https://getinsights.io/static/js/insights.js"></script>
-<script>
-    insights.init("dRGDHrNTA8KoTJ07");
-    insights.trackPages();
-</script>
-
+  
 </body>
 
 </html>

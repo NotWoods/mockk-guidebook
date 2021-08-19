@@ -2,7 +2,7 @@
 <html lang="en" dir=>
 
 <head>
-  <meta name="generator" content="Hugo 0.82.0" />
+  <meta name="generator" content="Hugo 0.87.0" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Using answers when returns just isn&rsquo;t enough.">
@@ -11,7 +11,7 @@
 <link rel="manifest" href="/mockk-guidebook/manifest.json">
 <link rel="icon" href="/mockk-guidebook/favicon.png" sizes="48x48" type="image/png">
 <link rel="icon" href="/mockk-guidebook/favicon.svg" sizes="any" type="image/svg+xml">
-<link rel="stylesheet" href="/mockk-guidebook/book.min.8cc9f19857b4d60e8dd0122133898d6981cc0574d3603584833f55232a9ad1da.css" integrity="sha256-jMnxmFe01g6N0BIhM4mNaYHMBXTTYDWEgz9VIyqa0do=">
+<link rel="stylesheet" href="/mockk-guidebook/book.min.1affec71d977bd55c1afed7cea9336f3bed14b0cfa79d84464a3e620e68c91b1.css" integrity="sha256-Gv/scdl3vVXBr&#43;186pM2877RSwz6edhEZKPmIOaMkbE=">
 <script defer src="/mockk-guidebook/en.search.min.35c27fe7ffbf333637ccd97e32b30c055c962f719190207486c603703e1c5b79.js" integrity="sha256-NcJ/5/&#43;/MzY3zNl&#43;MrMMBVyWL3GRkCB0hsYDcD4cW3k="></script>
 <!--
 Made with Book Theme
@@ -22,6 +22,7 @@ https://github.com/alex-shpak/hugo-book
 <script defer src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
 <script defer src='/mockk-guidebook/ads.min.js'></script>
 <script defer src='/mockk-guidebook/keys.min.js'></script>
+<script src="https://caterpilla.tigeroakes.com/script.js" data-site="BZTAEHGH" defer></script>
 
 <meta property="og:title" content='Create more complicated answers for stubs' />
 <meta property="og:site_name" content='MockK Guidebook' />
@@ -303,7 +304,7 @@ https://github.com/alex-shpak/hugo-book
   <a href="/mockk-guidebook/docs/mocking/stubbing/">stubs</a> will use <code>returns</code> to always return the same value when the corresponding method is called. Sometimes, the method you&rsquo;re trying to mock may be more complicated and require a more advanced stub.</p>
 <p>If you want to change the result of a mocked method depending on its arguments, run additional code whenever a method is called, or just print out &ldquo;Hello world&rdquo; when a mock is used, <code>answers</code> is the tool you&rsquo;ll want to use.</p>
 <p><code>answers</code> takes the place of <code>returns</code> after an <code>every</code> call. When using <code>returns</code>, it should be followed by a value to return. When using <code>answers</code>, it should be followed by a lambda function that is run when the mocked method is called.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">import</span> io.mockk.every
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">import</span> io.mockk.every
 <span style="color:#66d9ef">import</span> io.mockk.mockk
 
 <span style="color:#66d9ef">val</span> navigator = mockk&lt;Navigator&gt;()
@@ -314,7 +315,7 @@ every { navigator.currentLocation } answers { <span style="color:#e6db74">&#34;H
   <a class="anchor" href="#side-effects">#</a>
 </h2>
 <p>A function has &ldquo;side effects&rdquo; if it does something other than just returning a value, such as logging or mutating some outside state. <code>answers</code> lets you model side effects by putting additional statements inside its lambda function.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">every { navigator.currentLocation } answers {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">every { navigator.currentLocation } answers {
   println(<span style="color:#e6db74">&#34;Hello world!&#34;</span>)
 
   <span style="color:#e6db74">&#34;Work&#34;</span>
@@ -329,7 +330,7 @@ every { navigator.currentLocation } answers { <span style="color:#e6db74">&#34;H
   <a class="anchor" href="#answer-scope">#</a>
 </h2>
 <p>Inside of the <code>answers</code> lambda function, you can access information about the mocked method and how it was called. You can then use this to adjust the resulting answer.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">every { navigator.navigateTo(any()) } answers {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">every { navigator.navigateTo(any()) } answers {
   <span style="color:#66d9ef">val</span> destination = firstArg&lt;String&gt;()
   <span style="color:#66d9ef">throw</span> IllegalStateException(<span style="color:#e6db74">&#34;Can&#39;t reach </span><span style="color:#e6db74">$destination</span><span style="color:#e6db74">&#34;</span>)
 }
@@ -342,7 +343,7 @@ every { navigator.currentLocation } answers { <span style="color:#e6db74">&#34;H
 </h3>
 <p>Single arugments can be obtained using <code>firstArg()</code>, <code>secondArg()</code>, <code>thirdArg()</code>, and <code>lastArg()</code>. Other arguments can be obtained with <code>arg(n)</code>, where <code>n</code> is the index of the argument. For example, <code>arg(3)</code> would return the fourth argument.</p>
 <p>Arguments do not have static type checking. Instead, the type is casted automatically using generic types.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">every { calculator.add(any&lt;Int&gt;(), any&lt;Int&gt;()) } answers {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">every { calculator.add(any&lt;Int&gt;(), any&lt;Int&gt;()) } answers {
   <span style="color:#75715e">// tries to cast the second argument to a string
 </span><span style="color:#75715e"></span>  println(secondArg&lt;String&gt;())
   <span style="color:#ae81ff">0</span>
@@ -353,7 +354,7 @@ every { navigator.currentLocation } answers { <span style="color:#e6db74">&#34;H
   <a class="anchor" href="#all-arguments">#</a>
 </h3>
 <p>The entire list of arguments can be obtained using <code>args</code>. <code>args</code> has the type <code>List&lt;Any?&gt;</code>, so you will need to manually cast values in the list if you want to work with them.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">every { calculator.add(any&lt;Int&gt;(), any&lt;Int&gt;()) } answers {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">every { calculator.add(any&lt;Int&gt;(), any&lt;Int&gt;()) } answers {
   <span style="color:#66d9ef">val</span> numbers = args <span style="color:#66d9ef">as</span> List&lt;Int&gt;
   numbers.sum()
 }
@@ -372,9 +373,9 @@ every { navigator.currentLocation } answers { <span style="color:#e6db74">&#34;H
 
 
 
-  <div><a class="flex align-center" href="https://github.com/NotWoods/mockk-guidebook//commit/534949d5413fdd22fd266a423b6037b38dc2194a" title='Last modified by Tiger Oakes | April 7, 2021' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/NotWoods/mockk-guidebook//commit/d8539fa522fd0f842b6f0c9f83fdcf0f351dcb2d" title='Last modified by Tiger Oakes | August 19, 2021' target="_blank" rel="noopener">
       <img src="/mockk-guidebook/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>April 7, 2021</span>
+      <span>August 19, 2021</span>
     </a>
   </div>
 
@@ -437,12 +438,7 @@ every { navigator.currentLocation } answers { <span style="color:#e6db74">&#34;H
     
   </main>
 
-  <script src="https://getinsights.io/static/js/insights.js"></script>
-<script>
-    insights.init("dRGDHrNTA8KoTJ07");
-    insights.trackPages();
-</script>
-
+  
 </body>
 
 </html>
