@@ -22,7 +22,8 @@ MockK has a similar [utility called a `CapturingSlot`](../matching/capture.md). 
 ```kotlin
 val personSlot = slot<Person>()
 
-every { mockPhone.call(capture(personSlot)) }
+every { mockPhone.call(capture(personSlot)) } returns Unit
+//or justRun { mockPhone.call(capture(personSlot)) }
 
 assertEquals("Sarah Jane", personSlot.captured.name)
 ```
@@ -38,7 +39,7 @@ every {
   mockPhone.call(withArg { person ->
     assertEquals("Sarah Jane", person.captured.name)
   })
-}
+} returns Unit
 ```
 
 When dealing with one-off assertions, `withArg` will do everything you need with less code.
