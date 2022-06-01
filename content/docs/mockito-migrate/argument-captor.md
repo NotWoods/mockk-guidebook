@@ -37,7 +37,7 @@ It turns out that there is an even simpler way to run assertions on an argument 
 ```kotlin
 every {
   mockPhone.call(withArg { person ->
-    assertEquals("Sarah Jane", person.captured.name)
+    assertEquals("Sarah Jane", person.name)
   })
 } returns Unit
 ```
