@@ -1,468 +1,72 @@
-<!DOCTYPE html>
-<html lang="en" dir=>
-
-<head>
-  <meta name="generator" content="Hugo 0.87.0" />
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Advanced static mocking with mockkStatic and mockkObject.">
-
-<title>Mock singleton objects and static methods | Mocking | MockK Guidebook</title>
-<link rel="manifest" href="/mockk-guidebook/manifest.json">
-<link rel="icon" href="/mockk-guidebook/favicon.png" sizes="48x48" type="image/png">
-<link rel="icon" href="/mockk-guidebook/favicon.svg" sizes="any" type="image/svg+xml">
-<link rel="stylesheet" href="/mockk-guidebook/book.min.1affec71d977bd55c1afed7cea9336f3bed14b0cfa79d84464a3e620e68c91b1.css" integrity="sha256-Gv/scdl3vVXBr&#43;186pM2877RSwz6edhEZKPmIOaMkbE=">
-<script defer src="/mockk-guidebook/en.search.min.35c27fe7ffbf333637ccd97e32b30c055c962f719190207486c603703e1c5b79.js" integrity="sha256-NcJ/5/&#43;/MzY3zNl&#43;MrMMBVyWL3GRkCB0hsYDcD4cW3k="></script>
-<!--
-Made with Book Theme
-https://github.com/alex-shpak/hugo-book
--->
-
-  <meta name="monetization" content="$ilp.uphold.com/p2WKq3nJHA8w">
-<script defer src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
-<script defer src='/mockk-guidebook/ads.min.js'></script>
-<script defer src='/mockk-guidebook/keys.min.js'></script>
-<script src="https://caterpilla.tigeroakes.com/script.js" data-site="BZTAEHGH" defer></script>
-
-<meta property="og:title" content='Mock singleton objects and static methods' />
-<meta property="og:site_name" content='MockK Guidebook' />
-<meta property="og:type" content="book" />
-<meta property="og:image" content='https://notwoods.github.io/mockk-guidebook/cover/mockk-bike-iso.png' />
-<meta property="og:image:width" content="1280" />
-<meta property="og:image:height" content="640" />
-<meta property="og:url" content='https://notwoods.github.io/mockk-guidebook/docs/mocking/static/' />
-
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:creator" content="@Not_Woods">
-<meta name="twitter:title" content="Mock singleton objects and static methods | MockK Guidebook">
-<meta name="twitter:image" content='https://notwoods.github.io/mockk-guidebook/cover/mockk-bike-iso.png'>
-<meta name="twitter:description" content="Advanced static mocking with mockkStatic and mockkObject.">
-
-</head>
-
-<body dir=>
-  <input type="checkbox" class="hidden toggle" id="menu-control" accesskey="*" />
-  <input type="checkbox" class="hidden toggle" id="toc-control" accesskey="#" />
-  <main class="container flex">
-    <aside class="book-menu">
-      
-  <nav>
-<h2 class="book-brand">
-  <a href="/mockk-guidebook"><span>MockK Guidebook</span>
-  </a>
-</h2>
-
-
-<div class="book-search">
-  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
-  <div class="book-search-spinner hidden"></div>
-  <ul id="book-search-results"></ul>
-</div>
-
-
-
-<a class="author" href="https://tigeroakes.com">
-  Written by
-  <svg xmlns="http://www.w3.org/2000/svg" height="32" viewBox="0 0 80 16">
-    <title>Tiger Oakes</title>
-    <g class="logo-icon logo-icon--monochrome">
-      <g fill="none" stroke="currentColor">
-        <rect width="13" height="13" x="1.5" y="1.5"/>
-        <circle class="eye" cx="5" cy="6" r="1.5"/>
-        <circle class="eye" cx="11" cy="6" r="1.5"/>
-        <path d="M4.5,7.5v3.5l2.5,1.5m4.5,-4.9v3.4l-2.5,1.5"/>
-      </g>
-      <path fill="currentColor" d="M8,10.6l1.5,-1.6h-3l1.5,1.6Z"/>
-    </g>
-    <g class="logo-icon logo-icon--color">
-      <rect width="12" height="12" x="2" y="2" fill="#e67237"/>
-      <g class="logo-path" fill="none" stroke="#032030">
-        <circle class="eye" cx="5" cy="6" r="1.5"/>
-        <circle class="eye" cx="11" cy="6" r="1.5"/>
-        <path d="M4.5,7.5v3.5l2.5,1.5m4.5,-4.9v3.4l-2.5,1.5"/>
-      </g>
-      <path fill="#032030" d="M8,10.6l1.5,-1.6h-3l1.5,1.6Z"/>
-    </g>
-    <clipPath id="i">
-      <path d="M29 8v6h-3V8h3zm0-1h-3V5h3v2z"/>
-    </clipPath>
-    <g class="text" fill="none" stroke="currentColor" opacity="0.5">
-      <path d="M23.5 13V7l-.5-.5h-3l-.5-.5V5l.5-.5h7"/>
-      <path d="M28 13l-.5-.5V6" clip-path="url(#i)"/>
-      <path d="M32.5,12.5h-2.5l-.5,-.5v-4l.5,-.5h3l.5,.5v7l-.5,.5h-3l-.5,-.5"/>
-      <path d="M36.5,10h2l.5,-.5v-1.5l-.5,-.5h-2.5l-.5,.5v4l.5,.5h2.5l.5,-.5"/>
-      <path d="M40.5,7.5l.5,.5v4l.5,.5h.5l.5,-.5v-4l.5,-.5h1.5l.5,.5"/>
-      <path d="M55.5,12.5h-4.5l-.5,-.5v-7l.5,-.5h4l.5,.5v6"/>
-      <path d="M57.5,8l.5,-.5h3l.5,.5v4l-.5,.5h-3l-.5,-.5v-2l.5,-.5h2"/>
-      <path d="M63,13l.5,-.5v-8.5"/>
-      <path d="M66.5,6v2l-.5,.5h-.5l-.5,.5v1l.5,.5h2l.5,.5v2"/>
-      <path d="M71,10h2l.5,-.5v-1.5l-.5,-.5h-2.5l-.5,.5v4l.5,.5h2.5l.5,-.5"/>
-      <path d="M75.5,12l.5,.5h3l.5,-.5v-1.5l-.5,-.5h-3l-.5,-.5v-1.5l.5,-.5h3l.5,.5"/>
-    </g>
-    <g class="text text-over" fill="none" stroke="currentColor">
-      <path style="animation-delay:0.2s" d="M23.5 13V7l-.5-.5h-3l-.5-.5V5l.5-.5h7"/>
-      <path style="animation-delay:0.5s" d="M28 13l-.5-.5V6" clip-path="url(#i)"/>
-      <path style="animation-delay:0.8s" d="M32.5,12.5h-2.5l-.5,-.5v-4l.5,-.5h3l.5,.5v7l-.5,.5h-3l-.5,-.5"/>
-      <path style="animation-delay:1.1s" d="M36.5,10h2l.5,-.5v-1.5l-.5,-.5h-2.5l-.5,.5v4l.5,.5h2.5l.5,-.5"/>
-      <path style="animation-delay:1.4s" d="M40.5,7.5l.5,.5v4l.5,.5h.5l.5,-.5v-4l.5,-.5h1.5l.5,.5"/>
-      <path style="animation-delay:0.2s" d="M55.5,12.5h-4.5l-.5,-.5v-7l.5,-.5h4l.5,.5v6"/>
-      <path style="animation-delay:0.5s" d="M57.5,8l.5,-.5h3l.5,.5v4l-.5,.5h-3l-.5,-.5v-2l.5,-.5h2"/>
-      <path style="animation-delay:0.8s" d="M63,13l.5,-.5v-8.5"/>
-      <path style="animation-delay:1.1s" d="M66.5,6v2l-.5,.5h-.5l-.5,.5v1l.5,.5h2l.5,.5v2"/>
-      <path style="animation-delay:1.4s" d="M71,10h2l.5,-.5v-1.5l-.5,-.5h-2.5l-.5,.5v4l.5,.5h2.5l.5,-.5"/>
-      <path style="animation-delay:1.7s" d="M75.5,12l.5,.5h3l.5,-.5v-1.5l-.5,-.5h-3l-.5,-.5v-1.5l.5,-.5h3l.5,.5"/>
-    </g>
-  </svg>
-</a>
-
-
-
-
-
-
-
-
-  <ul>
-<li>
-  <a href="/mockk-guidebook/docs/getting-started/">Getting Started</a>
-<ul>
-<li>
-  <a href="/mockk-guidebook/docs/getting-started/why-mocking/">Why use mocks</a></li>
-<li>
-  <a href="/mockk-guidebook/docs/getting-started/why-mockk/"><del>Why MockK</del></a></li>
-</ul>
-</li>
-<li>
-  <a href="/mockk-guidebook/docs/quick/android/">Android Quickstart</a></li>
-<li>
-  <a href="/mockk-guidebook/docs/mocking/"><strong>Mocking</strong></a>
-<ul>
-<li>
-  <a href="/mockk-guidebook/docs/mocking/stubbing/">Stub out behaviour</a></li>
-<li>
-  <a href="/mockk-guidebook/docs/mocking/verify/">Verify that functions were called</a></li>
-<li>
-  <a href="/mockk-guidebook/docs/mocking/relax/">Automatically stub by relaxing</a></li>
-<li>
-  <a href="/mockk-guidebook/docs/mocking/spy/">Spy on existing classes</a></li>
-<li>
-  <a href="/mockk-guidebook/docs/mocking/coroutines/">Coroutines and suspend functions</a></li>
-<li>
-  <a href="/mockk-guidebook/docs/mocking/constructor/">Mock constructors in code you don&rsquo;t own</a></li>
-<li>
-  <a href="/mockk-guidebook/docs/mocking/static/"class=active>Mock singleton objects and static methods</a></li>
-<li>
-  <a href="/mockk-guidebook/docs/mocking/extension/">Mock top-level and extension functions</a></li>
-<li>
-  <a href="/mockk-guidebook/docs/mocking/clear/"><del>Clear state</del></a></li>
-<li>
-  <a href="/mockk-guidebook/docs/mocking/annotation/">Create many mocks quickly with annotations</a></li>
-<li>
-  <a href="/mockk-guidebook/docs/mocking/hierarchies/"><del>Chain mocks into hierarchies</del></a></li>
-<li>
-  <a href="/mockk-guidebook/docs/mocking/answers/">Create more complicated answers for stubs</a></li>
-</ul>
-</li>
-<li>
-  <a href="/mockk-guidebook/docs/matching/"><strong>Argument matching</strong></a>
-<ul>
-<li>
-  <a href="/mockk-guidebook/docs/matching/equal/"><del>Check equality</del></a></li>
-<li>
-  <a href="/mockk-guidebook/docs/matching/any/"><del>Allow any argument</del></a></li>
-<li>
-  <a href="/mockk-guidebook/docs/matching/oftype/"><del>Argument of a certain type</del></a></li>
-<li>
-  <a href="/mockk-guidebook/docs/matching/with/">Assertions with an argument</a></li>
-<li>
-  <a href="/mockk-guidebook/docs/matching/custom/">Custom matching functions</a></li>
-<li>
-  <a href="/mockk-guidebook/docs/matching/capture/"><del>Capture arguments to check later</del></a></li>
-<li>
-  <a href="/mockk-guidebook/docs/matching/vararg/"><del>Variable arguments</del></a></li>
-<li>
-  <a href="/mockk-guidebook/docs/matching/compareto/">Comparables</a></li>
-<li>
-  <a href="/mockk-guidebook/docs/matching/combine/"><del>Combine matchers</del></a></li>
-</ul>
-</li>
-<li>
-  <a href="/mockk-guidebook/docs/mockito-migrate/"><strong>Migrating from Mockito</strong></a>
-<ul>
-<li>
-  <a href="/mockk-guidebook/docs/mockito-migrate/create-mock/">Create a mock</a></li>
-<li>
-  <a href="/mockk-guidebook/docs/mockito-migrate/when/"><code>when</code> and <code>do*</code></a></li>
-<li>
-  <a href="/mockk-guidebook/docs/mockito-migrate/eq/"><code>eq</code></a></li>
-<li>
-  <a href="/mockk-guidebook/docs/mockito-migrate/any/"><code>any*</code></a></li>
-<li>
-  <a href="/mockk-guidebook/docs/mockito-migrate/verify/"><code>verify</code></a></li>
-<li>
-  <a href="/mockk-guidebook/docs/mockito-migrate/arg-that/"><code>argThat</code></a></li>
-<li>
-  <a href="/mockk-guidebook/docs/mockito-migrate/argument-captor/"><code>ArgumentCaptor</code></a></li>
-<li>
-  <a href="/mockk-guidebook/docs/mockito-migrate/void/"><code>void</code> methods</a></li>
-</ul>
-</li>
-<li>
-  <a href="/mockk-guidebook/docs/tips/"><strong>Tips</strong></a>
-<ul>
-<li>
-  <a href="/mockk-guidebook/docs/tips/unit/">Return <code>Unit</code></a></li>
-<li>
-  <a href="/mockk-guidebook/docs/tips/chains/"><del>Chains</del></a></li>
-<li>
-  <a href="/mockk-guidebook/docs/tips/timeout/"><del>Timeouts</del></a></li>
-<li>
-  <a href="/mockk-guidebook/docs/tips/exclude/"><del>Exclude recording</del></a></li>
-</ul>
-</li>
-<li>
-  <a href="/mockk-guidebook/docs/method-index/">Method index</a></li>
-</ul>
-
-
-
-
-
-
-  
-<ul>
-  
-  <li>
-    <a href="https://github.com/NotWoods/mockk-guidebook/" target="_blank" rel="noopener">
-        Github
-      </a>
-  </li>
-  
-</ul>
-
-
-
-
-
-
-</nav>
-
-
-
-
-  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
-
-
- 
-    </aside>
-
-    <div class="book-page">
-      <header class="book-header">
-        
-  <div class="flex align-center justify-between">
-  <label for="menu-control">
-    <img src="/mockk-guidebook/svg/menu.svg" class="book-icon" alt="Menu" />
-  </label>
-
-  <label for="toc-control">
-    
-    <img src="/mockk-guidebook/svg/toc.svg" class="book-icon" alt="Table of Contents" />
-    
-  </label>
-</div>
-
-
-  
-  <aside class="hidden clearfix">
-    
-  <nav id="TableOfContents">
-  <ul>
-    <li><a href="#mock-singleton-objects-and-static-methods">Mock singleton objects and static methods</a>
-      <ul>
-        <li><a href="#mocking-objects">Mocking objects</a></li>
-        <li><a href="#mocking-static-methods">Mocking static methods</a></li>
-        <li><a href="#unmocking">Unmocking</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-
-
-  </aside>
-  
- 
-      </header>
-
-      <div class="dark" data-ea-publisher="notwoodsgithubio-mockk-guidebook" data-ea-type="text" id="content-ad" data-ea-manual="true"></div>
-
-      
-  <article class="markdown"><h1 id="mock-singleton-objects-and-static-methods">
-  Mock singleton objects and static methods
-  <a class="anchor" href="#mock-singleton-objects-and-static-methods">#</a>
-</h1>
-<h2 id="mocking-objects">
-  Mocking objects
-  <a class="anchor" href="#mocking-objects">#</a>
-</h2>
-<p>When you need a singleton in Kotlin, you can use an 
-  <a href="https://kotlinlang.org/docs/tutorials/kotlin-for-py/objects-and-companion-objects.html"><code>object</code></a>. These specialized classes will only ever have one instance, so you can&rsquo;t mock them in the usual manner. Instead, MockK provides specialized functions to create object mocks.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">object</span> <span style="color:#a6e22e">FeatureFlags</span> {
-  <span style="color:#66d9ef">val</span> featureEnabled = <span style="color:#66d9ef">true</span>
-}
-
-mockkObject(FeatureFlags)
-every { FeatureFlags.featureEnabled } returns <span style="color:#66d9ef">false</span>
-
-<span style="color:#75715e">// prints false
-</span><span style="color:#75715e"></span>println(FeatureFlags.featureEnabled)
-</code></pre></div><p>Despite the name, object mocks behave more like 
-  <a href="/mockk-guidebook/docs/mocking/spy/">spies</a>. If a method is not stubbed, then the real method will be called. This differs from regular mocks, where a method will either throw or do nothing if it is not stubbed.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Calculator1</span> {
-  <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">add</span>(a: Int, b: Int) {
-    <span style="color:#66d9ef">return</span> a + b
-  }
-}
-
-<span style="color:#66d9ef">object</span> <span style="color:#a6e22e">Calculator2</span> {
-  <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">add</span>(a: Int, b: Int) {
-    <span style="color:#66d9ef">return</span> a + b
-  }
-}
-
-<span style="color:#66d9ef">val</span> calculator1 = mockk&lt;Calculator1&gt;()
-mockkObject(Calculator2)
-
-<span style="color:#75715e">// throws because the method was not stubbed
-</span><span style="color:#75715e"></span>println(calculator1.add(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">2</span>))
-
-<span style="color:#75715e">// returns the result from the real method
-</span><span style="color:#75715e"></span>println(Calculator2.add(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">2</span>))
-</code></pre></div><p>This approach works with any Kotlin object, which includes 
-  <a href="https://kotlinlang.org/docs/tutorials/kotlin-for-py/objects-and-companion-objects.html#companion-objects"><code>companion object</code>s</a> and 
-  <a href="https://kotlinlang.org/docs/reference/enum-classes.html"><code>enum class</code></a> elements.</p>
-<h2 id="mocking-static-methods">
-  Mocking static methods
-  <a class="anchor" href="#mocking-static-methods">#</a>
-</h2>
-<p>Sometimes you may end up working with Java code in your tests, which can have static methods.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.name.app<span style="color:#f92672">;</span>
-
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Writer</span> <span style="color:#f92672">{</span>
-  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> File <span style="color:#a6e22e">getFile</span><span style="color:#f92672">(</span>String path<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">return</span> File<span style="color:#f92672">(</span>path<span style="color:#f92672">);</span>
-  <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><p>Just like singleton objects, there will only ever be one version of static methods, so you cannot mock them in the usual manner. Again, MockK provides specialized functions to mock static methods.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">mockkStatic(<span style="color:#e6db74">&#34;com.name.app.Writer&#34;</span>)
-</code></pre></div><p>Rather than passing a reference to the class, you pass the class name as a string. You can also choose to pass in a reference to the class, and MockK will figure out the class name.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">mockkStatic(Writer<span style="color:#f92672">::</span><span style="color:#66d9ef">class</span>)
-</code></pre></div><p>Like object mocks, static mocks behave like 
-  <a href="/mockk-guidebook/docs/mocking/spy/">spies</a>. The real method will be called if the method is not stubbed.</p>
-<h2 id="unmocking">
-  Unmocking
-  <a class="anchor" href="#unmocking">#</a>
-</h2>
-<p>If you&rsquo;d like to revert back to the real object, you can use the <code>unmockkObject</code> method. This removes any stubbed behaviour you may have added.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">object</span> <span style="color:#a6e22e">Calculator</span> {
-  <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">add</span>(a: Int, b: Int) {
-    <span style="color:#66d9ef">return</span> a + b
-  }
-}
-
-mockkObject(Calculator)
-every { Calculator.add(any(), any()) } returns <span style="color:#ae81ff">10</span>
-
-<span style="color:#75715e">// prints 10
-</span><span style="color:#75715e"></span>println(Calculator.add(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">2</span>))
-
-unmockkObject(Calculator)
-
-<span style="color:#75715e">// prints 4
-</span><span style="color:#75715e"></span>println(Calculator.add(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">2</span>))
-</code></pre></div></article>
- 
-      
-
-      <footer class="book-footer">
-        
-  <div class="flex flex-wrap justify-between">
-
-
-
-  <div><a class="flex align-center" href="https://github.com/NotWoods/mockk-guidebook//commit/d8539fa522fd0f842b6f0c9f83fdcf0f351dcb2d" title='Last modified by Tiger Oakes | August 19, 2021' target="_blank" rel="noopener">
-      <img src="/mockk-guidebook/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>August 19, 2021</span>
-    </a>
-  </div>
-
-
-
-  <div>
-    <a class="flex align-center" href="https://github.com/NotWoods/mockk-guidebook//edit/main/content/docs/mocking/static.md" target="_blank" rel="noopener">
-      <img src="/mockk-guidebook/svg/edit.svg" class="book-icon" alt="Edit" />
-      <span>Edit this page</span>
-    </a>
-  </div>
-
-</div>
-
- 
-        <a class="kofi" href="https://ko-fi.com/O4O645BF3" target="_blank">
-  <img
-    height="36"
-    style="height:36px"
-    loading="lazy"
-    src="https://cdn.ko-fi.com/cdn/kofi2.png?v=2"
-    alt="Buy Me a Coffee at ko-fi.com"
-  />
-</a>
-
-      </footer>
-
-      
-  
- 
-
-      <label for="menu-control" class="hidden book-menu-overlay"></label>
-    </div>
-
-    
-    <aside class="book-toc">
-      <nav class="book-toc-inner">
-        
-  <nav id="TableOfContents">
-  <ul>
-    <li><a href="#mock-singleton-objects-and-static-methods">Mock singleton objects and static methods</a>
-      <ul>
-        <li><a href="#mocking-objects">Mocking objects</a></li>
-        <li><a href="#mocking-static-methods">Mocking static methods</a></li>
-        <li><a href="#unmocking">Unmocking</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-
- 
-        <div class="dark" data-ea-publisher="notwoodsgithubio-mockk-guidebook" data-ea-type="image" id="toc-sidebar-ad" data-ea-manual="true"></div>
-
-      </nav>
-    </aside>
-    
-  </main>
-
-  
-</body>
-
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
+<!doctype html><html lang=en dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Advanced static mocking with mockkStatic and mockkObject."><meta name=theme-color content="#343a40"><meta name=color-scheme content="light dark"><title>Mock singleton objects and static methods | Mocking | MockK Guidebook</title><link rel=manifest href=/mockk-guidebook/manifest.json><link rel=icon href=/mockk-guidebook/favicon.png sizes=48x48 type=image/png><link rel=icon href=/mockk-guidebook/favicon.svg sizes=any type=image/svg+xml><link rel=stylesheet href=/mockk-guidebook/book.min.66a7ae0ec09df2dfc58bfb0d30143af7a784be481cd37bc1e244295eb417133f.css integrity="sha256-ZqeuDsCd8t/Fi/sNMBQ696eEvkgc03vB4kQpXrQXEz8=" crossorigin=anonymous><script defer src=/mockk-guidebook/flexsearch.min.js></script>
+<script defer src=/mockk-guidebook/en.search.min.99c39e9d43bdf78b76af129c099c30895b38649a30a7808aca74a4982ddb4f91.js integrity="sha256-mcOenUO994t2rxKcCZwwiVs4ZJowp4CKynSkmC3bT5E=" crossorigin=anonymous></script><meta name=monetization content="$ilp.uphold.com/p2WKq3nJHA8w"><script defer src=https://media.ethicalads.io/media/client/ethicalads.min.js></script>
+<script defer src=/mockk-guidebook/ads.min.js></script>
+<script defer src=/mockk-guidebook/keys.min.js></script>
+<script src=https://typed-thirtyfive.tigeroakes.com/script.js data-site=BZTAEHGH defer></script><meta property="og:title" content="Mock singleton objects and static methods"><meta property="og:site_name" content="MockK Guidebook"><meta property="og:type" content="book"><meta property="og:image" content="https://notwoods.github.io/mockk-guidebook/cover/mockk-bike-iso.png"><meta property="og:image:width" content="1280"><meta property="og:image:height" content="640"><meta property="og:url" content="https://notwoods.github.io/mockk-guidebook/docs/mocking/static/"><meta name=twitter:card content="summary_large_image"><meta name=twitter:creator content="@Not_Woods"><meta name=twitter:title content="Mock singleton objects and static methods | MockK Guidebook"><meta name=twitter:image content="https://notwoods.github.io/mockk-guidebook/cover/mockk-bike-iso.png"><meta name=twitter:description content="Advanced static mocking with mockkStatic and mockkObject."></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control accesskey=*>
+<input type=checkbox class="hidden toggle" id=toc-control accesskey=#><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/mockk-guidebook/><span>MockK Guidebook</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><a class=author href=https://tigeroakes.com>Written by<svg xmlns="http://www.w3.org/2000/svg" height="32" viewBox="0 0 80 16"><title>Tiger Oakes</title><g class="logo-icon logo-icon--monochrome"><g fill="none" stroke="currentcolor"><rect width="13" height="13" x="1.5" y="1.5"/><circle class="eye" cx="5" cy="6" r="1.5"/><circle class="eye" cx="11" cy="6" r="1.5"/><path d="M4.5 7.5V11L7 12.5m4.5-4.9V11L9 12.5"/></g><path fill="currentcolor" d="M8 10.6 9.5 9h-3L8 10.6z"/></g><g class="logo-icon logo-icon--color"><rect width="12" height="12" x="2" y="2" fill="#e67237"/><g class="logo-path" fill="none" stroke="#032030"><circle class="eye" cx="5" cy="6" r="1.5"/><circle class="eye" cx="11" cy="6" r="1.5"/><path d="M4.5 7.5V11L7 12.5m4.5-4.9V11L9 12.5"/></g><path fill="#032030" d="M8 10.6 9.5 9h-3L8 10.6z"/></g><clipPath id="i"><path d="M29 8v6h-3V8h3zm0-1h-3V5h3v2z"/></clipPath><g class="text" fill="none" stroke="currentcolor" opacity=".5"><path d="M23.5 13V7l-.5-.5h-3l-.5-.5V5l.5-.5h7"/><path d="M28 13l-.5-.5V6" clip-path="url(#i)"/><path d="M32.5 12.5H30l-.5-.5V8l.5-.5h3l.5.5v7l-.5.5h-3l-.5-.5"/><path d="M36.5 10h2l.5-.5V8l-.5-.5H36l-.5.5v4l.5.5h2.5l.5-.5"/><path d="M40.5 7.5l.5.5v4l.5.5h.5l.5-.5V8l.5-.5h1.5l.5.5"/><path d="M55.5 12.5H51l-.5-.5V5l.5-.5h4l.5.5v6"/><path d="M57.5 8l.5-.5h3l.5.5v4l-.5.5h-3l-.5-.5v-2l.5-.5h2"/><path d="M63 13l.5-.5V4"/><path d="M66.5 6v2l-.5.5h-.5L65 9v1l.5.5h2l.5.5v2"/><path d="M71 10h2l.5-.5V8l-.5-.5h-2.5L70 8v4l.5.5H73l.5-.5"/><path d="M75.5 12l.5.5h3l.5-.5v-1.5L79 10h-3l-.5-.5V8l.5-.5h3l.5.5"/></g><g class="text text-over" fill="none" stroke="currentcolor"><path style="animation-delay:.2s" d="M23.5 13V7l-.5-.5h-3l-.5-.5V5l.5-.5h7"/><path style="animation-delay:.5s" d="M28 13l-.5-.5V6" clip-path="url(#i)"/><path style="animation-delay:.8s" d="M32.5 12.5H30l-.5-.5V8l.5-.5h3l.5.5v7l-.5.5h-3l-.5-.5"/><path style="animation-delay:1.1s" d="M36.5 10h2l.5-.5V8l-.5-.5H36l-.5.5v4l.5.5h2.5l.5-.5"/><path style="animation-delay:1.4s" d="M40.5 7.5l.5.5v4l.5.5h.5l.5-.5V8l.5-.5h1.5l.5.5"/><path style="animation-delay:.2s" d="M55.5 12.5H51l-.5-.5V5l.5-.5h4l.5.5v6"/><path style="animation-delay:.5s" d="M57.5 8l.5-.5h3l.5.5v4l-.5.5h-3l-.5-.5v-2l.5-.5h2"/><path style="animation-delay:.8s" d="M63 13l.5-.5V4"/><path style="animation-delay:1.1s" d="M66.5 6v2l-.5.5h-.5L65 9v1l.5.5h2l.5.5v2"/><path style="animation-delay:1.4s" d="M71 10h2l.5-.5V8l-.5-.5h-2.5L70 8v4l.5.5H73l.5-.5"/><path style="animation-delay:1.7s" d="M75.5 12l.5.5h3l.5-.5v-1.5L79 10h-3l-.5-.5V8l.5-.5h3l.5.5"/></g></svg></a><ul><li><a href=/mockk-guidebook/docs/getting-started/>Getting Started</a><ul><li><a href=/mockk-guidebook/docs/getting-started/why-mocking/>Why use mocks</a></li><li><a href=/mockk-guidebook/docs/getting-started/why-mockk/><del>Why MockK</del></a></li></ul></li><li><a href=/mockk-guidebook/docs/quick/android/>Android Quickstart</a></li><li><a href=/mockk-guidebook/docs/mocking/><strong>Mocking</strong></a><ul><li><a href=/mockk-guidebook/docs/mocking/stubbing/>Stub out behaviour</a></li><li><a href=/mockk-guidebook/docs/mocking/verify/>Verify that functions were called</a></li><li><a href=/mockk-guidebook/docs/mocking/relax/>Automatically stub by relaxing</a></li><li><a href=/mockk-guidebook/docs/mocking/spy/>Spy on existing classes</a></li><li><a href=/mockk-guidebook/docs/mocking/coroutines/>Coroutines and suspend functions</a></li><li><a href=/mockk-guidebook/docs/mocking/constructor/>Mock constructors in code you don&rsquo;t own</a></li><li><a href=/mockk-guidebook/docs/mocking/static/ class=active>Mock singleton objects and static methods</a></li><li><a href=/mockk-guidebook/docs/mocking/extension/>Mock top-level and extension functions</a></li><li><a href=/mockk-guidebook/docs/mocking/clear/><del>Clear state</del></a></li><li><a href=/mockk-guidebook/docs/mocking/annotation/>Create many mocks quickly with annotations</a></li><li><a href=/mockk-guidebook/docs/mocking/hierarchies/><del>Chain mocks into hierarchies</del></a></li><li><a href=/mockk-guidebook/docs/mocking/answers/>Create more complicated answers for stubs</a></li></ul></li><li><a href=/mockk-guidebook/docs/matching/><strong>Argument matching</strong></a><ul><li><a href=/mockk-guidebook/docs/matching/equal/><del>Check equality</del></a></li><li><a href=/mockk-guidebook/docs/matching/any/><del>Allow any argument</del></a></li><li><a href=/mockk-guidebook/docs/matching/oftype/><del>Argument of a certain type</del></a></li><li><a href=/mockk-guidebook/docs/matching/with/>Assertions with an argument</a></li><li><a href=/mockk-guidebook/docs/matching/custom/>Custom matching functions</a></li><li><a href=/mockk-guidebook/docs/matching/capture/><del>Capture arguments to check later</del></a></li><li><a href=/mockk-guidebook/docs/matching/vararg/><del>Variable arguments</del></a></li><li><a href=/mockk-guidebook/docs/matching/compareto/>Comparables</a></li><li><a href=/mockk-guidebook/docs/matching/combine/><del>Combine matchers</del></a></li></ul></li><li><a href=/mockk-guidebook/docs/mockito-migrate/><strong>Migrating from Mockito</strong></a><ul><li><a href=/mockk-guidebook/docs/mockito-migrate/create-mock/>Create a mock</a></li><li><a href=/mockk-guidebook/docs/mockito-migrate/when/><code>when</code> and <code>do*</code></a></li><li><a href=/mockk-guidebook/docs/mockito-migrate/eq/><code>eq</code></a></li><li><a href=/mockk-guidebook/docs/mockito-migrate/any/><code>any*</code></a></li><li><a href=/mockk-guidebook/docs/mockito-migrate/verify/><code>verify</code></a></li><li><a href=/mockk-guidebook/docs/mockito-migrate/arg-that/><code>argThat</code></a></li><li><a href=/mockk-guidebook/docs/mockito-migrate/argument-captor/><code>ArgumentCaptor</code></a></li><li><a href=/mockk-guidebook/docs/mockito-migrate/void/><code>void</code> methods</a></li></ul></li><li><a href=/mockk-guidebook/docs/tips/><strong>Tips</strong></a><ul><li><a href=/mockk-guidebook/docs/tips/unit/>Return <code>Unit</code></a></li><li><a href=/mockk-guidebook/docs/tips/chains/><del>Chains</del></a></li><li><a href=/mockk-guidebook/docs/tips/timeout/><del>Timeouts</del></a></li><li><a href=/mockk-guidebook/docs/tips/exclude/><del>Exclude recording</del></a></li></ul></li><li><a href=/mockk-guidebook/docs/method-index/>Method index</a></li></ul><ul><li><a href=https://github.com/NotWoods/mockk-guidebook/ target=_blank rel=noopener>Github</a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/mockk-guidebook/svg/menu.svg class=book-icon alt=Menu></label>
+<label for=toc-control><img src=/mockk-guidebook/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#mock-singleton-objects-and-static-methods>Mock singleton objects and static methods</a><ul><li><a href=#mocking-objects>Mocking objects</a></li><li><a href=#mocking-static-methods>Mocking static methods</a></li><li><a href=#unmocking>Unmocking</a></li></ul></li></ul></nav><div class=dark data-ea-publisher=notwoodsgithubio-mockk-guidebook data-ea-type=image id=toc-sidebar-ad data-ea-manual=true></div></aside></header><div class=dark data-ea-publisher=notwoodsgithubio-mockk-guidebook data-ea-type=text id=content-ad data-ea-manual=true></div><article class=markdown><h1 id=mock-singleton-objects-and-static-methods>Mock singleton objects and static methods
+<a class=anchor href=#mock-singleton-objects-and-static-methods>#</a></h1><h2 id=mocking-objects>Mocking objects
+<a class=anchor href=#mocking-objects>#</a></h2><p>When you need a singleton in Kotlin, you can use an
+<a href=https://kotlinlang.org/docs/tutorials/kotlin-for-py/objects-and-companion-objects.html><code>object</code></a>. These specialized classes will only ever have one instance, so you can&rsquo;t mock them in the usual manner. Instead, MockK provides specialized functions to create object mocks.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=display:flex><span><span style=color:#66d9ef>object</span> <span style=color:#a6e22e>FeatureFlags</span> {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>val</span> featureEnabled = <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>mockkObject(FeatureFlags)
+</span></span><span style=display:flex><span>every { FeatureFlags.featureEnabled } returns <span style=color:#66d9ef>false</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// prints false
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>println(FeatureFlags.featureEnabled)
+</span></span></code></pre></div><p>Despite the name, object mocks behave more like
+<a href=/mockk-guidebook/docs/mocking/spy/>spies</a>. If a method is not stubbed, then the real method will be called. This differs from regular mocks, where a method will either throw or do nothing if it is not stubbed.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Calculator1</span> {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>add</span>(a: Int, b: Int) {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> a + b
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>object</span> <span style=color:#a6e22e>Calculator2</span> {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>add</span>(a: Int, b: Int) {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> a + b
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>val</span> calculator1 = mockk&lt;Calculator1&gt;()
+</span></span><span style=display:flex><span>mockkObject(Calculator2)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// throws because the method was not stubbed
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>println(calculator1.add(<span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>2</span>))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// returns the result from the real method
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>println(Calculator2.add(<span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>2</span>))
+</span></span></code></pre></div><p>This approach works with any Kotlin object, which includes
+<a href=https://kotlinlang.org/docs/tutorials/kotlin-for-py/objects-and-companion-objects.html#companion-objects><code>companion object</code>s</a> and
+<a href=https://kotlinlang.org/docs/reference/enum-classes.html><code>enum class</code></a> elements.</p><h2 id=mocking-static-methods>Mocking static methods
+<a class=anchor href=#mocking-static-methods>#</a></h2><p>Sometimes you may end up working with Java code in your tests, which can have static methods.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#f92672>package</span> com.name.app<span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Writer</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> File <span style=color:#a6e22e>getFile</span><span style=color:#f92672>(</span>String path<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> File<span style=color:#f92672>(</span>path<span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>}</span>
+</span></span></code></pre></div><p>Just like singleton objects, there will only ever be one version of static methods, so you cannot mock them in the usual manner. Again, MockK provides specialized functions to mock static methods.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=display:flex><span>mockkStatic(<span style=color:#e6db74>&#34;com.name.app.Writer&#34;</span>)
+</span></span></code></pre></div><p>Rather than passing a reference to the class, you pass the class name as a string. You can also choose to pass in a reference to the class, and MockK will figure out the class name.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=display:flex><span>mockkStatic(Writer<span style=color:#f92672>::</span><span style=color:#66d9ef>class</span>)
+</span></span></code></pre></div><p>Like object mocks, static mocks behave like
+<a href=/mockk-guidebook/docs/mocking/spy/>spies</a>. The real method will be called if the method is not stubbed.</p><h2 id=unmocking>Unmocking
+<a class=anchor href=#unmocking>#</a></h2><p>If you&rsquo;d like to revert back to the real object, you can use the <code>unmockkObject</code> method. This removes any stubbed behaviour you may have added.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=display:flex><span><span style=color:#66d9ef>object</span> <span style=color:#a6e22e>Calculator</span> {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>add</span>(a: Int, b: Int) {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> a + b
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>mockkObject(Calculator)
+</span></span><span style=display:flex><span>every { Calculator.add(any(), any()) } returns <span style=color:#ae81ff>10</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// prints 10
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>println(Calculator.add(<span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>2</span>))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>unmockkObject(Calculator)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// prints 4
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>println(Calculator.add(<span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>2</span>))
+</span></span></code></pre></div></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/NotWoods/mockk-guidebook//commit/66b85ce26d5d627c77bf58d21aaabb24fc6279ce title='Last modified by Tiger Oakes | June 8, 2022' target=_blank rel=noopener><img src=/mockk-guidebook/svg/calendar.svg class=book-icon alt=Calendar>
+<span>June 8, 2022</span></a></div><div><a class="flex align-center" href=https://github.com/NotWoods/mockk-guidebook//edit/main/content/docs/mocking/static.md target=_blank rel=noopener><img src=/mockk-guidebook/svg/edit.svg class=book-icon alt=Edit>
+<span>Edit this page</span></a></div></div><script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script><a class=kofi href=https://ko-fi.com/O4O645BF3 target=_blank><img height=36 width=141 style=height:36px;width:141px loading=lazy src="https://cdn.ko-fi.com/cdn/kofi2.png?v=2" alt="Buy Me a Coffee at ko-fi.com"></a></footer><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#mock-singleton-objects-and-static-methods>Mock singleton objects and static methods</a><ul><li><a href=#mocking-objects>Mocking objects</a></li><li><a href=#mocking-static-methods>Mocking static methods</a></li><li><a href=#unmocking>Unmocking</a></li></ul></li></ul></nav><div class=dark data-ea-publisher=notwoodsgithubio-mockk-guidebook data-ea-type=image id=toc-sidebar-ad data-ea-manual=true></div></div></aside></main></body></html>
