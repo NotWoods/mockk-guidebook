@@ -1,18 +1,17 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.Language.Lang }}" dir={{ .Site.Language.LanguageDirection }}>
-
+<html lang="{{ default .Site.Language.Lang .Site.LanguageCode  }}" dir="{{ default "ltr" .Site.Language.LanguageDirection }}">
 <head>
-  {{ hugo.Generator }}
   {{ partial "docs/html-head" . }}
   {{ partial "docs/inject/head" . }}
 </head>
-
-<body dir={{ .Site.Language.LanguageDirection }}>
+<body dir="{{ default "ltr" .Site.Language.LanguageDirection }}">
   <input type="checkbox" class="hidden toggle" id="menu-control" accesskey="*" />
   <input type="checkbox" class="hidden toggle" id="toc-control" accesskey="#" />
   <main class="container flex">
     <aside class="book-menu">
-      {{ template "menu" . }} <!-- Left menu Content -->
+      <div class="book-menu-content">
+        {{ template "menu" . }} <!-- Left menu Content -->
+      </div>
     </aside>
 
     <div class="book-page">
@@ -36,10 +35,10 @@
 
     {{ if default true (default .Site.Params.BookToC .Params.BookToC) }}
     <aside class="book-toc">
-      <nav class="book-toc-inner">
+      <div class="book-toc-content">
         {{ template "toc" . }} <!-- Table of Contents -->
         {{ partial "docs/inject/toc-after" . }}
-      </nav>
+      </div>
     </aside>
     {{ end }}
   </main>

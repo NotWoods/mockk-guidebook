@@ -1,3 +1,5 @@
 node_modules
 _book
-public
+public/
+.DS_Store
+.hugo_build.lock
