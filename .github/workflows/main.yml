@@ -6,7 +6,9 @@ name: Deploy
 # events but only for the master branch
 on:
   push:
-    branches: [main]
+    branches:
+      - main
+  pull_request:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -23,9 +25,18 @@ jobs:
         with:
           submodules: true
 
-      - name: Publish Site
-        uses: chabad360/hugo-gh-pages@v2
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
         with:
-          githubToken: ${{ secrets.ACCESS_TOKEN }}
-          branch: gh-pages # The branch the action should deploy to.
-          args: --gc --cleanDestinationDir
+          hugo-version: "0.100.1"
+          extended: true
+
+      - name: Build
+        run: hugo --minify --gc --cleanDestinationDir
+
+      - name: Publish Site
+        uses: peaceiris/actions-gh-pages@v3
+        if: ${{ github.ref == 'refs/heads/main' }}
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public

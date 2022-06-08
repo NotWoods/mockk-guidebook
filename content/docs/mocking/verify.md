@@ -23,7 +23,7 @@ navigator.navigateTo("Park")
 verify { navigator.navigateTo("Park") }
 ```
 
-Similar to [stubbing with `every`](../stubbing.md), `verify` starts a verification block and uses anonymous functions and [infix functions](https://kotlinlang.org/docs/reference/functions.html#infix-notation) to define what will be verified. `verify` supports the same [argument matchers](../matching) as `every`, along with a few [additional matchers](../matching/with.md).
+Similar to [stubbing with `every`](./stubbing.md), `verify` starts a verification block and uses anonymous functions and [infix functions](https://kotlinlang.org/docs/reference/functions.html#infix-notation) to define what will be verified. `verify` supports the same [argument matchers](../matching) as `every`, along with a few [additional matchers](../matching/with.md).
 
 Inside the verification block (between the opening curly bracket `{` and closing curly bracket `}`), you write the method you want to verify. `{ navigator.navigateTo("Park") }` tells MockK to check if the `navigateTo` method on the `navigator` object was called with the argument `"Park"`.
 
@@ -90,11 +90,13 @@ verify { navigator.navigateTo("Park") }
 ```
 
 ## Verifying that any mock functions is never called
+
 ```kotlin
 verify { navigator wasNot Called }
 ```
 
 ## Verifying that a function is never called
+
 ```kotlin
 verify(inverse = true) { navigator.navigateTo("Park") }
 verify(exactly = 0) { navigator.navigateTo("Park") }
@@ -108,11 +110,13 @@ verify(atLeast = 1, atMost = 1) { navigator.navigateTo("Park") }
 ```
 
 ### Using a range
+
 ```kotlin
 verify(atLeast = 2, atMost = 3) { navigator.navigateTo("Park") }
 ```
 
 In the sample test will be green in the following cases:
+
 1. Function called two times
 2. Function called three times
 
