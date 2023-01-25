@@ -9,11 +9,14 @@ weight: 80
 
 ## Top-level functions
 
-Kotlin lets you write functions that don't belong to any class or object, called [top-level functions](https://kotlinlang.org/docs/reference/functions.html#function-scope). These calls are translated to static methods in Java, and a special Java class is generated to hold the functions. These top-level functions can be mocked using [`mockkStatic`](./static.md), but you need to figure out the class name of this generated Java class.
+Kotlin lets you write functions that don't belong to any class or object, called [top-level functions](https://kotlinlang.org/docs/reference/functions.html#function-scope). These calls are translated to static methods in Java, and a special Java class is generated to hold the functions. These top-level functions can be mocked using [`mockkStatic`](./static.md). You just need to import the function and pass a reference as the argument.
 
-### Finding the class name
+```kotlin
+import pkg.toplevelFunction
 
-TODO
+mockkStatic(::toplevelFunction)
+every { toplevelFunction() } returns "top"
+```
 
 ## Extension functions
 
