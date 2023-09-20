@@ -52,7 +52,7 @@ class NavigationView(
 
   init {
     goToParkButton.setOnClickListener {
-      navigator.navigate("Park")
+      navigator.navigateTo("Park")
     }
   }
 }
