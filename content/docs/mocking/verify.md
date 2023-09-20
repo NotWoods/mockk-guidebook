@@ -52,7 +52,7 @@ class NavigationView(
 
   init {
     goToParkButton.setOnClickListener {
-      navigator.navigate("Park")
+      navigator.navigateTo("Park")
     }
   }
 }
@@ -77,8 +77,8 @@ This test ensures that the button tells the navigator to go where we expect. If 
 
 ```diff
     goToParkButton.setOnClickListener {
--     navigator.navigate("Park")
-+     navigator.navigate("Parka")
+-     navigator.navigateTo("Park")
++     navigator.navigateTo("Parka")
     }
 ```
 
