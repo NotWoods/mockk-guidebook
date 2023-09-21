@@ -59,7 +59,7 @@ package com.name.app;
 
 class Writer {
   public static File getFile(String path) {
-    return File(path);
+    return new File(path);
   }
 }
 ```
