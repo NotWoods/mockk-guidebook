@@ -27,13 +27,13 @@ Despite the name, object mocks behave more like [spies](./spy.md). If a method i
 
 ```kotlin
 class Calculator1 {
-  fun add(a: Int, b: Int) {
+  fun add(a: Int, b: Int): Int {
     return a + b
   }
 }
 
 object Calculator2 {
-  fun add(a: Int, b: Int) {
+  fun add(a: Int, b: Int): Int {
     return a + b
   }
 }
@@ -84,7 +84,7 @@ If you'd like to revert back to the real object, you can use the `unmockkObject`
 
 ```kotlin
 object Calculator {
-  fun add(a: Int, b: Int) {
+  fun add(a: Int, b: Int): Int {
     return a + b
   }
 }
